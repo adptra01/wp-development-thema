@@ -1,0 +1,143 @@
+/*!
+ * CreatorFlow — Design System Overrides
+ * Tailwind handles the heavy lifting; this file adds WordPress-specific
+ * resets, animation building blocks, and container-line styling.
+ */
+
+/* ─── Base ─────────────────────────────────────────── */
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── GSAP Reveal Building Blocks ──────────────────── */
+
+.reveal-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+/* (will-change applied by GSAP at runtime) */
+
+/* ─── Container Lines ──────────────────────────────── */
+
+.container-lines {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(17, 35, 69, 0.06);
+}
+
+.container-line--left {
+  left: calc((100% - 1280px) / 2 - 24px);
+}
+
+.container-line--right {
+  right: calc((100% - 1280px) / 2 - 24px);
+}
+
+.container-line__dot {
+  position: absolute;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(17, 35, 69, 0.15);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.container-line__dot--top { top: 72px; }
+.container-line__dot--bottom { bottom: 72px; }
+
+@media (max-width: 1320px) {
+  .container-line--left { left: 16px; }
+  .container-line--right { right: 16px; }
+}
+
+/* ─── WordPress Core ───────────────────────────────── */
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.sticky, .gallery-caption, .bypostauthor { display: block; }
+.alignnone { margin: 5px 20px 20px 0; }
+.aligncenter { margin: 5px auto; display: block; }
+.alignright { float: right; margin: 5px 0 20px 20px; }
+.alignleft { float: left; margin: 5px 20px 20px 0; }
+.wp-caption { max-width: 96%; padding: 8px; }
+.wp-caption-text { font-size: 13px; padding: 8px 0; }
+
+/* ─── Skip Link ────────────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 8px;
+  z-index: 100000;
+  background: #112345;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-size: 14px;
+  transition: top 0.2s;
+}
+
+.skip-link:focus { top: 0; color: #fff; }
+
+/* ─── Comments ─────────────────────────────────────── */
+
+.comment-list { margin-top: 24px; }
+.comment { padding: 16px 0; border-bottom: 1px solid rgba(17,35,69,0.08); }
+.comment-meta { font-size: 14px; color: rgba(17,35,69,0.5); margin-bottom: 8px; }
+.comment-content p { font-size: 14px; line-height: 1.6; }
+
+/* ─── Pagination ───────────────────────────────────── */
+
+.pagination { margin-top: 48px; display: flex; justify-content: center; gap: 8px; }
+.pagination a,
+.pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px; height: 40px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  font-size: 14px;
+  border: 1px solid rgba(17,35,69,0.1);
+  color: rgba(17,35,69,0.7);
+  transition: all 0.2s;
+}
+.pagination a:hover { border-color: #FB2875; color: #FB2875; }
+.pagination .current { background: #112345; color: #fff; border-color: #112345; }
+
+/* ─── Details / Summary ────────────────────────────── */
+
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { display: none; content: ''; }
+
+/* ─── Contact Form Status ──────────────────────────── */
+
+.cf-status { max-width: 640px; margin: 0 auto 24px; padding: 14px 20px; border-radius: 12px; font-size: 14px; text-align: center; }
+.cf-status--sent { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.cf-status--error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.cf-status--empty { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }

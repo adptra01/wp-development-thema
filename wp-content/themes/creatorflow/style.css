@@ -1,0 +1,42 @@
+/*
+Theme Name: CreatorFlow
+Theme URI: https://creatorflow.com
+Author: CreatorFlow Team
+Author URI: https://creatorflow.com
+Description: A sophisticated content strategy theme with high-contrast editorial aesthetic. Features deep midnight blue palette with sharp pink accents, glassmorphism UI, squircle-lite corners, and GSAP-powered reveal animations. Perfect for creator platforms, mentorship marketplaces, and content strategy blogs.
+Version: 1.0.0
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: creatorflow
+Tags: custom-background, custom-logo, custom-menu, featured-images, full-site-editing, block-styles, editor-style, two-columns
+
+CreatorFlow WordPress Theme, (C) 2026 CreatorFlow Team
+CreatorFlow is distributed under the terms of the GNU GPL v2 or later.
+*/
+
+:root {
+  --cf-primary: #E01E65;
+  --cf-secondary: #FB2875;
+  --cf-accent: #E01E65;
+  --cf-background: #112345;
+  --cf-surface: #18181B;
+  --cf-text-primary: #F8FAFC;
+  --cf-text-secondary: #FB2875;
+  --cf-border: #27272A;
+  --cf-border-subtle: rgba(17, 35, 69, 0.05);
+  --cf-glow: rgba(251, 40, 117, 0.2);
+  --cf-glass-bg: rgba(248, 250, 252, 0.9);
+  --cf-font-heading: 'Manrope', sans-serif;
+  --cf-font-body: 'Inter', sans-serif;
+  --cf-font-label: 'JetBrains Mono', monospace;
+  --cf-container: 1280px;
+  --cf-radius-sm: 12px;
+  --cf-radius-md: 16px;
+  --cf-radius-lg: 24px;
+  --cf-radius-xl: 40px;
+  --cf-radius-pill: 9999px;
+  --cf-space-base: 8px;
+  --cf-space-gap: 16px;
+  --cf-space-card: 24px;
+  --cf-space-section: 80px;
+}

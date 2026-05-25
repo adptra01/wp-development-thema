@@ -1,0 +1,19 @@
+{
+    "mcpServers": {
+        "lerd": {
+            "args": [
+                "mcp"
+            ],
+            "command": "lerd",
+            "env": {
+                "LERD_SITE_PATH": "/mnt/DiskD/Projects/wordpress"
+            }
+        },
+        "playwright": {
+            "command": "npx",
+            "args": [
+                "@playwright/mcp@latest"
+            ]
+        }
+    }
+}

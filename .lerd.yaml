@@ -1,0 +1,8 @@
+domains:
+    - wordpress
+php_version: "8.4"
+framework: wordpress
+framework_version: "7"
+secured: true
+services:
+    - mysql
