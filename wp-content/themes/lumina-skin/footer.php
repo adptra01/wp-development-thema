@@ -1,24 +1,24 @@
 </main>
 
-<footer class="border-t border-emerald-900/60 bg-[#141a17]">
+<footer class="border-t border-[#6D28D9] bg-[#2E1065]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-8 md:gap-6 items-start md:items-center justify-between">
     <div>
       <div class="flex items-center gap-2">
         <?php if ( has_custom_logo() ) : ?>
           <?php the_custom_logo(); ?>
         <?php else : ?>
-          <span class="text-sm font-semibold tracking-tight font-playfair"><?php bloginfo( 'name' ); ?></span>
+          <span class="text-sm font-semibold tracking-tight font-playfair text-white"><?php bloginfo( 'name' ); ?></span>
         <?php endif; ?>
       </div>
-      <p class="mt-3 text-xs sm:text-sm text-emerald-200/70 max-w-sm"><?php esc_html_e( 'Gentle, clinically-minded rituals for skin that\'s easily overwhelmed.', 'lumina-skin' ); ?></p>
+      <p class="mt-3 text-xs sm:text-sm text-[#C4B5FD] max-w-sm"><?php esc_html_e( 'Skincare pelajar dengan active ingredients berkualitas—karena kulit glowing itu hak semua orang!', 'lumina-skin' ); ?></p>
     </div>
-    <div class="flex flex-wrap gap-6 text-xs sm:text-sm text-emerald-200/80">
-      <a href="#" class="hover:text-emerald-50 transition-colors"><?php esc_html_e( 'Ingredients', 'lumina-skin' ); ?></a>
-      <a href="#" class="hover:text-emerald-50 transition-colors"><?php esc_html_e( 'FAQ', 'lumina-skin' ); ?></a>
-      <a href="#" class="hover:text-emerald-50 transition-colors"><?php esc_html_e( 'Contact', 'lumina-skin' ); ?></a>
-      <a href="#" class="hover:text-emerald-50 transition-colors"><?php esc_html_e( 'Privacy', 'lumina-skin' ); ?></a>
+    <div class="flex flex-wrap gap-6 text-xs sm:text-sm text-[#DDD6FE]">
+      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'Kandungan', 'lumina-skin' ); ?></a>
+      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'FAQ', 'lumina-skin' ); ?></a>
+      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'Kontak', 'lumina-skin' ); ?></a>
+      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'Kebijakan Privasi', 'lumina-skin' ); ?></a>
     </div>
-    <p class="text-[0.7rem] text-emerald-500/70">&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php esc_html_e( 'Lumina Skin Rituals. All rights reserved.', 'lumina-skin' ); ?></p>
+    <p class="text-[0.7rem] text-[#A78BFA]/70">&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php esc_html_e( 'Glad2Glow. All rights reserved.', 'lumina-skin' ); ?></p>
   </div>
 </footer>
 </div>
