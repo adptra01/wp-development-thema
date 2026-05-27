@@ -5,6 +5,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'LUMINA_THEME_VERSION', '1.0.0' );
 
+/**
+ * Page slug mapping for navigation.
+ * Key = nav label, Value = page slug.
+ * Update these when pages are created in WordPress admin.
+ */
+function lumina_page_slugs(): array {
+	return array(
+		'produk'   => 'produk',
+		'kandungan' => 'kandungan',
+		'review'   => 'review',
+		'tips'     => 'tips',
+		'faq'      => 'faq',
+		'kontak'   => 'kontak',
+		'privasi'  => 'kebijakan-privasi',
+	);
+}
+
+/**
+ * Get the URL for a page slug.
+ * Falls back to home_url( '/slug/' ) if the page doesn't exist.
+ */
+function lumina_page_url( string $slug ): string {
+	$page = get_page_by_path( $slug );
+	if ( $page ) {
+		return esc_url( get_permalink( $page->ID ) );
+	}
+	return esc_url( home_url( '/' . $slug . '/' ) );
+}
+
 function lumina_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -97,6 +126,20 @@ function lumina_enqueue_assets() {
 				}
 			}
 		}
+	' );
+
+	wp_add_inline_script( 'tailwind-cdn', '
+		document.addEventListener( "DOMContentLoaded", function() {
+			document.querySelectorAll( "a[href^=\\"#\\"]" ).forEach( function( anchor ) {
+				anchor.addEventListener( "click", function( e ) {
+					e.preventDefault();
+					var target = document.querySelector( this.getAttribute( "href" ) );
+					if ( target ) {
+						target.scrollIntoView( { behavior: "smooth", block: "start" } );
+					}
+				} );
+			} );
+		} );
 	' );
 }
 add_action( 'wp_enqueue_scripts', 'lumina_enqueue_assets' );

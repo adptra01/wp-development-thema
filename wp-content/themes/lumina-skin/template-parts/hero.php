@@ -1,4 +1,4 @@
-<div class="sm:px-6 lg:px-8 lg:py-16 flex flex-col w-full max-w-6xl mr-auto ml-auto pt-10 pr-4 pb-10 pl-4 justify-center">
+<div id="hero" class="sm:px-6 lg:px-8 lg:py-16 flex flex-col w-full max-w-6xl mr-auto ml-auto pt-10 pr-4 pb-10 pl-4 justify-center">
   <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-10 lg:mb-12">
     <div>
       <h1 class="leading-tight sm:text-5xl lg:text-8xl text-4xl text-[#2E1065] tracking-tight font-playfair">

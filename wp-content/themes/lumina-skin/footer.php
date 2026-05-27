@@ -13,10 +13,10 @@
       <p class="mt-3 text-xs sm:text-sm text-[#C4B5FD] max-w-sm"><?php esc_html_e( 'Skincare pelajar dengan active ingredients berkualitas—karena kulit glowing itu hak semua orang!', 'lumina-skin' ); ?></p>
     </div>
     <div class="flex flex-wrap gap-6 text-xs sm:text-sm text-[#DDD6FE]">
-      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'Kandungan', 'lumina-skin' ); ?></a>
-      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'FAQ', 'lumina-skin' ); ?></a>
-      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'Kontak', 'lumina-skin' ); ?></a>
-      <a href="#" class="hover:text-white transition-colors"><?php esc_html_e( 'Kebijakan Privasi', 'lumina-skin' ); ?></a>
+      <a href="<?php echo esc_url( lumina_page_url( 'kandungan' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Kandungan', 'lumina-skin' ); ?></a>
+      <a href="<?php echo esc_url( lumina_page_url( 'faq' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'FAQ', 'lumina-skin' ); ?></a>
+      <a href="<?php echo esc_url( lumina_page_url( 'kontak' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Kontak', 'lumina-skin' ); ?></a>
+      <a href="<?php echo esc_url( lumina_page_url( 'privasi' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Kebijakan Privasi', 'lumina-skin' ); ?></a>
     </div>
     <p class="text-[0.7rem] text-[#A78BFA]/70">&copy; <?php echo esc_html( date_i18n( 'Y' ) ); ?> <?php esc_html_e( 'Glad2Glow. All rights reserved.', 'lumina-skin' ); ?></p>
   </div>

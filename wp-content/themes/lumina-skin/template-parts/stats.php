@@ -1,4 +1,4 @@
-<section class="text-[#EDE9FE] bg-[#2E1065] w-full border-[#6D28D9] border-t">
+<section id="tentang" class="text-[#EDE9FE] bg-[#2E1065] w-full border-[#6D28D9] border-t">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
     <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 mb-10">
       <div class="max-w-xl">

@@ -1,4 +1,4 @@
-<section class="text-[#2E1065] bg-[#FDF2F8] w-full border-pink-200 border-t">
+<section id="review" class="text-[#2E1065] bg-[#FDF2F8] w-full border-pink-200 border-t">
   <div class="sm:px-6 lg:px-8 lg:py-20 max-w-6xl mr-auto ml-auto pt-14 pr-4 pb-14 pl-4">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
       <div class="max-w-xl">

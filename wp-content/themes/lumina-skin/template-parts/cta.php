@@ -1,4 +1,4 @@
-<section class="text-[#EDE9FE] bg-[#2E1065] w-full border-t border-[#6D28D9]">
+<section id="mulai" class="text-[#EDE9FE] bg-[#2E1065] w-full border-t border-[#6D28D9]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
     <div class="flex flex-col lg:flex-row items-center lg:items-stretch gap-10">
       <div class="w-full lg:w-1/2 flex flex-col justify-center">
