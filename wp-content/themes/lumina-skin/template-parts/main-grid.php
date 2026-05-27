@@ -1,7 +1,7 @@
 <div class="sm:px-6 lg:px-8 flex flex-col w-full max-w-6xl mr-auto ml-auto px-4 pb-10 lg:pb-16 justify-center">
   <section class="grid gap-6 lg:gap-7 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1.1fr)]">
     <article class="overflow-hidden bg-[#3B0764] rounded-3xl relative shadow-sm border border-[#6D28D9]">
-      <img src="https://images.pexels.com/photos/6476079/pexels-photo-6476079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="<?php esc_attr_e( 'Glad2Glow glowing skin results', 'lumina-skin' ); ?>" class="w-full h-[680px] object-cover">
+      <img src="https://i.pinimg.com/736x/cc/1b/01/cc1b01484d4a386199e3a90ea99014ad.jpg" alt="<?php esc_attr_e( 'Glad2Glow glowing skin results', 'lumina-skin' ); ?>" class="w-full h-[680px] object-cover">
       <div class="absolute bottom-5 left-5 sm:bottom-6 sm:left-6">
         <div class="bg-[#2E1065]/95 backdrop-blur-sm rounded-2xl px-4 py-3 sm:px-5 sm:py-4 shadow-md max-w-xs border border-[#8B5CF6]/40">
           <div class="flex items-start gap-3">
