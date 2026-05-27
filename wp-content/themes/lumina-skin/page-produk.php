@@ -92,5 +92,46 @@ get_header();
 	</div>
 </div>
 
+<section class="relative z-10 max-w-4xl sm:pt-20 md:pt-28 text-center mr-auto ml-auto pt-14 pb-20">
+  <div class="mb-6 flex items-center justify-center gap-4">
+    <div class="flex -space-x-3">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=256&auto=format&fit=crop" alt="Customer" class="h-9 w-9 rounded-full ring-2 ring-[#DDD6FE] object-cover">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop" alt="Customer" class="h-9 w-9 rounded-full ring-2 ring-[#DDD6FE] object-cover">
+      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=256&auto=format&fit=crop" alt="Customer" class="h-9 w-9 rounded-full ring-2 ring-[#DDD6FE] object-cover">
+      <img src="https://images.unsplash.com/photo-1464863979621-258859e62245?q=80&w=256&auto=format&fit=crop" alt="Customer" class="h-9 w-9 rounded-full ring-2 ring-[#DDD6FE] object-cover">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=256&auto=format&fit=crop" alt="Customer" class="h-9 w-9 rounded-full ring-2 ring-[#DDD6FE] object-cover">
+    </div>
+    <div class="flex flex-col items-start">
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 fill-[#F472B6] text-[#F472B6]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 fill-[#F472B6] text-[#F472B6]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 fill-[#F472B6] text-[#F472B6]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 fill-[#F472B6] text-[#F472B6]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 fill-[#F472B6]/50 text-[#F472B6]"><path d="M12 17.8 5.8 21 7 14.1 2 9.3l7-1L12 2"/></svg>
+      </div>
+      <p class="mt-1 text-xs font-medium text-[#A78BFA]">10.000+ Happy Customers</p>
+    </div>
+  </div>
+
+  <h1 class="max-w-4xl sm:text-5xl md:text-6xl text-4xl tracking-tighter mr-auto ml-auto text-[#2E1065]">
+    Ready to
+    <span class="italic text-[#8B5CF6] font-playfair">glow</span>
+    with Glad2Glow?
+  </h1>
+
+  <p class="max-w-2xl sm:text-lg text-base font-normal text-[#4C1D95] mt-6 mr-auto ml-auto">
+    Mulai perjalanan skincare-mu sekarang. Dari pemula sampai skincare addict—temukan produk yang bikin kulitmu glowing alami.
+  </p>
+
+  <div class="flex flex-col gap-3 sm:flex-row mt-8 items-center justify-center">
+    <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 shadow-[0_0_0_1px_rgba(139,92,246,0.2)_inset] text-base font-medium text-white bg-[#8B5CF6] rounded-xl pt-3 pr-6 pb-3 pl-6 hover:bg-[#7C3AED] transition-colors no-underline">
+      Belanja Sekarang
+    </a>
+    <a href="<?php echo esc_url( lumina_page_url( 'review' ) ); ?>" class="inline-flex items-center gap-2 rounded-xl border border-[#DDD6FE] bg-white px-6 py-3 text-base font-medium text-[#2E1065] hover:bg-[#FDF2F8] transition-colors no-underline">
+      Lihat Review
+    </a>
+  </div>
+</section>
+
 <?php
 get_footer();
