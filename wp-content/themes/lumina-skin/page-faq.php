@@ -6,10 +6,11 @@
 get_header();
 ?>
 
-<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+	<div class="max-w-3xl mx-auto">
 	<header class="mb-12 text-center">
 		<p class="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#A78BFA] mb-3"><?php esc_html_e( 'FAQ', 'lumina-skin' ); ?></p>
-		<h1 class="font-playfair text-3xl sm:text-4xl lg:text-[2.6rem] leading-tight tracking-tight text-[#2E1065]">
+		<h1 class="font-playfair text-3xl sm:text-4xl lg:text-[2.6rem] leading-tight tracking-tight text-[#2E1065] font-semibold">
 			<?php esc_html_e( 'Pertanyaan Umum', 'lumina-skin' ); ?>
 		</h1>
 		<p class="mt-4 text-sm sm:text-base text-[#4C1D95]"><?php esc_html_e( 'Punya pertanyaan? Mungkin udah dijawab di sini!', 'lumina-skin' ); ?></p>
@@ -68,6 +69,7 @@ get_header();
 		<a href="<?php echo esc_url( lumina_page_url( 'kontak' ) ); ?>" class="mt-3 inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-5 py-2.5 text-sm font-medium hover:bg-[#7C3AED] transition-colors no-underline">
 			<span><?php esc_html_e( 'Hubungi Kami', 'lumina-skin' ); ?></span>
 		</a>
+	</div>
 	</div>
 </div>
 

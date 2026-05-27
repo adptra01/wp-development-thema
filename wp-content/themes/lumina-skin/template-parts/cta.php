@@ -10,14 +10,14 @@
         <p class="mt-4 text-sm sm:text-base text-[#DDD6FE] max-w-lg"><?php esc_html_e( 'Gak perlu bingung milih skincare! Jawab beberapa pertanyaan dan kita bantu kamu temuin routine yang pas buat kulit glowing impianmu.', 'lumina-skin' ); ?></p>
 
         <div class="mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
-          <button class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-5 py-2.5 text-xs sm:text-sm font-medium hover:bg-[#7C3AED] hover:shadow-sm transition-colors">
+          <a href="#mulai" class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-5 py-2.5 text-xs sm:text-sm font-medium hover:bg-[#7C3AED] hover:shadow-sm transition-colors no-underline">
             <span><?php esc_html_e( 'Mulai Quiz Routine', 'lumina-skin' ); ?></span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
-          </button>
-          <button class="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/80 bg-[#3B0764] px-4 py-2 text-xs sm:text-sm font-medium text-[#DDD6FE] hover:border-[#A78BFA] hover:bg-[#4C1D95] transition-colors">
+          </a>
+          <a href="<?php echo esc_url( lumina_page_url( 'produk' ) ); ?>" class="inline-flex items-center gap-2 rounded-full border border-[#8B5CF6]/80 bg-[#3B0764] px-4 py-2 text-xs sm:text-sm font-medium text-[#DDD6FE] hover:border-[#A78BFA] hover:bg-[#4C1D95] transition-colors no-underline">
             <span><?php esc_html_e( 'Lihat Semua Produk', 'lumina-skin' ); ?></span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 text-[#C4B5FD]" aria-hidden="true"><path fill="currentColor" d="M5 4a1 1 0 0 1 1-1h4.5a1 1 0 1 1 0 2H7v14h10V9.5a1 1 0 1 1 2 0V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path fill="currentColor" d="M14.5 3a1 1 0 0 0 0 2h1.793l-5.147 5.146a1 1 0 1 0 1.414 1.415L17.707 6.5V8.3a1 1 0 0 0 2 0V3.999A1 1 0 0 0 18.999 3z"/></svg>
-          </button>
+          </a>
         </div>
 
         <div class="mt-5 flex flex-wrap gap-4 text-[0.7rem] sm:text-xs text-[#C4B5FD]">

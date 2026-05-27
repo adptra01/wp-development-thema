@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
 	<header class="mb-12 text-center max-w-2xl mx-auto">
 		<p class="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#A78BFA] mb-3"><?php esc_html_e( 'BELANJA SEKARANG', 'lumina-skin' ); ?></p>
 		<h1 class="font-playfair text-3xl sm:text-4xl lg:text-[2.6rem] leading-tight tracking-tight text-[#2E1065]">

@@ -10,10 +10,10 @@
       </div>
       <div class="flex flex-col items-start gap-4 max-w-sm">
         <p class="text-xs sm:text-sm text-[#C4B5FD]"><?php esc_html_e( 'Harga pelajar, kualitas bintang lima—skincare yang bikin kamu percaya diri.', 'lumina-skin' ); ?></p>
-        <button class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-4 py-2 text-xs sm:text-sm font-medium hover:bg-[#7C3AED] transition-colors">
+        <a href="<?php echo esc_url( lumina_page_url( 'review' ) ); ?>" class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-4 py-2 text-xs sm:text-sm font-medium hover:bg-[#7C3AED] transition-colors no-underline">
           <span><?php esc_html_e( 'Lihat Semua Review', 'lumina-skin' ); ?></span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
-        </button>
+        </a>
       </div>
     </div>
 

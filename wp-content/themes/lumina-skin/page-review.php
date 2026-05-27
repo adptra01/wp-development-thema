@@ -7,10 +7,10 @@ get_header();
 ?>
 
 <div style="font-family:Inter,ui-sans-serif,system-ui,sans-serif">
-  <section class="relative z-10 max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pt-8 pr-4 pb-20 pl-4">
+  <section class="relative z-10 max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto py-14 lg:py-20">
     <div class="mb-12 text-center">
       <span class="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#A78BFA] mb-3 inline-block">Testimonials</span>
-      <h1 class="mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight font-playfair text-[#2E1065]">
+      <h1 class="mt-2 text-3xl sm:text-4xl lg:text-[2.6rem] font-semibold tracking-tight font-playfair text-[#2E1065]">
         Kata Mereka Yang Udah <span class="text-[#8B5CF6]">Glowing</span>
       </h1>
       <div class="mt-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 border-[#DDD6FE] bg-white shadow-sm mx-auto">
@@ -259,7 +259,7 @@ get_header();
     </div>
   </section>
 
-  <section class="relative z-10 max-w-4xl sm:pt-20 md:pt-28 text-center mr-auto ml-auto pt-14 pb-20">
+  <section class="relative z-10 max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto py-14 lg:py-20 text-center">
   <div class="mb-6 flex items-center justify-center gap-4">
     <div class="flex -space-x-3">
       <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=256&auto=format&fit=crop" alt="Customer" class="h-9 w-9 rounded-full ring-2 ring-[#DDD6FE] object-cover">
@@ -280,9 +280,9 @@ get_header();
     </div>
   </div>
 
-  <h1 class="max-w-4xl sm:text-5xl md:text-6xl text-4xl tracking-tighter mr-auto ml-auto text-[#2E1065]">
+  <h1 class="max-w-4xl text-3xl sm:text-4xl lg:text-[2.6rem] tracking-tight mr-auto ml-auto text-[#2E1065] font-semibold font-playfair">
     Ready to
-    <span class="italic text-[#8B5CF6] font-playfair">glow</span>
+    <span class="italic text-[#8B5CF6]">glow</span>
     with Glad2Glow?
   </h1>
 

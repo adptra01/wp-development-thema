@@ -10,14 +10,11 @@
         <p class="mt-4 text-sm sm:text-base text-[#4C1D95] max-w-xl"><?php esc_html_e( 'Dari pemula sampai skincare addict—kita punya produk yang pas buat kulit glowing impianmu.', 'lumina-skin' ); ?></p>
       </div>
       <div class="flex flex-wrap gap-3 text-xs sm:text-sm">
-        <button class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-4 py-2 font-medium hover:bg-[#7C3AED] transition-colors">
-          <span><?php esc_html_e( 'Semua Produk', 'lumina-skin' ); ?></span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
-        </button>
-        <button class="inline-flex gap-2 hover:border-[#8B5CF6] hover:bg-[#EDE9FE] transition-colors font-medium text-[#2E1065] bg-white border-[#DDD6FE] border rounded-full px-4 py-2 items-center">
+      
+        <a href="<?php echo esc_url( lumina_page_url( 'tips' ) ); ?>" class="inline-flex gap-2 hover:border-[#8B5CF6] hover:bg-[#EDE9FE] transition-colors font-medium text-[#2E1065] bg-white border-[#DDD6FE] border rounded-full px-4 py-2 items-center no-underline">
           <span><?php esc_html_e( 'Cari Tahu Routine-mu', 'lumina-skin' ); ?></span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7a6.98 6.98 0 0 1-3.053 5.777l-.122.08c-.827.52-1.325.88-1.325 1.643V17a1 1 0 0 0-2 0v.5c0 1.882 1.492 3.07 2.595 3.803l.199.129c.43.276.976.147 1.252-.283c.276-.43.147-.977-.283-1.253l-.267-.17C14.57 19.2 14 18.79 14 17.5c0-1.083.658-1.52 1.723-2.178A8.98 8.98 0 0 0 21 9a9 9 0 1 0-18 0a1 1 0 1 0 2 0a7 7 0 0 1 7-7Zm0 5a3 3 0 0 0-3 3a1 1 0 1 0 2 0a1 1 0 1 1 1.707.707c-.384.384-.707.733-.962 1.053C11.45 12.11 11 12.783 11 13.5V14a1 1 0 1 0 2 0v-.5c0-.21.213-.568.537-.974c.283-.355.646-.755 1.063-1.172A3 3 0 0 0 12 7Z"/></svg>
-        </button>
+        </a>
       </div>
     </div>
 
@@ -28,10 +25,10 @@
             <span class="inline-flex items-center justify-center text-[0.7rem] font-medium text-[#6D28D9] bg-[#EDE9FE] w-6 h-6 border-[#DDD6FE] border rounded-full">&starf;</span>
             <h3 class="text-base sm:text-lg font-medium tracking-tight text-[#2E1065]"><?php esc_html_e( 'Best Seller', 'lumina-skin' ); ?></h3>
           </div>
-          <button class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#6D28D9] hover:text-[#2E1065] transition-colors">
+          <a href="<?php echo esc_url( lumina_page_url( 'produk' ) ); ?>" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#6D28D9] hover:text-[#2E1065] transition-colors no-underline">
             <span><?php esc_html_e( 'Lihat semua', 'lumina-skin' ); ?></span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
-          </button>
+          </a>
         </div>
 
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -136,10 +133,10 @@
             <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#EDE9FE] border border-[#DDD6FE] text-[0.7rem] font-medium text-[#6D28D9]">&starf;</span>
             <h3 class="text-base sm:text-lg font-medium tracking-tight text-[#2E1065]"><?php esc_html_e( 'Favorit Glow Lovers', 'lumina-skin' ); ?></h3>
           </div>
-          <button class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#6D28D9] hover:text-[#2E1065] transition-colors">
+          <a href="<?php echo esc_url( lumina_page_url( 'produk' ) ); ?>" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#6D28D9] hover:text-[#2E1065] transition-colors no-underline">
             <span><?php esc_html_e( 'Lihat semua', 'lumina-skin' ); ?></span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
-          </button>
+          </a>
         </div>
 
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

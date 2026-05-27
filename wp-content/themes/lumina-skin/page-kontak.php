@@ -6,10 +6,11 @@
 get_header();
 ?>
 
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+	<div class="max-w-4xl mx-auto">
 	<header class="mb-12 text-center max-w-2xl mx-auto">
 		<p class="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#A78BFA] mb-3"><?php esc_html_e( 'HUBUNGI KAMI', 'lumina-skin' ); ?></p>
-		<h1 class="font-playfair text-3xl sm:text-4xl lg:text-[2.6rem] leading-tight tracking-tight text-[#2E1065]">
+		<h1 class="font-playfair text-3xl sm:text-4xl lg:text-[2.6rem] leading-tight tracking-tight text-[#2E1065] font-semibold">
 			<?php esc_html_e( 'Ada Pertanyaan?', 'lumina-skin' ); ?>
 			<span class="italic text-[#6D28D9]"><?php esc_html_e( 'Chat Aja!', 'lumina-skin' ); ?></span>
 		</h1>
@@ -54,6 +55,7 @@ get_header();
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
 			</button>
 		</form>
+	</div>
 	</div>
 </div>
 
