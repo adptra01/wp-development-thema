@@ -88,7 +88,7 @@
       <div class="w-full lg:w-1/2">
         <div class="relative overflow-hidden rounded-3xl border border-pink-200 bg-white">
           <div class="absolute inset-0 bg-gradient-to-tr from-[#6D28D9]/5 via-transparent to-[#F472B6]/40 pointer-events-none"></div>
-          <img src="https://storage.skinsort.com/3e26k9ocs131gq4favt2qj75lnq2" alt="<?php esc_attr_e( 'Soft evening self-care moment', 'lumina-skin' ); ?>" class="sm:h-72 lg:h-80 w-full h-64 object-cover">
+          <img src="https://images.pexels.com/photos/5308669/pexels-photo-5308669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="<?php esc_attr_e( 'Soft evening self-care moment', 'lumina-skin' ); ?>" class="sm:h-72 lg:h-80 w-full h-64 object-cover">
         </div>
       </div>
       <div class="w-full lg:w-1/2">
