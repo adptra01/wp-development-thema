@@ -1,0 +1,12 @@
+/wp-content/cache/
+/wp-content/uploads/
+/node_modules/
+/vendor/
+
+.env
+.DS_Store
+Thumbs.db
+
+/wp-content/*
+!/wp-content/themes/
+!/wp-content/plugins/
