@@ -6,85 +6,258 @@
 get_header();
 ?>
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-	<header class="mb-12 text-center max-w-2xl mx-auto">
-		<p class="text-xs sm:text-sm font-medium tracking-[0.18em] uppercase text-[#A78BFA] mb-3"><?php esc_html_e( 'TESTIMONIALS', 'lumina-skin' ); ?></p>
-		<h1 class="font-playfair text-3xl sm:text-4xl lg:text-[2.6rem] leading-tight tracking-tight text-[#2E1065]">
-			<?php esc_html_e( 'Apa Kata Mereka?', 'lumina-skin' ); ?>
-		</h1>
-		<p class="mt-4 text-sm sm:text-base text-[#4C1D95]"><?php esc_html_e( 'Lebih dari 500rb+ produk terjual—ini cerita dari Glow Lovers se-Indonesia!', 'lumina-skin' ); ?></p>
-	</header>
+<div class="min-h-screen bg-[#0A0A0A] text-white" style="font-family:Inter,ui-sans-serif,system-ui,sans-serif">
+  <div class="sm:px-6 lg:px-8 max-w-7xl mx-auto px-4 py-14 lg:py-20">
+    <div class="mb-12">
+      <span class="text-sm font-medium tracking-[0.18em] uppercase text-rose-400">Testimonials</span>
+      <h1 class="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight font-playfair text-white">
+        Kata Mereka Yang Udah <span class="text-[#A78BFA]">Glowing</span>
+      </h1>
+      <div class="mt-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 border-white/10 bg-white/5">
+        <span class="inline-flex items-center -space-x-2">
+          <img class="h-6 w-6 rounded-full ring-2 object-cover ring-[#0A0A0A]" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=256&auto=format&fit=crop" alt="Reviewer">
+          <img class="h-6 w-6 rounded-full ring-2 object-cover ring-[#0A0A0A]" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop" alt="Reviewer">
+          <img class="h-6 w-6 rounded-full ring-2 object-cover ring-[#0A0A0A]" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=256&auto=format&fit=crop" alt="Reviewer">
+          <img class="h-6 w-6 rounded-full ring-2 object-cover ring-[#0A0A0A]" src="https://images.unsplash.com/photo-1464863979621-258859e62245?q=80&w=256&auto=format&fit=crop" alt="Reviewer">
+        </span>
+        <span class="ml-2 inline-flex items-center gap-1 text-sm text-neutral-300">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#F472B6]" style="fill:#F472B6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#F472B6]" style="fill:#F472B6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#F472B6]" style="fill:#F472B6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#F472B6]" style="fill:#F472B6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#F472B6]" style="fill:#F472B6"><path d="M12 17.8 5.8 21 7 14.1 2 9.3l7-1L12 2"></path></svg>
+          <span class="ml-1">4.9/5 &bull; 2,431+ review</span>
+        </span>
+      </div>
+    </div>
 
-	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-		<?php
-		$reviews = array(
-			array(
-				'name'    => 'Sari A.',
-				'product' => __( 'Blueberry 5% Ceramide', 'lumina-skin' ),
-				'rating'  => 5,
-				'text'    => __( '"Baru 3 hari pake kulit udah kerasa lebih lembap dan kenyal! Cocok banget buat kulit sensitif. Recommended banget!"', 'lumina-skin' ),
-				'color'   => 'bg-white border-pink-200',
-			),
-			array(
-				'name'    => 'Dewi P.',
-				'product' => __( 'Centella Allantoin Gel', 'lumina-skin' ),
-				'rating'  => 5,
-				'text'    => __( '"Jerawat mulai kering setelah 3 hari pemakaian! Teksturnya ringan, gak bikin muka tambah berminyak. Love it!"', 'lumina-skin' ),
-				'color'   => 'bg-[#FDF2F8] border-pink-200',
-			),
-			array(
-				'name'    => 'Rina M.',
-				'product' => __( 'Pomegranate 5% Niacinamide', 'lumina-skin' ),
-				'rating'  => 5,
-				'text'    => __( '"Wajah jadi lebih cerah dalam 2 minggu! Bekas jerawat mulai pudar. Harga pelajar banget!"', 'lumina-skin' ),
-				'color'   => 'bg-white border-pink-200',
-			),
-			array(
-				'name'    => 'Ayu K.',
-				'product' => __( 'Blueberry 5% Ceramide', 'lumina-skin' ),
-				'rating'  => 5,
-				'text'    => __( '"Udah repeat order 3 kali! Gak bisa lepas dari moisturizer ini. Skin barrier aku jadi stronger!"', 'lumina-skin' ),
-				'color'   => 'bg-[#FDF2F8] border-pink-200',
-			),
-			array(
-				'name'    => 'Mega S.',
-				'product' => __( 'Yuja Symwhite 377', 'lumina-skin' ),
-				'rating'  => 4,
-				'text'    => __( '"Bekas jerawat di pipi mulai pudar setelah 1 bulan. Teksturnya ringan dan gak lengket."', 'lumina-skin' ),
-				'color'   => 'bg-white border-pink-200',
-			),
-			array(
-				'name'    => 'Putri W.',
-				'product' => __( 'Centella Allantoin Gel', 'lumina-skin' ),
-				'rating'  => 5,
-				'text'    => __( '"Kulit aku yang acne-prone jadi lebih tenang. Redness mulai berkurang drastis! Wajib punya!"', 'lumina-skin' ),
-				'color'   => 'bg-[#FDF2F8] border-pink-200',
-			),
-		);
+    <style>
+      @keyframes scrollUp {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-33.33%); }
+      }
+      @keyframes scrollDown {
+        0% { transform: translateY(-33.33%); }
+        100% { transform: translateY(0); }
+      }
+      [data-scroll-column="1"] { animation: scrollUp 20s linear infinite; }
+      [data-scroll-column="2"] { animation: scrollDown 20s linear infinite; }
+      [data-scroll-column="3"] { animation: scrollUp 20s linear infinite; }
+      [data-scroll-column]:hover { animation-play-state: paused; }
+    </style>
 
-		foreach ( $reviews as $r ) :
-		?>
-		<article class="rounded-3xl border px-5 py-6 sm:px-6 sm:py-7 flex flex-col shadow-sm <?php echo esc_attr( $r['color'] ); ?>">
-			<div class="flex items-center gap-1 text-[#F472B6] text-sm mb-3">
-				<?php for ( $i = 0; $i < 5; $i++ ) : ?>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 <?php echo $i < $r['rating'] ? 'text-[#F472B6]' : 'text-[#DDD6FE]'; ?>" aria-hidden="true"><path fill="currentColor" d="M10.92 2.868a1.25 1.25 0 0 1 2.16 0l2.795 4.798l5.428 1.176a1.25 1.25 0 0 1 .667 2.054l-3.7 4.141l.56 5.525a1.25 1.25 0 0 1-1.748 1.27L12 19.592l-5.082 2.24a1.25 1.25 0 0 1-1.748-1.27l.56-5.525l-3.7-4.14a1.25 1.25 0 0 1 .667-2.055l5.428-1.176z"/></svg>
-				<?php endfor; ?>
-			</div>
-			<p class="text-sm text-[#4C1D95] leading-relaxed flex-1"><?php echo esc_html( $r['text'] ); ?></p>
-			<div class="mt-4 pt-4 border-t border-[#DDD6FE] flex items-center justify-between">
-				<p class="text-xs font-medium text-[#2E1065]">— <?php echo esc_html( $r['name'] ); ?></p>
-				<span class="text-[0.65rem] text-[#A78BFA]"><?php echo esc_html( $r['product'] ); ?></span>
-			</div>
-		</article>
-		<?php endforeach; ?>
-	</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-12"
+      style="mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 20%,#000 80%,transparent)">
+  
+      <!-- Column 1 — Scroll Up -->
+      <div class="overflow-hidden">
+        <div data-scroll-column="1" class="space-y-6">
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Baru 2 minggu pake <strong class="text-[#A78BFA]">Blueberry Ceramide</strong>, kulit aku jadi lebih kenyal dan lembap. Jerawat mulai berkurang, gak perih lagi pas pake skincare lain. Recommended banget buat kulit sensitif!"</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=256&auto=format&fit=crop" alt="Sari">
+              <div>
+                <div class="text-sm font-medium text-white">Sari</div>
+                <div class="text-xs text-neutral-400">Mahasiswi, 19</div>
+              </div>
+            </div>
+          </article>
 
-	<div class="mt-12 text-center">
-		<div class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-6 py-3 text-sm font-medium hover:bg-[#7C3AED] transition-colors cursor-pointer">
-			<span><?php esc_html_e( 'Lihat Semua Review', 'lumina-skin' ); ?></span>
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
-		</div>
-	</div>
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Aku pake <strong class="text-[#A78BFA]">Centella Allantoin Soothing Gel</strong> tiap malem, jerawat meradang langsung adem! Teksturnya ringan, gak lengket, wanginya fresh. Cocok buat kulit berminyak yang suka breakout."</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop" alt="Dinda">
+              <div>
+                <div class="text-sm font-medium text-white">Dinda</div>
+                <div class="text-xs text-neutral-400">Content Creator, 21</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Dari pemakaian pertama udah kerasa bedanya. <strong class="text-[#A78BFA]">Pomegranate Niacinamide</strong> bikin wajah aku lebih cerah dan bekas jerawat mulai pudar. Harganya worth banget buat pelajar kayak aku!"</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=256&auto=format&fit=crop" alt="Alya">
+              <div>
+                <div class="text-sm font-medium text-white">Alya</div>
+                <div class="text-xs text-neutral-400">SMA, 17</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Baru 2 minggu pake <strong class="text-[#A78BFA]">Blueberry Ceramide</strong>, kulit aku jadi lebih kenyal dan lembap. Jerawat mulai berkurang, gak perih lagi pas pake skincare lain. Recommended banget buat kulit sensitif!"</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=256&auto=format&fit=crop" alt="Sari">
+              <div>
+                <div class="text-sm font-medium text-white">Sari</div>
+                <div class="text-xs text-neutral-400">Mahasiswi, 19</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Column 2 — Scroll Down -->
+      <div class="overflow-hidden">
+        <div data-scroll-column="2" class="space-y-6">
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Wajahku termasuk kombinasi berminyak, susah banget cari moisturizer yang cocok. Tapi <strong class="text-[#A78BFA]">Centella Allantoin</strong> ini ringan banget, gak bikin muka tambah kilap. Udah repurchase 3 kali!"</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?q=80&w=256&auto=format&fit=crop" alt="Rara">
+              <div>
+                <div class="text-sm font-medium text-white">Rara</div>
+                <div class="text-xs text-neutral-400">Karyawan, 23</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Aku punya flek hitam bekas jerawat yang susah banget ilang. Setelah 1 bulan rutin pake <strong class="text-[#A78BFA]">Yuja Symwhite 377</strong>, fleknya mulai memudar! Kulit jadi lebih rata dan cerah."</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=256&auto=format&fit=crop" alt="Mega">
+              <div>
+                <div class="text-sm font-medium text-white">Mega</div>
+                <div class="text-xs text-neutral-400">Mahasiswi, 20</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Udah nyobain banyak serum brightening, tapi <strong class="text-[#A78BFA]">Pomegranate Niacinamide</strong> ini yang bener-bener keliatan hasilnya. Kulitku jadi glowing alami, gak kusam lagi. Harga terjangkau banget!"</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=256&auto=format&fit=crop" alt="Fika">
+              <div>
+                <div class="text-sm font-medium text-white">Fika</div>
+                <div class="text-xs text-neutral-400">Freelancer, 24</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Wajahku termasuk kombinasi berminyak, susah banget cari moisturizer yang cocok. Tapi <strong class="text-[#A78BFA]">Centella Allantoin</strong> ini ringan banget, gak bikin muka tambah kilap. Udah repurchase 3 kali!"</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?q=80&w=256&auto=format&fit=crop" alt="Rara">
+              <div>
+                <div class="text-sm font-medium text-white">Rara</div>
+                <div class="text-xs text-neutral-400">Karyawan, 23</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Column 3 — Scroll Up -->
+      <div class="overflow-hidden">
+        <div data-scroll-column="3" class="space-y-6">
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Aku baru pertama kali pake skincare dan milih <strong class="text-[#A78BFA]">Glad2Glow</strong> karena reviewnya bagus. Gak nyesel! Kulit wajah yang tadinya kusam jadi lebih cerah dan lembap. Produk pertama yang bikin aku konsisten skincarean."</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1464863979621-258859e62245?q=80&w=256&auto=format&fit=crop" alt="Nadia">
+              <div>
+                <div class="text-sm font-medium text-white">Nadia</div>
+                <div class="text-xs text-neutral-400">Pelajar, 16</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Aku pake <strong class="text-[#A78BFA]">Blueberry Ceramide</strong> buat night routine, paginya pake Pomegranate Niacinamide. Kombinasi ini beneran bikin kulit glowing merata! Temen-temen pada nanyo pake skincare apa."</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=256&auto=format&fit=crop" alt="Cindy">
+              <div>
+                <div class="text-sm font-medium text-white">Cindy</div>
+                <div class="text-xs text-neutral-400">Mahasiswi, 20</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Pengiriman cepat, packaging lucu, dan produknya original. Udah jadi langganan tetap <strong class="text-[#A78BFA]">Glad2Glow</strong> sejak 3 bulan lalu. Gak ada niat ganti ke brand lain! Pokoknya Glad2Glow bestie skincare para remaja."</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256&auto=format&fit=crop" alt="Tasya">
+              <div>
+                <div class="text-sm font-medium text-white">Tasya</div>
+                <div class="text-xs text-neutral-400">SMA, 18</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-2xl border p-6 border-white/10 bg-white/[0.04] backdrop-blur-sm">
+            <blockquote class="text-[15px] sm:text-[16px] leading-relaxed text-neutral-100">
+              <span class="inline-flex items-start gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-rose-400 mt-1 shrink-0"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                <span>"Aku baru pertama kali pake skincare dan milih <strong class="text-[#A78BFA]">Glad2Glow</strong> karena reviewnya bagus. Gak nyesel! Kulit wajah yang tadinya kusam jadi lebih cerah dan lembap. Produk pertama yang bikin aku konsisten skincarean."</span>
+              </span>
+            </blockquote>
+            <div class="mt-5 flex items-center gap-3">
+              <img class="h-10 w-10 rounded-full object-cover ring-2 ring-white/10" src="https://images.unsplash.com/photo-1464863979621-258859e62245?q=80&w=256&auto=format&fit=crop" alt="Nadia">
+              <div>
+                <div class="text-sm font-medium text-white">Nadia</div>
+                <div class="text-xs text-neutral-400">Pelajar, 16</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <?php
