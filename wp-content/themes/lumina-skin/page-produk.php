@@ -23,7 +23,6 @@ get_header();
 				'badge'   => '#1 BESTSELLER',
 				'name'    => __( 'Blueberry 5% Ceramide Moisturizer', 'lumina-skin' ),
 				'desc'    => __( 'Moisturizer viral dengan 5% Ceramide complex yang memperbaiki skin barrier, melembapkan, dan menenangkan kulit.', 'lumina-skin' ),
-				'price'   => 'Rp49.000',
 				'size'    => '50 ml',
 				'skin'    => __( 'Cocok untuk semua kulit', 'lumina-skin' ),
 				'btn'     => 'bg-[#8B5CF6] text-white',
@@ -33,7 +32,6 @@ get_header();
 				'badge'   => 'BEST FOR ACNE',
 				'name'    => __( 'Centella Allantoin Soothing Gel', 'lumina-skin' ),
 				'desc'    => __( 'Menenangkan jerawat, mengurangi kemerahan, dan melembapkan dengan Centella & Allantoin.', 'lumina-skin' ),
-				'price'   => 'Rp45.000',
 				'size'    => '50 ml',
 				'skin'    => __( 'Kulit berminyak & berjerawat', 'lumina-skin' ),
 				'btn'     => 'border border-[#DDD6FE] bg-white text-[#2E1065]',
@@ -43,7 +41,6 @@ get_header();
 				'badge'   => 'SPOT CARE',
 				'name'    => __( 'Yuja Symwhite 377 Dark Spot', 'lumina-skin' ),
 				'desc'    => __( 'Krim dark spot dengan Symwhite 377 & Yuja extract untuk memudarkan bekas jerawat dan noda hitam.', 'lumina-skin' ),
-				'price'   => 'Rp55.000',
 				'size'    => '30 ml',
 				'skin'    => __( 'Cerahkan flek hitam', 'lumina-skin' ),
 				'btn'     => 'border border-[#DDD6FE] bg-white text-[#2E1065]',
@@ -53,7 +50,6 @@ get_header();
 				'badge'   => 'BESTSELLER',
 				'name'    => __( 'Pomegranate 5% Niacinamide', 'lumina-skin' ),
 				'desc'    => __( 'Serum brightening dengan 5% Niacinamide + Pomegranate—cerahkan kulit, ratakan tone, kontrol minyak.', 'lumina-skin' ),
-				'price'   => 'Rp39.000',
 				'size'    => '20 ml',
 				'skin'    => __( 'Semua jenis kulit', 'lumina-skin' ),
 				'btn'     => 'border border-[#DDD6FE] bg-white text-[#2E1065]',
@@ -77,7 +73,6 @@ get_header();
 						<p class="mt-1 text-xs sm:text-sm text-[#4C1D95]"><?php echo esc_html( $p['desc'] ); ?></p>
 					</div>
 					<div class="flex flex-col items-end text-xs text-[#4C1D95]">
-						<span class="font-semibold"><?php echo esc_html( $p['price'] ); ?></span>
 						<span class="text-[#7C3AED] mt-0.5"><?php echo esc_html( $p['size'] ); ?></span>
 					</div>
 				</div>
@@ -86,10 +81,10 @@ get_header();
 						<span class="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]"></span>
 						<span><?php echo esc_html( $p['skin'] ); ?></span>
 					</div>
-					<button class="inline-flex items-center gap-1.5 rounded-full <?php echo esc_attr( $p['btn'] ); ?> px-3 py-1.5 font-medium hover:bg-[#7C3AED] hover:text-white transition-colors">
-						<span><?php esc_html_e( 'Tambah', 'lumina-skin' ); ?></span>
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
-					</button>
+					<a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full <?php echo esc_attr( $p['btn'] ); ?> px-3 py-1.5 font-medium hover:bg-[#7C3AED] hover:text-white transition-colors no-underline">
+						<span><?php esc_html_e( 'Beli', 'lumina-skin' ); ?></span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
+					</a>
 				</div>
 			</div>
 		</article>

@@ -50,7 +50,6 @@
                   <p class="mt-1 text-xs sm:text-sm text-[#4C1D95]"><?php esc_html_e( 'Moisturizer viral dengan 5% Ceramide complex yang memperbaiki skin barrier, melembapkan, dan menenangkan kulit.', 'lumina-skin' ); ?></p>
                 </div>
                 <div class="flex flex-col items-end text-xs text-[#4C1D95]">
-                  <span class="font-semibold">Rp49.000</span>
                   <span class="text-[#7C3AED] mt-0.5">50 ml</span>
                 </div>
               </div>
@@ -59,10 +58,10 @@
                   <span class="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]"></span>
                   <span><?php esc_html_e( 'Cocok untuk semua kulit', 'lumina-skin' ); ?></span>
                 </div>
-                <button class="inline-flex items-center gap-1.5 rounded-full bg-[#8B5CF6] text-white px-3 py-1.5 font-medium hover:bg-[#7C3AED] transition-colors" style="padding-top:.375rem;padding-bottom:.375rem">
-                  <span><?php esc_html_e( 'Tambah', 'lumina-skin' ); ?></span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
-                </button>
+                <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full bg-[#8B5CF6] text-white px-3 py-1.5 font-medium hover:bg-[#7C3AED] transition-colors no-underline">
+                  <span><?php esc_html_e( 'Beli', 'lumina-skin' ); ?></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
+                </a>
               </div>
             </div>
           </article>
@@ -82,7 +81,6 @@
                   <p class="mt-1 text-xs sm:text-sm text-[#4C1D95]"><?php esc_html_e( 'Menenangkan jerawat, mengurangi kemerahan, dan melembapkan dengan Centella & Allantoin.', 'lumina-skin' ); ?></p>
                 </div>
                 <div class="flex flex-col items-end text-xs text-[#4C1D95]">
-                  <span class="font-semibold">Rp45.000</span>
                   <span class="text-[#7C3AED] mt-0.5">50 ml</span>
                 </div>
               </div>
@@ -91,10 +89,10 @@
                   <span class="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]"></span>
                   <span><?php esc_html_e( 'Kulit berminyak & berjerawat', 'lumina-skin' ); ?></span>
                 </div>
-                <button class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors">
-                  <span><?php esc_html_e( 'Tambah', 'lumina-skin' ); ?></span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
-                </button>
+                <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors no-underline">
+                  <span><?php esc_html_e( 'Beli', 'lumina-skin' ); ?></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
+                </a>
               </div>
             </div>
           </article>
@@ -114,7 +112,6 @@
                   <p class="mt-1 text-xs sm:text-sm text-[#4C1D95]"><?php esc_html_e( 'Krim dark spot dengan Symwhite 377 & Yuja extract untuk memudarkan bekas jerawat dan noda hitam.', 'lumina-skin' ); ?></p>
                 </div>
                 <div class="flex flex-col items-end text-xs text-[#4C1D95]">
-                  <span class="font-semibold">Rp55.000</span>
                   <span class="text-[#7C3AED] mt-0.5">30 ml</span>
                 </div>
               </div>
@@ -123,10 +120,10 @@
                   <span class="w-1.5 h-1.5 rounded-full bg-[#8B5CF6]"></span>
                   <span><?php esc_html_e( 'Cerahkan flek hitam', 'lumina-skin' ); ?></span>
                 </div>
-                <button class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors">
-                  <span><?php esc_html_e( 'Tambah', 'lumina-skin' ); ?></span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
-                </button>
+                <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors no-underline">
+                  <span><?php esc_html_e( 'Beli', 'lumina-skin' ); ?></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
+                </a>
               </div>
             </div>
           </article>
@@ -156,23 +153,22 @@
                 <h4 class="font-playfair text-lg font-semibold tracking-tight text-[#2E1065]"><?php esc_html_e( 'Pomegranate 5% Niacinamide', 'lumina-skin' ); ?></h4>
                 <p class="mt-1 text-xs sm:text-sm text-[#4C1D95]"><?php esc_html_e( 'Serum brightening dengan 5% Niacinamide + Pomegranate—cerahkan kulit, ratakan tone, kontrol minyak.', 'lumina-skin' ); ?></p>
               </div>
-              <div class="flex flex-col items-end text-xs text-[#4C1D95]">
-                <span class="font-semibold">Rp39.000</span>
-                <span class="mt-0.5 text-[#7C3AED]">20 ml</span>
-              </div>
-            </div>
-            <div class="mt-4 flex items-center justify-between gap-3 text-[0.72rem] sm:text-xs">
-              <div class="flex items-center gap-1.5 text-[#4C1D95]">
-                <div class="flex items-center text-[#F472B6]">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M10.92 2.868a1.25 1.25 0 0 1 2.16 0l2.795 4.798l5.428 1.176a1.25 1.25 0 0 1 .667 2.054l-3.7 4.141l.56 5.525a1.25 1.25 0 0 1-1.748 1.27L12 19.592l-5.082 2.24a1.25 1.25 0 0 1-1.748-1.27l.56-5.525l-3.7-4.14a1.25 1.25 0 0 1 .667-2.055l5.428-1.176z"/></svg>
-                  <span class="ml-0.5">4.9</span>
+               <div class="flex flex-col items-end text-xs text-[#4C1D95]">
+                  <span class="mt-0.5 text-[#7C3AED]">20 ml</span>
                 </div>
-                <span class="text-[#7C3AED]">&bull; 38rb review</span>
               </div>
-              <button class="inline-flex items-center gap-1.5 rounded-full bg-[#8B5CF6] text-white px-3 py-1.5 font-medium hover:bg-[#7C3AED] transition-colors">
-                <span><?php esc_html_e( 'Tambah', 'lumina-skin' ); ?></span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
-              </button>
+              <div class="mt-4 flex items-center justify-between gap-3 text-[0.72rem] sm:text-xs">
+                <div class="flex items-center gap-1.5 text-[#4C1D95]">
+                  <div class="flex items-center text-[#F472B6]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M10.92 2.868a1.25 1.25 0 0 1 2.16 0l2.795 4.798l5.428 1.176a1.25 1.25 0 0 1 .667 2.054l-3.7 4.141l.56 5.525a1.25 1.25 0 0 1-1.748 1.27L12 19.592l-5.082 2.24a1.25 1.25 0 0 1-1.748-1.27l.56-5.525l-3.7-4.14a1.25 1.25 0 0 1 .667-2.055l5.428-1.176z"/></svg>
+                    <span class="ml-0.5">4.9</span>
+                  </div>
+                  <span class="text-[#7C3AED]">&bull; 38rb review</span>
+                </div>
+                <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full bg-[#8B5CF6] text-white px-3 py-1.5 font-medium hover:bg-[#7C3AED] transition-colors no-underline">
+                  <span><?php esc_html_e( 'Beli', 'lumina-skin' ); ?></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
+                </a>
             </div>
             <p class="mt-3 text-[0.7rem] text-[#6D28D9] line-clamp-2"><?php esc_html_e( '"Wajah jadi lebih cerah dalam 2 minggu! Bekas jerawat mulai pudar. Recommended banget buat remaja!"', 'lumina-skin' ); ?></p>
           </article>
@@ -187,23 +183,22 @@
                 <h4 class="font-playfair text-lg font-semibold tracking-tight text-[#2E1065]"><?php esc_html_e( 'Blueberry 5% Ceramide Cream', 'lumina-skin' ); ?></h4>
                 <p class="mt-1 text-xs sm:text-sm text-[#4C1D95]"><?php esc_html_e( 'Pelembap favorit dengan 5% Ceramide—melembapkan, memperbaiki barrier, bikin kulit kenyal & sehat.', 'lumina-skin' ); ?></p>
               </div>
-              <div class="flex flex-col items-end text-xs text-[#4C1D95]">
-                <span class="font-semibold">Rp49.000</span>
-                <span class="mt-0.5 text-[#7C3AED]">50 ml</span>
-              </div>
-            </div>
-            <div class="mt-4 flex items-center justify-between gap-3 text-[0.72rem] sm:text-xs">
-              <div class="flex items-center gap-1.5 text-[#4C1D95]">
-                <div class="flex items-center text-[#F472B6]">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M10.92 2.868a1.25 1.25 0 0 1 2.16 0l2.795 4.798l5.428 1.176a1.25 1.25 0 0 1 .667 2.054l-3.7 4.141l.56 5.525a1.25 1.25 0 0 1-1.748 1.27L12 19.592l-5.082 2.24a1.25 1.25 0 0 1-1.748-1.27l.56-5.525l-3.7-4.14a1.25 1.25 0 0 1 .667-2.055l5.428-1.176z"/></svg>
-                  <span class="ml-0.5">4.9</span>
+               <div class="flex flex-col items-end text-xs text-[#4C1D95]">
+                  <span class="mt-0.5 text-[#7C3AED]">50 ml</span>
                 </div>
-                <span class="text-[#7C3AED]">&bull; 52rb review</span>
               </div>
-              <button class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors">
-                <span><?php esc_html_e( 'Tambah', 'lumina-skin' ); ?></span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
-              </button>
+              <div class="mt-4 flex items-center justify-between gap-3 text-[0.72rem] sm:text-xs">
+                <div class="flex items-center gap-1.5 text-[#4C1D95]">
+                  <div class="flex items-center text-[#F472B6]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M10.92 2.868a1.25 1.25 0 0 1 2.16 0l2.795 4.798l5.428 1.176a1.25 1.25 0 0 1 .667 2.054l-3.7 4.141l.56 5.525a1.25 1.25 0 0 1-1.748 1.27L12 19.592l-5.082 2.24a1.25 1.25 0 0 1-1.748-1.27l.56-5.525l-3.7-4.14a1.25 1.25 0 0 1 .667-2.055l5.428-1.176z"/></svg>
+                    <span class="ml-0.5">4.9</span>
+                  </div>
+                  <span class="text-[#7C3AED]">&bull; 52rb review</span>
+                </div>
+                <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors no-underline">
+                  <span><?php esc_html_e( 'Beli', 'lumina-skin' ); ?></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
+                </a>
             </div>
             <p class="mt-3 text-[0.7rem] text-[#6D28D9] line-clamp-2"><?php esc_html_e( '"Baru 3 hari pake kulit udah kerasa lebih lembap dan kenyal! Cocok banget buat kulit sensitif."', 'lumina-skin' ); ?></p>
           </article>
@@ -218,23 +213,22 @@
                 <h4 class="font-playfair text-lg font-semibold tracking-tight text-[#2E1065]"><?php esc_html_e( 'Centella Allantoin Soothing Gel', 'lumina-skin' ); ?></h4>
                 <p class="mt-1 text-xs sm:text-sm text-[#4C1D95]"><?php esc_html_e( 'Menenangkan jerawat aktif, mengurangi kemerahan, dan bikin kulit lebih tenang dengan Centella + Allantoin.', 'lumina-skin' ); ?></p>
               </div>
-              <div class="flex flex-col items-end text-xs text-[#4C1D95]">
-                <span class="font-semibold">Rp45.000</span>
-                <span class="mt-0.5 text-[#7C3AED]">50 ml</span>
-              </div>
-            </div>
-            <div class="mt-4 flex items-center justify-between gap-3 text-[0.72rem] sm:text-xs">
-              <div class="flex items-center gap-1.5 text-[#4C1D95]">
-                <div class="flex items-center text-[#F472B6]">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M10.92 2.868a1.25 1.25 0 0 1 2.16 0l2.795 4.798l5.428 1.176a1.25 1.25 0 0 1 .667 2.054l-3.7 4.141l.56 5.525a1.25 1.25 0 0 1-1.748 1.27L12 19.592l-5.082 2.24a1.25 1.25 0 0 1-1.748-1.27l.56-5.525l-3.7-4.14a1.25 1.25 0 0 1 .667-2.055l5.428-1.176z"/></svg>
-                  <span class="ml-0.5">4.8</span>
+               <div class="flex flex-col items-end text-xs text-[#4C1D95]">
+                  <span class="mt-0.5 text-[#7C3AED]">50 ml</span>
                 </div>
-                <span class="text-[#7C3AED]">&bull; 25rb review</span>
               </div>
-              <button class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors">
-                <span><?php esc_html_e( 'Tambah', 'lumina-skin' ); ?></span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z"/></svg>
-              </button>
+              <div class="mt-4 flex items-center justify-between gap-3 text-[0.72rem] sm:text-xs">
+                <div class="flex items-center gap-1.5 text-[#4C1D95]">
+                  <div class="flex items-center text-[#F472B6]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M10.92 2.868a1.25 1.25 0 0 1 2.16 0l2.795 4.798l5.428 1.176a1.25 1.25 0 0 1 .667 2.054l-3.7 4.141l.56 5.525a1.25 1.25 0 0 1-1.748 1.27L12 19.592l-5.082 2.24a1.25 1.25 0 0 1-1.748-1.27l.56-5.525l-3.7-4.14a1.25 1.25 0 0 1 .667-2.055l5.428-1.176z"/></svg>
+                    <span class="ml-0.5">4.8</span>
+                  </div>
+                  <span class="text-[#7C3AED]">&bull; 25rb review</span>
+                </div>
+                <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-full border border-[#DDD6FE] bg-white px-3 py-1.5 font-medium text-[#2E1065] hover:bg-[#EDE9FE] transition-colors no-underline">
+                  <span><?php esc_html_e( 'Beli', 'lumina-skin' ); ?></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-3.5 h-3.5" aria-hidden="true"><path fill="currentColor" d="M13.293 5.293a1 1 0 0 1 1.414 0l4 4a.997.997 0 0 1 .083.094l.007.01l.007.01a.997.997 0 0 1 .083.148l.003.01l.005.01A1 1 0 0 1 19.999 11v.003a1 1 0 0 1-.293.704l-4 4a1 1 0 0 1-1.414-1.414L16.586 12H6a1 1 0 1 1 0-2h10.586l-3.293-3.293a1 1 0 0 1 0-1.414Z"/></svg>
+                </a>
             </div>
             <p class="mt-3 text-[0.7rem] text-[#6D28D9] line-clamp-2"><?php esc_html_e( '"Jerawat mulai kering setelah 3 hari pemakaian! Teksturnya ringan, gak bikin muka tambah berminyak. Love it!"', 'lumina-skin' ); ?></p>
           </article>

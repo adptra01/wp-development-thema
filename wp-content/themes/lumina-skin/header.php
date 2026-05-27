@@ -26,10 +26,7 @@
       <a href="<?php echo esc_url( lumina_page_url( 'tips' ) ); ?>" class="hover:text-[#2E1065] transition-colors"><?php esc_html_e( 'Tips', 'lumina-skin' ); ?></a>
     </nav>
     <div class="flex items-center gap-3">
-      <a href="<?php echo esc_url( wp_login_url() ); ?>" class="hidden sm:inline-flex items-center gap-2 rounded-full border border-[#C4B5FD] px-3.5 py-1.5 text-xs font-medium text-[#6D28D9] hover:border-[#8B5CF6] hover:bg-[#EDE9FE] transition-colors no-underline">
-        <span><?php esc_html_e( 'Masuk', 'lumina-skin' ); ?></span>
-      </a>
-      <a href="<?php echo esc_url( is_front_page() ? '#belanja' : lumina_page_url( 'produk' ) ); ?>" class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-4 py-2 text-xs sm:text-sm font-medium hover:bg-[#7C3AED] hover:shadow-sm transition-colors no-underline">
+      <a href="https://www.tokopedia.com/glad2glow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-[#8B5CF6] text-white px-4 py-2 text-xs sm:text-sm font-medium hover:bg-[#7C3AED] hover:shadow-sm transition-colors no-underline">
         <span><?php esc_html_e( 'Belanja', 'lumina-skin' ); ?></span>
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style="stroke-width:1.5" aria-hidden="true"><path fill="currentColor" d="m14.707 5.636l5.657 5.657a1 1 0 0 1 0 1.414l-5.657 5.657a1 1 0 0 1-1.414-1.414l3.95-3.95H4a1 1 0 1 1 0-2h13.243l-3.95-3.95a1 1 0 1 1 1.414-1.414"/></svg>
       </a>
