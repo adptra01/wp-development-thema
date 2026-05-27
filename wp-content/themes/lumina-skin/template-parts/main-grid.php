@@ -42,7 +42,7 @@
         <div class="flex-1 flex items-center justify-center">
           <div class="relative w-28 sm:w-32 lg:w-36">
             <div class="absolute -top-3 -left-2 w-10 h-10 rounded-full bg-[#8B5CF6]/40 blur-2xl"></div>
-            <img src="https://storage.skinsort.com/7z2xy3i2n0ruigwq8yx83i6qob92" alt="<?php esc_attr_e( 'Blueberry Ceramide Moisturizer', 'lumina-skin' ); ?>" class="w-full h-auto object-contain rounded-2xl relative drop-shadow-xl">
+            <img src="https://i.pinimg.com/1200x/f4/c2/3f/f4c23f221952c3d090c6b53bca9e9c56.jpg" alt="<?php esc_attr_e( 'Blueberry Ceramide Moisturizer', 'lumina-skin' ); ?>" class="w-full h-auto object-contain rounded-2xl relative drop-shadow-xl">
           </div>
         </div>
       </article>
@@ -70,7 +70,7 @@
         <div class="flex-1 flex items-center justify-center">
           <div class="relative w-full max-w-xs">
             <div class="absolute -right-6 -bottom-10 w-32 h-32 rounded-full bg-[#A78BFA]/40 blur-3xl"></div>
-            <img src="https://storage.skinsort.com/04j57b6426p4okie96f7ug42wep8" alt="<?php esc_attr_e( 'Pomegranate Niacinamide Moisturizer', 'lumina-skin' ); ?>" class="w-full h-full object-cover rounded-2xl relative">
+            <img src="https://i.pinimg.com/736x/a5/5a/54/a55a5441708b239b75bd6effbd144f21.jpg" alt="<?php esc_attr_e( 'Pomegranate Niacinamide Moisturizer', 'lumina-skin' ); ?>" class="w-full h-full object-cover rounded-2xl relative">
           </div>
         </div>
       </article>

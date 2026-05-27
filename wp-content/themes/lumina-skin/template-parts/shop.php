@@ -25,7 +25,7 @@
       <section class="space-y-5">
         <div class="flex items-center justify-between gap-4">
           <div class="flex items-center gap-2">
-            <span class="inline-flex items-center justify-center text-[0.7rem] font-medium text-[#6D28D9] bg-[#EDE9FE] w-6 h-6 border-[#DDD6FE] border rounded-full"><?php esc_html_e( 'Baru', 'lumina-skin' ); ?></span>
+            <span class="inline-flex items-center justify-center text-[0.7rem] font-medium text-[#6D28D9] bg-[#EDE9FE] w-6 h-6 border-[#DDD6FE] border rounded-full">&starf;</span>
             <h3 class="text-base sm:text-lg font-medium tracking-tight text-[#2E1065]"><?php esc_html_e( 'Best Seller', 'lumina-skin' ); ?></h3>
           </div>
           <button class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#6D28D9] hover:text-[#2E1065] transition-colors">
@@ -38,7 +38,7 @@
           <article class="group rounded-3xl border border-pink-200 bg-white overflow-hidden flex flex-col shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-t from-[#6D28D9]/20 via-transparent to-transparent pointer-events-none"></div>
-              <img src="https://storage.skinsort.com/7z2xy3i2n0ruigwq8yx83i6qob92" alt="<?php esc_attr_e( 'Blueberry Ceramide Moisturizer', 'lumina-skin' ); ?>" class="sm:h-56 w-full h-48 object-cover">
+              <img src="https://i.pinimg.com/1200x/f4/c2/3f/f4c23f221952c3d090c6b53bca9e9c56.jpg" alt="<?php esc_attr_e( 'Blueberry Ceramide Moisturizer', 'lumina-skin' ); ?>" class="sm:h-56 w-full h-48 object-cover">
               <div class="absolute top-3 left-3">
                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[0.68rem] font-medium bg-[#8B5CF6] text-white shadow-sm"><?php esc_html_e( '#1 BESTSELLER', 'lumina-skin' ); ?></span>
               </div>
@@ -70,7 +70,7 @@
           <article class="group rounded-3xl border border-pink-200 bg-white overflow-hidden flex flex-col shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-t from-[#6D28D9]/20 via-transparent to-transparent pointer-events-none"></div>
-              <img src="https://storage.skinsort.com/3e26k9ocs131gq4favt2qj75lnq2" alt="<?php esc_attr_e( 'Centella Allantoin Gel', 'lumina-skin' ); ?>" class="sm:h-56 w-full h-48 object-cover">
+              <img src="https://wordpress.test/wp-content/uploads/2026/05/centella-allantoin.webp" alt="<?php esc_attr_e( 'Centella Allantoin Gel', 'lumina-skin' ); ?>" class="sm:h-56 w-full h-48 object-cover">
               <div class="absolute top-3 left-3">
                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[0.68rem] font-medium bg-[#8B5CF6]/90 text-white border border-[#DDD6FE]"><?php esc_html_e( 'BEST FOR ACNE', 'lumina-skin' ); ?></span>
               </div>
@@ -102,7 +102,7 @@
           <article class="group rounded-3xl border border-pink-200 bg-white overflow-hidden flex flex-col shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-t from-[#6D28D9]/20 via-transparent to-transparent pointer-events-none"></div>
-              <img src="https://storage.skinsort.com/w6rxywg1fa774ty6uv1ycsbpa96t" alt="<?php esc_attr_e( 'Yuja Symwhite Dark Spot', 'lumina-skin' ); ?>" class="sm:h-56 w-full h-48 object-cover">
+              <img src="https://wordpress.test/wp-content/uploads/2026/05/yuja-symwhite.webp" alt="<?php esc_attr_e( 'Yuja Symwhite Dark Spot', 'lumina-skin' ); ?>" class="sm:h-56 w-full h-48 object-cover">
               <div class="absolute top-3 left-3">
                 <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[0.68rem] font-medium bg-[#8B5CF6] text-white"><?php esc_html_e( 'SPOT CARE', 'lumina-skin' ); ?></span>
               </div>
@@ -148,7 +148,7 @@
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <article class="group rounded-3xl border border-pink-200 bg-white px-5 py-5 sm:px-6 sm:py-6 flex flex-col shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div class="relative mb-4 rounded-2xl overflow-hidden">
-              <img src="https://storage.skinsort.com/jqqf9dyj5mm0ailtw999f737z9to" alt="<?php esc_attr_e( 'Pomegranate Niacinamide', 'lumina-skin' ); ?>" class="sm:h-40 w-full h-32 object-cover">
+              <img src="https://wordpress.test/wp-content/uploads/2026/05/pomegranate-niacinamide.webp" alt="<?php esc_attr_e( 'Pomegranate Niacinamide', 'lumina-skin' ); ?>" class="sm:h-40 w-full h-32 object-cover">
             </div>
             <div class="flex items-start justify-between gap-3">
               <div>
@@ -179,7 +179,7 @@
 
           <article class="group rounded-3xl border border-pink-200 bg-white px-5 py-5 sm:px-6 sm:py-6 flex flex-col shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div class="relative mb-4 rounded-2xl overflow-hidden">
-              <img src="https://storage.skinsort.com/7z2xy3i2n0ruigwq8yx83i6qob92" alt="<?php esc_attr_e( 'Blueberry Ceramide Cream', 'lumina-skin' ); ?>" class="sm:h-40 w-full h-32 object-cover">
+              <img src="https://i.pinimg.com/1200x/f4/c2/3f/f4c23f221952c3d090c6b53bca9e9c56.jpg" alt="<?php esc_attr_e( 'Blueberry Ceramide Cream', 'lumina-skin' ); ?>" class="sm:h-40 w-full h-32 object-cover">
             </div>
             <div class="flex items-start justify-between gap-3">
               <div>
@@ -210,7 +210,7 @@
 
           <article class="group rounded-3xl border border-pink-200 bg-white px-5 py-5 sm:px-6 sm:py-6 flex flex-col shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div class="relative mb-4 rounded-2xl overflow-hidden">
-              <img src="https://storage.skinsort.com/3e26k9ocs131gq4favt2qj75lnq2" alt="<?php esc_attr_e( 'Centella Allantoin Gel', 'lumina-skin' ); ?>" class="sm:h-40 w-full h-32 object-cover">
+              <img src="https://wordpress.test/wp-content/uploads/2026/05/centella-allantoin.webp" alt="<?php esc_attr_e( 'Centella Allantoin Gel', 'lumina-skin' ); ?>" class="sm:h-40 w-full h-32 object-cover">
             </div>
             <div class="flex items-start justify-between gap-3">
               <div>

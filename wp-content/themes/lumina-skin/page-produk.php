@@ -19,7 +19,7 @@ get_header();
 		<?php
 		$products = array(
 			array(
-				'img'     => 'https://storage.skinsort.com/7z2xy3i2n0ruigwq8yx83i6qob92',
+				'img'     => 'https://i.pinimg.com/1200x/f4/c2/3f/f4c23f221952c3d090c6b53bca9e9c56.jpg',
 				'badge'   => '#1 BESTSELLER',
 				'name'    => __( 'Blueberry 5% Ceramide Moisturizer', 'lumina-skin' ),
 				'desc'    => __( 'Moisturizer viral dengan 5% Ceramide complex yang memperbaiki skin barrier, melembapkan, dan menenangkan kulit.', 'lumina-skin' ),
@@ -29,7 +29,7 @@ get_header();
 				'btn'     => 'bg-[#8B5CF6] text-white',
 			),
 			array(
-				'img'     => 'https://storage.skinsort.com/3e26k9ocs131gq4favt2qj75lnq2',
+				'img'     => 'https://wordpress.test/wp-content/uploads/2026/05/centella-allantoin.webp',
 				'badge'   => 'BEST FOR ACNE',
 				'name'    => __( 'Centella Allantoin Soothing Gel', 'lumina-skin' ),
 				'desc'    => __( 'Menenangkan jerawat, mengurangi kemerahan, dan melembapkan dengan Centella & Allantoin.', 'lumina-skin' ),
@@ -39,7 +39,7 @@ get_header();
 				'btn'     => 'border border-[#DDD6FE] bg-white text-[#2E1065]',
 			),
 			array(
-				'img'     => 'https://storage.skinsort.com/w6rxywg1fa774ty6uv1ycsbpa96t',
+				'img'     => 'https://wordpress.test/wp-content/uploads/2026/05/yuja-symwhite.webp',
 				'badge'   => 'SPOT CARE',
 				'name'    => __( 'Yuja Symwhite 377 Dark Spot', 'lumina-skin' ),
 				'desc'    => __( 'Krim dark spot dengan Symwhite 377 & Yuja extract untuk memudarkan bekas jerawat dan noda hitam.', 'lumina-skin' ),
@@ -49,7 +49,7 @@ get_header();
 				'btn'     => 'border border-[#DDD6FE] bg-white text-[#2E1065]',
 			),
 			array(
-				'img'     => 'https://storage.skinsort.com/jqqf9dyj5mm0ailtw999f737z9to',
+				'img'     => 'https://wordpress.test/wp-content/uploads/2026/05/pomegranate-niacinamide.webp',
 				'badge'   => 'BESTSELLER',
 				'name'    => __( 'Pomegranate 5% Niacinamide', 'lumina-skin' ),
 				'desc'    => __( 'Serum brightening dengan 5% Niacinamide + Pomegranate—cerahkan kulit, ratakan tone, kontrol minyak.', 'lumina-skin' ),

@@ -29,9 +29,6 @@
         <?php endfor; ?>
       </div>
       <div class="flex flex-col items-start">
-        <p class="text-sm font-medium text-[#2E1065]">
-          4.9<span class="text-xs text-[#A78BFA] ml-1"><?php esc_html_e( '(128rb review)', 'lumina-skin' ); ?></span>
-        </p>
         <div class="-space-x-2 flex mt-1">
           <img class="w-7 h-7 object-cover border-[#F8F6FF] border rounded-full" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ffc24c17-d47b-4b9b-972e-cd31b73ab395_320w.webp" alt="<?php esc_attr_e( 'Customer', 'lumina-skin' ); ?>">
           <img class="w-7 h-7 object-cover border-[#F8F6FF] border rounded-full" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a2cdd22f-4895-4c8c-b054-f19b899606b1_320w.webp" alt="<?php esc_attr_e( 'Customer', 'lumina-skin' ); ?>">

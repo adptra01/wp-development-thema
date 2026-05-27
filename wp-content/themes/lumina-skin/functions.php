@@ -27,11 +27,13 @@ function lumina_page_slugs(): array {
  * Falls back to home_url( '/slug/' ) if the page doesn't exist.
  */
 function lumina_page_url( string $slug ): string {
-	$page = get_page_by_path( $slug );
+	$slugs = lumina_page_slugs();
+	$path  = $slugs[ $slug ] ?? $slug;
+	$page  = get_page_by_path( $path );
 	if ( $page ) {
 		return esc_url( get_permalink( $page->ID ) );
 	}
-	return esc_url( home_url( '/' . $slug . '/' ) );
+	return esc_url( home_url( '/' . $path . '/' ) );
 }
 
 function lumina_theme_setup() {
