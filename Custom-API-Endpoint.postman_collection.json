@@ -1,0 +1,393 @@
+{
+	"info": {
+		"name": "Custom API Endpoint v1.0",
+		"description": "WordPress Custom API Endpoint — Alternative REST API that bypasses /wp-json/ firewall restrictions on InfinityFree and similar hosting.\n\n**Base URL:** `https://your-site.com/wp-api-proxy.php`\n\n**Authentication:** API Key required for all endpoints except `/status`. Three auth methods supported:\n- Query parameter: `?api_key=YOUR_KEY`\n- HTTP header: `X-API-Key: YOUR_KEY`\n- Bearer token: `Authorization: Bearer YOUR_KEY`\n\n**Rate Limiting:** 120 requests per 60 seconds per API key (configurable via wp-config.php).\n**Response Caching:** GET responses cached for 60 seconds. Bypass with `?nocache=1`.\n**Page Size Limit:** Maximum 100 items per request.\n\n**Manage Keys:** WP Admin → Settings → Custom API Endpoint\n\n---\n**v1.0 Features:** RESTful path-based routing, API key auth with permission scopes, Yoast/RankMath/AIOSEO SEO support, response caching, rate limiting, CORS, access logging.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{"key": "value", "value": "YOUR_API_KEY_HERE", "type": "string"},
+			{"key": "key", "value": "api_key", "type": "string"}
+		]
+	},
+	"variable": [
+		{"key": "base_url", "value": "https://your-site.com/wp-api-proxy.php"},
+		{"key": "api_key", "value": "YOUR_API_KEY_HERE"}
+	],
+	"item": [
+		{
+			"name": "0 — Status (No Auth)",
+			"description": "Health check endpoint — no authentication required. Returns WordPress and PHP version info.",
+			"item": [
+				{
+					"name": "GET /status — Health Check",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+						"pm.test('JSON response', () => pm.response.to.have.jsonBody());",
+						"pm.test('status == ok', () => { const j = pm.response.json(); pm.expect(j.status).to.eql('ok'); });",
+						"pm.test('wordpress version present', () => { pm.expect(pm.response.json().wordpress).to.be.a('string'); });",
+						"pm.test('php version present', () => { pm.expect(pm.response.json().php).to.be.a('string'); });"
+					], "type": "text/javascript"}}],
+					"request": {
+						"method": "GET", "header": [],
+						"url": {"raw": "{{base_url}}/status", "host": ["{{base_url}}"], "path": ["status"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "1 — Posts & Content",
+			"description": "Retrieve posts, pages, and custom post types. Supports pagination, filtering, search, sorting.",
+			"item": [
+				{
+					"name": "GET /posts — List All Posts (default)",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+						"pm.test('Has pagination fields', () => { const j = pm.response.json(); pm.expect(j.total).to.be.a('number'); pm.expect(j.page).to.be.a('number'); pm.expect(j.total_pages).to.be.a('number'); });",
+						"pm.test('results is array', () => { pm.expect(pm.response.json().results).to.be.an('array'); });",
+						"const r = pm.response.json(); if (r.results.length > 0) {",
+						"  pm.test('post has required fields', () => { const p = r.results[0]; pm.expect(p).to.include.all.keys('id','title','slug','content','link','author','excerpt'); });",
+						"}"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&per_page=10",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"per_page","value":"10"}]
+					}}
+				},
+				{
+					"name": "GET /posts — With Metadata & Taxonomies",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&per_page=3&include_meta=1&include_taxonomies=1",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"per_page","value":"3"},{"key":"include_meta","value":"1"},{"key":"include_taxonomies","value":"1"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Raw Content (skip the_content filter)",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&per_page=1&content_type=raw",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"per_page","value":"1"},{"key":"content_type","value":"raw"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Pagination (page 2, 5 per page)",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&per_page=5&page=2",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"per_page","value":"5"},{"key":"page","value":"2"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Filter by Category",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&category=1&per_page=5",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"category","value":"1"},{"key":"per_page","value":"5"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Filter by Tag",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&tag=9&per_page=5",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"tag","value":"9"},{"key":"per_page","value":"5"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Filter by Taxonomy + Term",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&taxonomy=category&term=uncategorized",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"taxonomy","value":"category"},{"key":"term","value":"uncategorized"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Search Posts",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&search=wordpress",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"search","value":"wordpress"}]
+					}}
+				},
+				{
+					"name": "GET /posts — List Pages (type=page)",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&type=page",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"type","value":"page"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Drafts Only (status=draft)",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&status=draft",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"status","value":"draft"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Sorted by Title ASC",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&orderby=title&order=ASC&per_page=5",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"orderby","value":"title"},{"key":"order","value":"ASC"},{"key":"per_page","value":"5"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Filter by Author",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&author=1",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"author","value":"1"}]
+					}}
+				},
+				{
+					"name": "GET /posts — Bypass Cache (nocache=1)",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&per_page=1&nocache=1",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"per_page","value":"1"},{"key":"nocache","value":"1"}]
+					}}
+				},
+				{
+					"name": "GET /posts/{id} — Single Post by ID",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+						"pm.test('post object returned', () => { const j = pm.response.json(); pm.expect(j.post).to.be.an('object'); pm.expect(j.post.id).to.eql(1); });"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts/1?api_key={{api_key}}",
+						"host": ["{{base_url}}"], "path": ["posts","1"],
+						"query": [{"key":"api_key","value":"{{api_key}}"}]
+					}}
+				},
+				{
+					"name": "GET /posts/{slug} — Single Post by Slug",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts/hello-world?api_key={{api_key}}",
+						"host": ["{{base_url}}"], "path": ["posts","hello-world"],
+						"query": [{"key":"api_key","value":"{{api_key}}"}]
+					}}
+				},
+				{
+					"name": "GET /posts/99999 — Post Not Found (404)",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 404', () => pm.response.to.have.status(404));"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts/99999?api_key={{api_key}}&nocache=1",
+						"host": ["{{base_url}}"], "path": ["posts","99999"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"nocache","value":"1"}]
+					}}
+				},
+				{
+					"name": "GET /post_types — Available Post Types",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/post_types?api_key={{api_key}}",
+						"host": ["{{base_url}}"], "path": ["post_types"],
+						"query": [{"key":"api_key","value":"{{api_key}}"}]
+					}}
+				}
+			]
+		},
+		{
+			"name": "2 — Taxonomies & Terms",
+			"description": "List registered taxonomies and their terms.",
+			"item": [
+				{
+					"name": "GET /taxonomies — All Taxonomies",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+						"pm.test('results is array', () => { const j = pm.response.json(); pm.expect(j.results).to.be.an('array'); });"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/taxonomies?api_key={{api_key}}",
+						"host": ["{{base_url}}"], "path": ["taxonomies"],
+						"query": [{"key":"api_key","value":"{{api_key}}"}]
+					}}
+				},
+				{
+					"name": "GET /taxonomies/{post_type} — By Post Type",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/taxonomies/post?api_key={{api_key}}",
+						"host": ["{{base_url}}"], "path": ["taxonomies","post"],
+						"query": [{"key":"api_key","value":"{{api_key}}"}]
+					}}
+				},
+				{
+					"name": "GET /terms — Terms in Category",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+						"pm.test('results is array with term fields', () => { const r = pm.response.json().results; pm.expect(r).to.be.an('array'); if(r.length>0) pm.expect(r[0]).to.include.all.keys('id','name','slug','taxonomy'); });"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/terms?api_key={{api_key}}&taxonomy=category",
+						"host": ["{{base_url}}"], "path": ["terms"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"taxonomy","value":"category"}]
+					}}
+				},
+				{
+					"name": "GET /terms — Tags (post_tag)",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/terms?api_key={{api_key}}&taxonomy=post_tag",
+						"host": ["{{base_url}}"], "path": ["terms"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"taxonomy","value":"post_tag"}]
+					}}
+				},
+				{
+					"name": "GET /terms — Search Terms",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/terms?api_key={{api_key}}&taxonomy=category&search=tech",
+						"host": ["{{base_url}}"], "path": ["terms"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"taxonomy","value":"category"},{"key":"search","value":"tech"}]
+					}}
+				},
+				{
+					"name": "GET /terms — Invalid Taxonomy (404)",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 404', () => pm.response.to.have.status(404));"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/terms?api_key={{api_key}}&taxonomy=invalid_tax&nocache=1",
+						"host": ["{{base_url}}"], "path": ["terms"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"taxonomy","value":"invalid_tax"},{"key":"nocache","value":"1"}]
+					}}
+				}
+			]
+		},
+		{
+			"name": "3 — Users",
+			"description": "List users with roles and capabilities. Requires 'users' permission on the API key.",
+			"item": [
+				{
+					"name": "GET /users — All Users",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+						"pm.test('results with roles and allcaps', () => { const u = pm.response.json().results[0]; if(u) { pm.expect(u).to.include.all.keys('id','login','email','roles','allcaps'); } });"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/users?api_key={{api_key}}&per_page=10",
+						"host": ["{{base_url}}"], "path": ["users"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"per_page","value":"10"}]
+					}}
+				},
+				{
+					"name": "GET /users — Filter by Role",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/users?api_key={{api_key}}&role=administrator",
+						"host": ["{{base_url}}"], "path": ["users"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"role","value":"administrator"}]
+					}}
+				},
+				{
+					"name": "GET /users — Search Users",
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/users?api_key={{api_key}}&search=admin",
+						"host": ["{{base_url}}"], "path": ["users"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"search","value":"admin"}]
+					}}
+				}
+			]
+		},
+		{
+			"name": "4 — SEO Metadata",
+			"description": "SEO data from Yoast SEO, Rank Math, or All in One SEO. Auto-detects which plugin is active. Requires 'seo' permission.",
+			"item": [
+				{
+					"name": "GET /seo/{id} — SEO Data for Post",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));",
+						"pm.test('SEO data present', () => { const d = pm.response.json().data; pm.expect(d).to.be.an('object'); const seo = d.yoast || d.rank_math || d.aioseo; if(seo) { pm.test('has title', () => pm.expect(seo).to.have.property('title')); pm.test('has description', () => pm.expect(seo).to.have.property('description')); } });"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/seo/1?api_key={{api_key}}",
+						"host": ["{{base_url}}"], "path": ["seo","1"],
+						"query": [{"key":"api_key","value":"{{api_key}}"}]
+					}}
+				},
+				{
+					"name": "GET /seo — Missing ID Parameter (400)",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 400', () => pm.response.to.have.status(400));"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/seo?api_key={{api_key}}&nocache=1",
+						"host": ["{{base_url}}"], "path": ["seo"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"nocache","value":"1"}]
+					}}
+				}
+			]
+		},
+		{
+			"name": "5 — Authentication Methods",
+			"description": "Three authentication methods supported. Use whichever fits your integration best.",
+			"item": [
+				{
+					"name": "Query Param — ?api_key=KEY",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 200', () => pm.response.to.have.status(200));"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?api_key={{api_key}}&per_page=1&nocache=1",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"api_key","value":"{{api_key}}"},{"key":"per_page","value":"1"},{"key":"nocache","value":"1"}]
+					}}
+				},
+				{
+					"name": "Header — X-API-Key: KEY",
+					"request": {"method": "GET", "header": [
+						{"key":"X-API-Key","value":"{{api_key}}"}
+					], "url": {
+						"raw": "{{base_url}}/posts?per_page=1&nocache=1",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"per_page","value":"1"},{"key":"nocache","value":"1"}]
+					}}
+				},
+				{
+					"name": "Header — Authorization: Bearer KEY",
+					"request": {"method": "GET", "header": [
+						{"key":"Authorization","value":"Bearer {{api_key}}"}
+					], "url": {
+						"raw": "{{base_url}}/posts?per_page=1&nocache=1",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"per_page","value":"1"},{"key":"nocache","value":"1"}]
+					}}
+				},
+				{
+					"name": "No Auth — Expected 401",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 401', () => pm.response.to.have.status(401));"
+					], "type": "text/javascript"}}],
+					"request": {"method": "GET", "header": [], "url": {
+						"raw": "{{base_url}}/posts?nocache=1",
+						"host": ["{{base_url}}"], "path": ["posts"],
+						"query": [{"key":"nocache","value":"1"}]
+					}}
+				}
+			]
+		},
+		{
+			"name": "6 — CORS & Preflight",
+			"description": "CORS headers included in all responses. Configurable origins via wp-config.php constant CUSTOM_API_ALLOWED_ORIGINS.",
+			"item": [
+				{
+					"name": "OPTIONS /posts — CORS Preflight",
+					"event": [{"listen": "test", "script": {"exec": [
+						"pm.test('HTTP 204', () => pm.response.to.have.status(204));",
+						"pm.test('CORS headers present', () => { pm.expect(pm.response.headers.get('Access-Control-Allow-Origin')).to.exist; pm.expect(pm.response.headers.get('Access-Control-Allow-Methods')).to.include('GET'); });"
+					], "type": "text/javascript"}}],
+					"request": {"method": "OPTIONS", "header": [
+						{"key":"Origin","value":"https://example.com"},
+						{"key":"Access-Control-Request-Method","value":"GET"}
+					], "url": {
+						"raw": "{{base_url}}/posts",
+						"host": ["{{base_url}}"], "path": ["posts"]
+					}}
+				}
+			]
+		}
+	]
+}
