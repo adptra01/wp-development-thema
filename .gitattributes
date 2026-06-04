@@ -1,21 +1,72 @@
 * text=auto
 
+# Source code — always LF (cross-platform standard)
 *.php text eol=lf
 *.css text eol=lf
+*.scss text eol=lf
 *.js text eol=lf
+*.mjs text eol=lf
+*.ts text eol=lf
+*.jsx text eol=lf
+*.tsx text eol=lf
 *.html text eol=lf
 *.json text eol=lf
 *.xml text eol=lf
+*.svg text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.env text eol=lf
+*.ini text eol=lf
+*.conf text eol=lf
+*.dist text eol=lf
 *.sh text eol=lf
+*.py text eol=lf
+*.rb text eol=lf
 
+# Windows batch files — CRLF required
 *.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
 
-# Binary
+# Binary — never convert
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
 *.webp binary
+*.ico binary
+*.svgz binary
 *.zip binary
+*.gz binary
+*.tar binary
+*.bz2 binary
+*.7z binary
+*.rar binary
 *.woff binary
 *.woff2 binary
+*.ttf binary
+*.eot binary
+*.otf binary
+*.mp3 binary
+*.mp4 binary
+*.webm binary
+*.pdf binary
+*.phar binary
+*.exe binary
+*.dll binary
+*.so binary
+
+# Lock files — never merge, generate locally
+composer.lock -merge
+package-lock.json -merge
+
+# Gradle wrapper JAR
+*.jar binary
+
+# Diff drivers for better code review
+*.php diff=php
+*.css diff=css
+*.html diff=html
