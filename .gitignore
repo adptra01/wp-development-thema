@@ -25,6 +25,7 @@ PaxHeaders/
 /wp-content/*
 !/wp-content/themes/
 !/wp-content/plugins/
+!/wp-content/mu-plugins/
 /wp-content/themes/twentytwentyfive/
 /wp-content/themes/twenty*/
 /wp-content/plugins/index.php
