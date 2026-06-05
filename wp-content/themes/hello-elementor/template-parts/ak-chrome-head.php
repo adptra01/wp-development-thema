@@ -23,9 +23,13 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
 /* ── CLASH DISPLAY UTILITY ── */
-.cd { font-family: 'Clash Display', sans-serif; font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; }
-.cd-m { font-family: 'Clash Display', sans-serif; font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; }
-.cd-i { font-family: 'Clash Display', sans-serif; font-weight: 700; font-style: italic; letter-spacing: -0.05em; }
+/* Clash Display is a variable font with a width axis (75–125).
+   'wdth' 105 widens characters slightly for editorial presence — no distortion.
+   For the hero echo-stack we additionally apply transform: scaleY(1.05) to lift
+   the cap-height/ascender without touching horizontal width. */
+.cd { font-family: 'Clash Display', sans-serif; font-weight: 700; font-variation-settings: 'wdth' 105; letter-spacing: -0.05em; line-height: 0.9; }
+.cd-m { font-family: 'Clash Display', sans-serif; font-weight: 600; font-variation-settings: 'wdth' 105; letter-spacing: -0.04em; line-height: 1.1; }
+.cd-i { font-family: 'Clash Display', sans-serif; font-weight: 700; font-style: italic; font-variation-settings: 'wdth' 105; letter-spacing: -0.05em; }
 .muted { color: var(--muted-dark); font-weight: 400; }
 
 /* ── NAVIGATION ── */
@@ -41,7 +45,7 @@ img { max-width: 100%; display: block; }
 
 /* ── HERO ── */
 .ak-hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 140px 40px 80px; text-align: center; }
-.ak-echo-stack { position: relative; display: inline-block; }
+.ak-echo-stack { position: relative; display: inline-block; transform: scaleY(1.05); transform-origin: center; }
 .ak-echo-layer { position: absolute; top: 0; left: 0; pointer-events: none; white-space: nowrap; font-size: clamp(3.5rem, 9vw, 150px); }
 .ak-echo-layer:nth-child(1) { position: relative; color: var(--text); z-index: 5; }
 .ak-echo-layer:nth-child(2) { color: #bfbfbf; transform: translate(-0.03em, -0.03em); z-index: 4; }

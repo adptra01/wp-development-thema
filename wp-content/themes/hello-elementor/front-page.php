@@ -22,7 +22,7 @@ a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
 /* ── CLASH DISPLAY UTILITY ── */
-.cd { font-family: 'Clash Display', sans-serif; font-weight: 700; letter-spacing: -0.05em; line-height: 0.9; }
+.cd { font-family: 'Clash Display', sans-serif; font-weight: 700; font-variation-settings: 'wdth' 105; letter-spacing: -0.05em; line-height: 0.9; }
 .cd-italic { font-family: 'Clash Display', sans-serif; font-weight: 700; font-style: italic; letter-spacing: -0.05em; }
 
 /* ── NAVIGATION ── */
@@ -38,7 +38,7 @@ img { max-width: 100%; display: block; }
 /* ── HERO ── */
 .ak-hero { min-height: 85vh; display: flex; align-items: center; justify-content: center; padding: 120px 40px 80px; }
 .ak-hero-inner { text-align: center; }
-.ak-echo-stack { position: relative; display: inline-block; }
+.ak-echo-stack { position: relative; display: inline-block; transform: scaleY(1.05); transform-origin: center; }
 .ak-echo-layer { position: absolute; top: 0; left: 0; pointer-events: none; white-space: nowrap; font-size: clamp(4rem, 11vw, 180px); }
 .ak-echo-layer:nth-child(1) { position: relative; color: var(--text); z-index: 5; }
 .ak-echo-layer:nth-child(2) { color: #bfbfbf; transform: translate(-0.03em, -0.03em); z-index: 4; }
