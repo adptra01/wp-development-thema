@@ -3,6 +3,8 @@
  * Home (blog posts index) — Akar Solution (Swiss-Minimal)
  * Used when Settings > Reading has "Your latest posts" or a static "Posts page".
  * We use the ak-* design system with the post loop.
+ *
+ * @package HelloElementor
  */
 get_header();
 get_template_part( 'template-parts/ak-chrome-head' );
@@ -10,16 +12,15 @@ get_template_part( 'template-parts/ak-chrome-head' );
 
 <!-- HERO -->
 <section class="ak-hero">
-  <div>
-    <span class="ak-hero-tag">Blog</span>
-    <div class="ak-echo-stack ak-reveal-slide" data-reveal>
-      <span class="ak-echo-layer cd">Blog</span>
-      <span class="ak-echo-layer cd">Blog</span>
-      <span class="ak-echo-layer cd">Blog</span>
-      <span class="ak-echo-layer cd">Blog</span>
-      <span class="ak-echo-layer cd">Blog</span>
+  <div class="ak-hero-grid">
+    <div>
+      <span class="ak-hero-tag">Blog</span>
+      <h1 class="ak-reveal-slide" data-reveal>
+        Insight &amp; tips untuk <em>UMKM</em> dan <em>mahasiswa</em> Jambi.
+      </h1>
+      <p class="ak-hero-sub ak-reveal-slide" data-reveal>Ditulis oleh praktisi, bukan copywriter. Konten yang relevan, terapan, dan tanpa jargon.</p>
     </div>
-    <p class="ak-hero-sub ak-reveal-slide" data-reveal>Insight &amp; tips untuk UMKM dan mahasiswa Jambi — ditulis oleh praktisi, bukan copywriter.</p>
+    <div class="ak-hero-visual ak-reveal" data-reveal></div>
   </div>
 </section>
 
@@ -82,7 +83,10 @@ get_template_part( 'template-parts/ak-chrome-head' );
 <section class="ak-cta ak-reveal-slide" data-reveal>
   <h2 class="cd">Punya pertanyaan?</h2>
   <p>Konsultasi gratis — kami balas dalam 1–2 jam.</p>
-  <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20mau%20tanya-tanya." class="ak-btn" target="_blank" rel="noopener">Chat via WhatsApp</a>
+  <div class="ak-ctas">
+    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20mau%20tanya-tanya." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Form Kontak</a>
+  </div>
 </section>
 
 <?php

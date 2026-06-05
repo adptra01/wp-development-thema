@@ -2,6 +2,8 @@
 /**
  * Template Name: Harga
  * Akar Solution — Pricing page (Swiss-Minimal)
+ *
+ * @package HelloElementor
  */
 get_header();
 get_template_part( 'template-parts/ak-chrome-head' );
@@ -9,24 +11,26 @@ get_template_part( 'template-parts/ak-chrome-head' );
 
 <!-- HERO -->
 <section class="ak-hero">
-  <div>
-    <span class="ak-hero-tag">Harga</span>
-    <div class="ak-echo-stack ak-reveal-slide" data-reveal>
-      <span class="ak-echo-layer cd">Harga</span>
-      <span class="ak-echo-layer cd">Harga</span>
-      <span class="ak-echo-layer cd">Harga</span>
-      <span class="ak-echo-layer cd">Harga</span>
-      <span class="ak-echo-layer cd">Harga</span>
+  <div class="ak-hero-grid">
+    <div>
+      <span class="ak-hero-tag">Harga</span>
+      <h1 class="ak-reveal-slide" data-reveal>
+        Harga <em>transparan</em>, tidak ada hidden cost.
+      </h1>
+      <p class="ak-hero-sub ak-reveal-slide" data-reveal>Pilih paket yang sesuai dengan kebutuhan Anda — atau hubungi kami untuk penawaran custom. Semua harga sudah final, tidak ada biaya tersembunyi.</p>
     </div>
-    <p class="ak-hero-sub ak-reveal-slide" data-reveal>Harga transparan, tidak ada hidden cost. Pilih paket yang sesuai — atau hubungi kami untuk penawaran custom.</p>
+    <div class="ak-hero-visual ak-reveal" data-reveal></div>
   </div>
 </section>
 
 <!-- BISNIS PRICING -->
 <section class="ak-section-tight">
   <div class="ak-container">
-    <div class="ak-divider"></div>
-    <h2 class="cd ak-reveal-slide" data-reveal style="text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:60px;">Divisi <em style="color:var(--muted)">Bisnis</em></h2>
+    <div class="ak-section-header">
+      <div class="ak-section-eyebrow">Divisi Bisnis</div>
+      <h2 class="ak-reveal-slide" data-reveal">Paket <em>website</em> &amp; aplikasi.</h2>
+      <p>Tiga paket untuk skala bisnis yang berbeda. Upgrade atau downgrade kapan saja.</p>
+    </div>
     <div class="ak-pricing-grid">
       <div class="ak-pcard ak-reveal-slide" data-reveal>
         <div class="ak-pname cd-m">Website UMKM</div>
@@ -83,8 +87,11 @@ get_template_part( 'template-parts/ak-chrome-head' );
 <!-- PENDIDIKAN PRICING -->
 <section class="ak-section-tight ak-section-light" id="pendidikan">
   <div class="ak-container">
-    <div class="ak-divider"></div>
-    <h2 class="cd ak-reveal-slide" data-reveal style="text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:60px;">Divisi <em style="color:var(--muted)">Pendidikan</em></h2>
+    <div class="ak-section-header">
+      <div class="ak-section-eyebrow">Divisi Pendidikan</div>
+      <h2 class="ak-reveal-slide" data-reveal">Paket <em>mentoring</em> &amp; konsultasi.</h2>
+      <p>Untuk mahasiswa informatika yang butuh bimbingan skripsi, proyek, atau review kode.</p>
+    </div>
     <div class="ak-pricing-grid">
       <div class="ak-pcard ak-reveal-slide" data-reveal>
         <div class="ak-pname cd-m">Code Review</div>
@@ -135,25 +142,27 @@ get_template_part( 'template-parts/ak-chrome-head' );
 
 <!-- FAQ -->
 <section class="ak-section">
-  <div class="ak-container" style="max-width:820px;">
-    <div class="ak-divider"></div>
-    <h2 class="cd ak-reveal-slide" data-reveal style="text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:60px;">Pertanyaan <em style="color:var(--muted)">Umum</em></h2>
+  <div class="ak-container ak-container-narrow">
+    <div class="ak-section-header">
+      <div class="ak-section-eyebrow">FAQ</div>
+      <h2 class="ak-reveal-slide" data-reveal">Pertanyaan yang <em>sering</em> ditanyakan.</h2>
+    </div>
     <div class="ak-narrative" style="text-align:left;">
-      <div class="ak-reveal-slide" data-reveal style="padding:24px 0;border-bottom:1px solid rgba(30,30,30,0.08);">
-        <h3 class="cd" style="font-size:1.1rem;margin-bottom:8px;">Apakah bisa bayar DP dulu?</h3>
-        <p class="muted" style="font-size:0.95rem;">Bisa. Standar kami 50% DP, 50% pelunasan setelah website live. Untuk paket Aplikasi Custom, termin bisa 3 tahap (30%–40%–30%).</p>
+      <div class="ak-reveal-slide" data-reveal style="padding:28px 0;border-bottom:1px solid var(--line);">
+        <h3 class="cd" style="font-size:1.15rem;margin-bottom:10px;letter-spacing:-0.02em;">Apakah bisa bayar DP dulu?</h3>
+        <p class="muted" style="font-size:0.98rem;line-height:1.7;">Bisa. Standar kami 50% DP, 50% pelunasan setelah website live. Untuk paket Aplikasi Custom, termin bisa 3 tahap (30%–40%–30%).</p>
       </div>
-      <div class="ak-reveal-slide" data-reveal style="padding:24px 0;border-bottom:1px solid rgba(30,30,30,0.08);">
-        <h3 class="cd" style="font-size:1.1rem;margin-bottom:8px;">Berapa lama pengerjaan?</h3>
-        <p class="muted" style="font-size:0.95rem;">Website UMKM: 1–2 minggu. Website Bisnis: 2–4 minggu. Aplikasi Custom: 1–3 bulan tergantung kompleksitas.</p>
+      <div class="ak-reveal-slide" data-reveal style="padding:28px 0;border-bottom:1px solid var(--line);">
+        <h3 class="cd" style="font-size:1.15rem;margin-bottom:10px;letter-spacing:-0.02em;">Berapa lama pengerjaan?</h3>
+        <p class="muted" style="font-size:0.98rem;line-height:1.7;">Website UMKM: 1–2 minggu. Website Bisnis: 2–4 minggu. Aplikasi Custom: 1–3 bulan tergantung kompleksitas.</p>
       </div>
-      <div class="ak-reveal-slide" data-reveal style="padding:24px 0;border-bottom:1px solid rgba(30,30,30,0.08);">
-        <h3 class="cd" style="font-size:1.1rem;margin-bottom:8px;">Saya di luar Jambi, bisa order?</h3>
-        <p class="muted" style="font-size:0.95rem;">Bisa. Komunikasi via WhatsApp, video call, dan shared dokumen. Beberapa klien kami ada di luar Jambi.</p>
+      <div class="ak-reveal-slide" data-reveal style="padding:28px 0;border-bottom:1px solid var(--line);">
+        <h3 class="cd" style="font-size:1.15rem;margin-bottom:10px;letter-spacing:-0.02em;">Saya di luar Jambi, bisa order?</h3>
+        <p class="muted" style="font-size:0.98rem;line-height:1.7;">Bisa. Komunikasi via WhatsApp, video call, dan shared dokumen. Beberapa klien kami ada di luar Jambi.</p>
       </div>
-      <div class="ak-reveal-slide" data-reveal style="padding:24px 0;">
-        <h3 class="cd" style="font-size:1.1rem;margin-bottom:8px;">Apa saya bisa edit website sendiri setelah jadi?</h3>
-        <p class="muted" style="font-size:0.95rem;">Untuk paket Bisnis ke atas, kami buatkan CMS — Anda bisa edit teks, gambar, dan tambah halaman sendiri tanpa coding.</p>
+      <div class="ak-reveal-slide" data-reveal style="padding:28px 0;">
+        <h3 class="cd" style="font-size:1.15rem;margin-bottom:10px;letter-spacing:-0.02em;">Apa saya bisa edit website sendiri setelah jadi?</h3>
+        <p class="muted" style="font-size:0.98rem;line-height:1.7;">Untuk paket Bisnis ke atas, kami buatkan CMS — Anda bisa edit teks, gambar, dan tambah halaman sendiri tanpa coding.</p>
       </div>
     </div>
   </div>
@@ -163,7 +172,10 @@ get_template_part( 'template-parts/ak-chrome-head' );
 <section class="ak-cta ak-reveal-slide" data-reveal>
   <h2 class="cd">Masih ragu?</h2>
   <p>Diskusi 15 menit gratis — kami bantu pilih paket yang pas.</p>
-  <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20mau%20konsultasi%20paket." class="ak-btn" target="_blank" rel="noopener">Chat via WhatsApp</a>
+  <div class="ak-ctas">
+    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20mau%20konsultasi%20paket." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Form Kontak</a>
+  </div>
 </section>
 
 <?php

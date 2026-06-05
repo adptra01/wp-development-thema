@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   <div class="ak-footer-grid">
     <div>
       <div class="ak-footer-brand">Akar<em>Solution</em></div>
-      <p style="font-size:0.9rem;font-weight:400;line-height:1.7;">Mitra digital terpercaya di Jambi — website profesional, aplikasi custom, dan pendampingan IT untuk bisnis lokal dan mahasiswa.</p>
+      <p>Mitra digital terpercaya di Jambi — website profesional, aplikasi custom, dan pendampingan IT untuk bisnis lokal dan mahasiswa.</p>
     </div>
     <div>
       <h4>Layanan</h4>
@@ -39,26 +39,28 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 </footer>
 
 <div class="ak-float">
-  <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." target="_blank" rel="noopener" title="Chat via WhatsApp">💬</a>
+  <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." target="_blank" rel="noopener" title="Chat via WhatsApp" aria-label="Chat via WhatsApp">💬</a>
 </div>
 
 <script>
 (function(){
   // Sticky nav: hide on scroll down, show on scroll up
-  const nav = document.getElementById('akNav');
+  var nav = document.getElementById('akNav');
   if (nav) {
-    let lastY = 0;
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
+    var lastY = 0;
+    window.addEventListener('scroll', function() {
+      var y = window.scrollY;
       if (y > lastY && y > 120) nav.classList.add('hidden');
       else nav.classList.remove('hidden');
       lastY = y;
     }, { passive: true });
   }
   // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(function(el) { observer.observe(el); });
+  }
 })();
 </script>

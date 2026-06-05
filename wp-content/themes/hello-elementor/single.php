@@ -2,6 +2,8 @@
 /**
  * Single post template — Akar Solution (Swiss-Minimal)
  * Used for blog post detail pages.
+ *
+ * @package HelloElementor
  */
 get_header();
 get_template_part( 'template-parts/ak-chrome-head' );
@@ -30,7 +32,7 @@ while ( have_posts() ) : the_post();
   <a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="ak-post-back ak-reveal-slide" data-reveal>← Kembali ke Blog</a>
 
   <?php if ( has_post_thumbnail() ) : ?>
-    <div class="ak-reveal" data-reveal style="margin-bottom:48px;border-radius:6px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#e8e8e8,#d4d4d4);">
+    <div class="ak-reveal" data-reveal style="margin-bottom:48px;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#e8e8e8,#d4d4d4);">
       <?php the_post_thumbnail( 'large', [ 'style' => 'width:100%;height:100%;object-fit:cover;' ] ); ?>
     </div>
   <?php endif; ?>
@@ -45,29 +47,29 @@ while ( have_posts() ) : the_post();
 
   <!-- TAGS -->
   <?php $tags = get_the_tags(); if ( $tags ) : ?>
-    <div style="margin-top:60px;padding-top:32px;border-top:1px solid rgba(30,30,30,0.08);display:flex;gap:8px;flex-wrap:wrap;">
+    <div style="margin-top:60px;padding-top:32px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;">
       <?php foreach ( $tags as $tag ) : ?>
-        <span style="display:inline-block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;padding:6px 16px;border:1px solid rgba(30,30,30,0.12);border-radius:9999px;font-weight:700;color:var(--muted-dark);"><?php echo esc_html( $tag->name ); ?></span>
+        <span style="display:inline-block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;padding:8px 16px;border:1px solid var(--line-strong);border-radius:9999px;font-weight:700;color:var(--text-muted);min-height:44px;display:inline-flex;align-items:center;"><?php echo esc_html( $tag->name ); ?></span>
       <?php endforeach; ?>
     </div>
   <?php endif; ?>
 
   <!-- AUTHOR -->
-  <div style="margin-top:60px;padding:32px;background:rgba(30,30,30,0.04);border-radius:6px;display:flex;gap:20px;align-items:center;">
+  <div style="margin-top:60px;padding:32px;background:rgba(17,17,17,0.04);border-radius:8px;display:flex;gap:20px;align-items:center;">
     <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#d8d8d8,#b8b8b8);display:flex;align-items:center;justify-content:center;font-family:'Clash Display',sans-serif;font-weight:700;font-size:1.4rem;color:var(--text);">
       <?php echo esc_html( strtoupper( substr( get_the_author(), 0, 1 ) ) ); ?>
     </div>
     <div>
-      <div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-0.03em;margin-bottom:4px;"><?php the_author(); ?></div>
-      <div style="font-size:0.85rem;color:var(--muted-dark);font-weight:400;">Founder, Akar Solution</div>
+      <div class="cd" style="font-weight:700;font-size:1.1rem;letter-spacing:-0.02em;margin-bottom:4px;"><?php the_author(); ?></div>
+      <div style="font-size:0.85rem;color:var(--text-muted);font-weight:400;">Founder, Akar Solution</div>
     </div>
   </div>
 
   <!-- CTA -->
-  <div style="margin-top:60px;text-align:center;padding:48px 24px;background:var(--dark);border-radius:6px;color:var(--bg);">
-    <div style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-0.03em;line-height:1.1;margin-bottom:12px;">Butuh bantuan profesional?</div>
-    <p style="color:rgba(246,246,246,0.6);font-weight:400;margin-bottom:24px;">Konsultasi gratis 15 menit — kami bantu analisis kebutuhan Anda.</p>
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." class="ak-btn" target="_blank" rel="noopener" style="background:var(--bg);color:var(--dark);border-color:var(--bg);">Chat via WhatsApp</a>
+  <div style="margin-top:60px;text-align:center;padding:60px 32px;background:var(--dark);border-radius:8px;color:#f6f6f6;">
+    <div class="cd" style="font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-0.02em;line-height:1.1;margin-bottom:14px;word-spacing:0.05em;">Butuh bantuan profesional?</div>
+    <p style="color:rgba(246,246,246,0.65);font-weight:400;margin-bottom:28px;line-height:1.7;">Konsultasi gratis 15 menit — kami bantu analisis kebutuhan Anda.</p>
+    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." class="ak-btn" target="_blank" rel="noopener" style="background:#f6f6f6;color:var(--dark);border-color:#f6f6f6;">💬 Chat via WhatsApp</a>
   </div>
 </article>
 
@@ -89,8 +91,10 @@ $related = new WP_Query( $related_args );
 if ( $related->have_posts() ) : ?>
 <section class="ak-section-tight">
   <div class="ak-container">
-    <div class="ak-divider"></div>
-    <h2 class="cd ak-reveal-slide" data-reveal style="text-align:center;font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:60px;">Artikel <em style="color:var(--muted);">Lainnya</em></h2>
+    <div class="ak-section-header">
+      <div class="ak-section-eyebrow">Artikel Lainnya</div>
+      <h2 class="ak-reveal-slide" data-reveal>Yang <em>sejenis</em>.</h2>
+    </div>
     <div class="ak-blog-grid">
       <?php $i = 1; while ( $related->have_posts() ) : $related->the_post();
         $thumb_class = 't' . ( ( $i % 3 ) + 1 );

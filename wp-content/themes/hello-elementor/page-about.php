@@ -2,6 +2,8 @@
 /**
  * Template Name: Tentang
  * Akar Solution — About page (Swiss-Minimal)
+ *
+ * @package HelloElementor
  */
 get_header();
 get_template_part( 'template-parts/ak-chrome-head' );
@@ -9,26 +11,25 @@ get_template_part( 'template-parts/ak-chrome-head' );
 
 <!-- HERO -->
 <section class="ak-hero">
-  <div>
-    <span class="ak-hero-tag">Tentang</span>
-    <div class="ak-echo-stack ak-reveal-slide" data-reveal>
-      <span class="ak-echo-layer cd">Tentang</span>
-      <span class="ak-echo-layer cd">Tentang</span>
-      <span class="ak-echo-layer cd">Tentang</span>
-      <span class="ak-echo-layer cd">Tentang</span>
-      <span class="ak-echo-layer cd">Tentang</span>
+  <div class="ak-hero-grid">
+    <div>
+      <span class="ak-hero-tag">Tentang</span>
+      <h1 class="ak-reveal-slide" data-reveal>
+        Cerita di balik <em>Akar Solution</em>.
+      </h1>
+      <p class="ak-hero-sub ak-reveal-slide" data-reveal>Mengapa kami berdiri, untuk siapa, dan apa yang kami yakini tentang transformasi digital di Jambi.</p>
     </div>
-    <p class="ak-hero-sub ak-reveal-slide" data-reveal>Cerita di balik Akar Solution — mengapa kami berdiri, untuk siapa, dan apa yang kami yakini.</p>
+    <div class="ak-hero-visual ak-reveal" data-reveal></div>
   </div>
 </section>
 
 <!-- MANIFESTO -->
 <section class="ak-section-tight">
-  <div class="ak-container">
+  <div class="ak-container ak-container-narrow">
     <div class="ak-divider"></div>
     <div class="ak-narrative">
-      <blockquote class="cd ak-reveal-slide" data-reveal>
-        Akar Solution lahir dari satu keyakinan: <i>teknologi berkualitas</i> bukan monopoli kota besar. UMKM dan mahasiswa di Jambi layak mendapatkan solusi digital yang sama <i>bagusnya</i>.
+      <blockquote class="ak-reveal-slide" data-reveal>
+        Akar Solution lahir dari satu keyakinan: <em>teknologi berkualitas</em> bukan monopoli kota besar. UMKM dan mahasiswa di Jambi layak mendapatkan solusi digital yang sama <em>bagusnya</em>.
       </blockquote>
     </div>
   </div>
@@ -36,12 +37,15 @@ get_template_part( 'template-parts/ak-chrome-head' );
 
 <!-- CERITA -->
 <section class="ak-section">
-  <div class="ak-container" style="max-width:820px;">
-    <div class="ak-divider"></div>
+  <div class="ak-container ak-container-narrow">
+    <div class="ak-section-header">
+      <div class="ak-section-eyebrow">Cerita</div>
+      <h2 class="ak-reveal-slide" data-reveal">Kenapa <em>Akar</em>.</h2>
+    </div>
     <div class="ak-narrative" style="text-align:left;">
       <p class="ak-reveal-slide" data-reveal style="font-size:1.15rem;line-height:1.85;margin-bottom:28px;">Kami memulai dengan pertanyaan sederhana: <em>kenapa banyak bisnis lokal Jambi masih tidak punya website, atau punya website yang tidak terurus?</em> Jawabannya bukan karena mereka tidak butuh — tapi karena solusi yang ditawarkan tidak relevan, terlalu mahal, atau tidak ada yang mendampingi.</p>
-      <p class="ak-reveal-slide" data-reveal style="font-size:1.05rem;line-height:1.85;margin-bottom:28px;color:var(--muted-dark);font-weight:400;">Akarnya masalah: <strong style="color:var(--text);">jarak</strong>. Vendor IT di Jakarta tidak paham konteks Jambi. Freelancer random di marketplace tidak bisa diandalkan. Sementara agency besar mengabaikan UMKM karena "tidak worth it".</p>
-      <p class="ak-reveal-slide" data-reveal style="font-size:1.05rem;line-height:1.85;color:var(--muted-dark);font-weight:400;">Akar Solution menutup jarak itu. Kami di Jambi, kami paham bisnis lokal, dan kami percaya setiap bisnis — sekecil apapun — berhak punya solusi digital yang profesional.</p>
+      <p class="ak-reveal-slide" data-reveal style="font-size:1.05rem;line-height:1.85;margin-bottom:28px;color:var(--text-muted);font-weight:400;">Akarnya masalah: <strong style="color:var(--text);">jarak</strong>. Vendor IT di Jakarta tidak paham konteks Jambi. Freelancer random di marketplace tidak bisa diandalkan. Sementara agency besar mengabaikan UMKM karena "tidak worth it".</p>
+      <p class="ak-reveal-slide" data-reveal style="font-size:1.05rem;line-height:1.85;color:var(--text-muted);font-weight:400;">Akar Solution menutup jarak itu. Kami di Jambi, kami paham bisnis lokal, dan kami percaya setiap bisnis — sekecil apapun — berhak punya solusi digital yang profesional.</p>
     </div>
   </div>
 </section>
@@ -49,8 +53,10 @@ get_template_part( 'template-parts/ak-chrome-head' );
 <!-- NILAI -->
 <section class="ak-section-tight ak-section-light">
   <div class="ak-container">
-    <div class="ak-divider"></div>
-    <h2 class="cd ak-reveal-slide" data-reveal style="text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:60px;">Yang Kami <em style="color:var(--muted)">Yakini</em></h2>
+    <div class="ak-section-header">
+      <div class="ak-section-eyebrow">Yang Kami Yakini</div>
+      <h2 class="ak-reveal-slide" data-reveal">Tiga nilai yang <em>tidak bisa</em> ditawar.</h2>
+    </div>
     <div class="ak-services-grid">
       <div class="ak-service-card ak-reveal-slide" data-reveal>
         <div class="ak-service-icon">🤝</div>
@@ -71,39 +77,25 @@ get_template_part( 'template-parts/ak-chrome-head' );
   </div>
 </section>
 
-<!-- SHOWCASE NILAI TAMBAHAN -->
+<!-- TRACK RECORD (placeholder) -->
 <section class="ak-section-tight">
   <div class="ak-container">
-    <div class="ak-divider"></div>
-    <div class="ak-showcase">
-      <div class="ak-showcase-item span-7 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#e8e8e8,#dcdcdc);min-height:340px;flex-direction:column;gap:12px;">
-          <div class="cd" style="font-size:1.8rem;color:var(--text);">Fast Response</div>
-          <div style="font-size:0.85rem;color:var(--muted-dark);font-weight:400;">Balasan dalam 1–2 jam di jam kerja</div>
-        </div>
+    <div class="ak-trust">
+      <div class="ak-trust-item ak-reveal-slide" data-reveal>
+        <div class="num">2026</div>
+        <div class="lbl">Tahun berdiri di Jambi</div>
       </div>
-      <div class="ak-showcase-item span-5 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#e0e0e0,#d0d0d0);min-height:340px;flex-direction:column;gap:12px;">
-          <div class="cd" style="font-size:1.8rem;color:var(--text);">100% Custom</div>
-          <div style="font-size:0.85rem;color:var(--muted-dark);font-weight:400;">Tidak pakai template pasaran</div>
-        </div>
+      <div class="ak-trust-item ak-reveal-slide" data-reveal>
+        <div class="num">3</div>
+        <div class="lbl">Divisi fokus: Bisnis, Pendidikan, Pendampingan</div>
       </div>
-      <div class="ak-showcase-item span-4 circle ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#d8d8d8,#c8c8c8);">
-          <div class="cd" style="font-size:1.2rem;color:var(--text);">Garansi Revisi</div>
-        </div>
+      <div class="ak-trust-item ak-reveal-slide" data-reveal>
+        <div class="num">15+</div>
+        <div class="lbl">Target klien dalam 1 tahun pertama</div>
       </div>
-      <div class="ak-showcase-item span-4 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#ececec,#d4d4d4);min-height:240px;flex-direction:column;gap:12px;">
-          <div class="cd" style="font-size:1.5rem;color:var(--text);">SEO Dasar</div>
-          <div style="font-size:0.8rem;color:var(--muted-dark);font-weight:400;">Termasuk di setiap paket</div>
-        </div>
-      </div>
-      <div class="ak-showcase-item span-4 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#e4e4e4,#cccccc);min-height:240px;flex-direction:column;gap:12px;">
-          <div class="cd" style="font-size:1.5rem;color:var(--text);">Source Code</div>
-          <div style="font-size:0.8rem;color:var(--muted-dark);font-weight:400;">Milik Anda sepenuhnya</div>
-        </div>
+      <div class="ak-trust-item ak-reveal-slide" data-reveal>
+        <div class="num">100%</div>
+        <div class="lbl">Harga transparan, tanpa hidden cost</div>
       </div>
     </div>
   </div>
@@ -113,7 +105,10 @@ get_template_part( 'template-parts/ak-chrome-head' );
 <section class="ak-cta ak-reveal-slide" data-reveal>
   <h2 class="cd">Mari terhubung.</h2>
   <p>Diskusi gratis 15 menit — kami dengarkan dulu, baru rekomendasikan.</p>
-  <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20ingin%20mengenal%20lebih%20lanjut." class="ak-btn" target="_blank" rel="noopener">Hubungi Kami</a>
+  <div class="ak-ctas">
+    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20ingin%20mengenal%20lebih%20lanjut." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Hubungi Kami</a>
+    <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Lihat Layanan</a>
+  </div>
 </section>
 
 <?php
