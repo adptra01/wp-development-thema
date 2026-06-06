@@ -639,10 +639,161 @@ img { max-width: 100%; display: block; }
   [data-stagger] > * { transition: none; opacity: 1; transform: none; }
 }
 
+/* ── NAV DROPDOWN ── */
+.ak-nav-has-dropdown { position: relative; }
+/* Invisible bridge: extends hover area from nav link down to dropdown */
+.ak-nav-has-dropdown::after {
+  content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 16px;
+}
+.ak-nav-dropdown {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(0);
+  opacity: 0; pointer-events: none;
+  background: var(--bg-2); border-radius: 14px; box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+  min-width: 260px; padding: 8px 0; list-style: none;
+  transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+  border: 1px solid var(--line); margin-top: 12px;
+}
+.ak-nav-has-dropdown:hover .ak-nav-dropdown,
+.ak-nav-has-dropdown:focus-within .ak-nav-dropdown {
+  opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0);
+}
+.ak-nav-dropdown li a {
+  display: block; padding: 10px 24px; font-size: 13px; text-transform: none; letter-spacing: 0;
+  color: var(--text-body); transition: background 150ms;
+}
+.ak-nav-dropdown li a:hover { background: var(--bg); color: var(--text); }
+.ak-nav-dropdown li a:first-child { border-radius: 10px 10px 0 0; }
+.ak-nav-dropdown li a:last-child { border-radius: 0 0 10px 10px; }
+.ak-nav-dropdown-divider { height: 1px; background: var(--line); margin: 6px 16px; }
+.ak-nav-dropdown-divider:last-child { display: none; }
+
+/* ── SERVICE DETAIL HERO ── */
+.ak-sv-hero-visual { display: flex; align-items: center; justify-content: center; }
+.ak-sv-hero-icon {
+  width: 160px; height: 160px; border-radius: 50%;
+  background: var(--bg-2); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+  transition: transform 400ms var(--ease);
+}
+.ak-sv-hero-icon:hover { transform: scale(1.04); }
+.ak-sv-hero-icon svg { width: 64px; height: 64px; }
+
+/* ── SERVICE DETAIL: PROBLEM SPLIT ── */
+.ak-sv-problems { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.ak-sv-problem-item { padding-left: 36px; position: relative; margin-bottom: 36px; }
+.ak-sv-problem-num {
+  position: absolute; left: 0; top: -4px;
+  font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.5rem;
+  color: var(--text-soft); opacity: 0.25;
+}
+.ak-sv-problem-item h3 { font-size: 1.1rem; margin-bottom: 8px; font-weight: 600; }
+.ak-sv-problem-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+.ak-sv-stat {
+  background: var(--bg-2); border-radius: 16px; padding: 48px 40px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.ak-sv-stat-number {
+  font-family: 'Clash Display', sans-serif; font-weight: 700;
+  font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.03em;
+}
+.ak-sv-stat-desc { margin-top: 12px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; max-width: 260px; }
+
+/* ── SERVICE DETAIL: FEATURE GRID ── */
+.ak-sv-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.ak-sv-feature {
+  background: var(--bg-2); border-radius: 12px; padding: 28px 24px;
+  transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
+}
+.ak-sv-feature:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+.ak-sv-feature-icon { margin-bottom: 16px; color: var(--text); }
+.ak-sv-feature-icon svg { width: 28px; height: 28px; }
+.ak-sv-feature h3 { font-size: 1.05rem; margin-bottom: 8px; font-weight: 600; }
+.ak-sv-feature p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.65; }
+
+/* ── SERVICE DETAIL: COMPARISON TABLE ── */
+.ak-sv-table-wrap { overflow-x: auto; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--line); }
+.ak-sv-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.ak-sv-table th {
+  text-align: left; padding: 16px 24px; border-bottom: 2px solid var(--line-strong);
+  font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-soft);
+}
+.ak-sv-table td { padding: 14px 24px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.ak-sv-table tr:last-child td { border-bottom: none; }
+.ak-sv-table .hl { background: rgba(17,17,17,0.02); }
+.ak-sv-table .check { color: var(--text); font-weight: 700; }
+.ak-sv-table .cross { color: var(--text-soft); opacity: 0.35; }
+
+/* ── SERVICE DETAIL: VERTICAL TIMELINE ── */
+.ak-sv-timeline { position: relative; padding-left: 48px; max-width: 640px; }
+.ak-sv-timeline::before {
+  content: ''; position: absolute; left: 17px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--line-strong);
+}
+.ak-sv-tl-step { position: relative; margin-bottom: 44px; }
+.ak-sv-tl-step:last-child { margin-bottom: 0; }
+.ak-sv-tl-step::before {
+  content: ''; position: absolute; left: -39px; top: 6px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--dark); border: 3px solid var(--bg);
+}
+.ak-sv-tl-num {
+  font-family: 'Clash Display', sans-serif; font-size: 0.75rem; font-weight: 700;
+  color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;
+}
+.ak-sv-tl-step h3 { font-size: 1.1rem; margin-bottom: 6px; font-weight: 600; }
+.ak-sv-tl-step p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+/* ── SERVICE DETAIL: CASE STUDY ── */
+.ak-sv-case {
+  background: var(--bg-2); border-radius: 16px; padding: 48px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+}
+.ak-sv-case-label {
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-soft); margin-bottom: 12px;
+}
+.ak-sv-case-before { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+.ak-sv-case-after { color: var(--text-body); font-size: 0.95rem; line-height: 1.7; }
+.ak-sv-case-result {
+  grid-column: 1 / -1; background: var(--bg); border-radius: 12px;
+  padding: 24px 32px; text-align: center;
+}
+.ak-sv-case-result strong {
+  font-family: 'Clash Display', sans-serif; font-size: 1.2rem; font-weight: 700;
+}
+
+/* ── SERVICE DETAIL: TESTIMONIAL ── */
+.ak-sv-testimonial { max-width: 640px; margin: 0 auto; text-align: center; padding: 48px 0; }
+.ak-sv-testimonial blockquote {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem); font-weight: 500;
+  line-height: 1.45; font-style: normal; margin: 0 0 24px; quotes: none;
+}
+.ak-sv-testimonial blockquote::before { content: none; }
+.ak-sv-testimonial cite {
+  display: block; font-style: normal; font-family: 'Satoshi', sans-serif;
+  font-size: 0.95rem; color: var(--text-muted);
+}
+.ak-sv-testimonial cite strong { color: var(--text); font-weight: 600; }
+
+/* ── SERVICE DETAIL: FAQ ACCORDION ── */
+.ak-sv-faq { max-width: 720px; margin: 0 auto; }
+.ak-sv-faq details { border-bottom: 1px solid var(--line); }
+.ak-sv-faq summary {
+  cursor: pointer; font-weight: 600; font-size: 1.05rem; line-height: 1.4;
+  list-style: none; padding: 20px 0; display: flex; justify-content: space-between; align-items: center;
+}
+.ak-sv-faq summary::-webkit-details-marker { display: none; }
+.ak-sv-faq summary::after { content: '+'; font-size: 1.4rem; color: var(--text-soft); transition: transform 200ms; flex-shrink: 0; margin-left: 16px; }
+.ak-sv-faq details[open] summary::after { content: '−'; }
+.ak-sv-faq details p { padding: 0 0 20px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .ak-nav-links { gap: 20px; }
   .ak-nav-links a { font-size: 13px; }
+  .ak-sv-problems { grid-template-columns: 1fr; gap: 40px; }
+  .ak-sv-case { grid-template-columns: 1fr; gap: 24px; padding: 32px; }
   .ak-hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .ak-hero-visual { max-width: 480px; margin: 0 auto; }
   .ak-showcase { grid-template-columns: repeat(6, 1fr); }
@@ -660,6 +811,12 @@ img { max-width: 100%; display: block; }
   .ak-nav { padding: 0 20px; }
   .ak-nav-links { display: none; }
   .ak-nav-cta { padding: 10px 18px; font-size: 12px; }
+  .ak-sv-features { grid-template-columns: 1fr; }
+  .ak-sv-hero-icon { width: 120px; height: 120px; }
+  .ak-sv-hero-icon svg { width: 48px; height: 48px; }
+  .ak-sv-case { padding: 24px; }
+  .ak-sv-timeline { padding-left: 36px; }
+  .ak-sv-tl-step::before { left: -27px; }
   .ak-section, .ak-section-tight { padding: 80px 24px; }
   .ak-cta { padding: 80px 24px; }
   .ak-hero { padding: 120px 24px 80px; min-height: auto; }
@@ -694,7 +851,20 @@ img { max-width: 100%; display: block; }
 <nav class="ak-nav" id="akNav">
   <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ak-nav-logo">Akar <em>Solution</em></a>
   <ul class="ak-nav-links">
-    <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Layanan</a></li>
+    <li class="ak-nav-has-dropdown">
+      <a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Layanan</a>
+      <ul class="ak-nav-dropdown">
+        <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Semua Layanan</a></li>
+        <li class="ak-nav-dropdown-divider"></li>
+        <li><a href="<?php echo esc_url( home_url( '/services/website-umkm' ) ); ?>">Website UMKM</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/services/aplikasi-custom' ) ); ?>">Aplikasi Custom</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/services/maintenance' ) ); ?>">Maintenance</a></li>
+        <li class="ak-nav-dropdown-divider"></li>
+        <li><a href="<?php echo esc_url( home_url( '/services/mentoring-skripsi' ) ); ?>">Mentoring Skripsi</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/services/konsultasi-proyek' ) ); ?>">Konsultasi Proyek</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/services/code-review' ) ); ?>">Code Review</a></li>
+      </ul>
+    </li>
     <li><a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>">Harga</a></li>
     <li><a href="<?php echo esc_url( home_url( '/portfolio' ) ); ?>">Portfolio</a></li>
     <li><a href="<?php echo esc_url( home_url( '/about' ) ); ?>">Tentang</a></li>

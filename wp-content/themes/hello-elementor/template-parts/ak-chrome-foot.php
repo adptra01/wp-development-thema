@@ -14,9 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     </div>
     <div>
       <h4>Layanan</h4>
-      <a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Website UMKM</a>
-      <a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Aplikasi Custom</a>
-      <a href="<?php echo esc_url( home_url( '/services' ) ); ?>#pendidikan">Mentoring IT</a>
+      <a href="<?php echo esc_url( home_url( '/services/website-umkm' ) ); ?>">Website UMKM</a>
+      <a href="<?php echo esc_url( home_url( '/services/aplikasi-custom' ) ); ?>">Aplikasi Custom</a>
+      <a href="<?php echo esc_url( home_url( '/services/maintenance' ) ); ?>">Maintenance</a>
+      <a href="<?php echo esc_url( home_url( '/services/mentoring-skripsi' ) ); ?>">Mentoring Skripsi</a>
+      <a href="<?php echo esc_url( home_url( '/services/code-review' ) ); ?>">Code Review</a>
       <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>">Harga</a>
     </div>
     <div>
