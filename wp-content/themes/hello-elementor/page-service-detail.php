@@ -19,7 +19,7 @@ $services = [
   'website-umkm' => [
     'tag'        => 'Website UMKM',
     'icon'       => 'globe',
-    'illustration' => get_template_directory_uri() . '/assets/illustrations/globe.svg',
+    'illustration' => get_template_directory_uri() . '/assets/illustrations/streamline/website-umkm.png',
     'h1'         => 'Website profesional untuk UMKM <em class="ak-underline" data-draw>Jambi.</em>',
     'hero_sub'   => 'Company profile 5–10 halaman, mobile responsive, SEO dasar — domain .com + hosting 1 tahun sudah termasuk. Tanpa ribet, tanpa biaya tersembunyi.',
     'price_label'=> 'Mulai dari Rp 1,5 jt',
@@ -82,7 +82,7 @@ $services = [
   'aplikasi-custom' => [
     'tag'        => 'Aplikasi Custom',
     'icon'       => 'code',
-    'illustration' => get_template_directory_uri() . '/assets/illustrations/code.svg',
+    'illustration' => get_template_directory_uri() . '/assets/illustrations/streamline/aplikasi-custom.png',
     'h1'         => 'Web app <em class="ak-underline" data-draw>custom</em> sesuai kebutuhan bisnis Anda.',
     'hero_sub'   => 'Sistem inventory, booking, CRM, dashboard admin — dibangun dari nol dengan stack modern yang bisa Anda kembangkan nanti.',
     'price_label'=> 'Mulai dari Rp 8 jt',
@@ -143,7 +143,7 @@ $services = [
   'maintenance' => [
     'tag'        => 'Maintenance',
     'icon'       => 'wrench',
-    'illustration' => get_template_directory_uri() . '/assets/illustrations/wrench.svg',
+    'illustration' => get_template_directory_uri() . '/assets/illustrations/streamline/maintenance.png',
     'h1'         => 'Website tetap <em class="ak-underline" data-draw>hidup</em> tanpa repot.',
     'hero_sub'   => 'Update konten, backup rutin, monitoring uptime, perbaikan bug — website Anda terawat tanpa Anda harus paham teknis.',
     'price_label'=> 'Mulai dari Rp 150K / bulan',
@@ -204,7 +204,7 @@ $services = [
   'mentoring-skripsi' => [
     'tag'        => 'Mentoring Skripsi',
     'icon'       => 'graduation',
-    'illustration' => get_template_directory_uri() . '/assets/illustrations/graduation.svg',
+    'illustration' => get_template_directory_uri() . '/assets/illustrations/streamline/mentoring-skripsi.png',
     'h1'         => 'Skripsi informatika? <em class="ak-underline" data-draw>Kami dampingi</em> sampai sidang.',
     'hero_sub'   => 'Pendampingan 1-on-1 untuk mahasiswa informatika: arsitektur sistem, code review, deployment, hingga persiapan sidang. Bukan mengerjakan — tapi memastikan Anda paham.',
     'price_label'=> 'Rp 150K / sesi (60 menit)',
@@ -265,7 +265,7 @@ $services = [
   'konsultasi-proyek' => [
     'tag'        => 'Konsultasi Proyek',
     'icon'       => 'lightbulb',
-    'illustration' => get_template_directory_uri() . '/assets/illustrations/lightbulb.svg',
+    'illustration' => get_template_directory_uri() . '/assets/illustrations/streamline/konsultasi-proyek.png',
     'h1'         => 'Bingung mulai dari mana? <em class="ak-underline" data-draw>Kami bantu</em> rancang arsitekturnya.',
     'hero_sub'   => 'Bantu pilih stack teknologi, desain database, struktur kode, dan best practices untuk proyek akhir atau tugas besar. 90 menit yang menghemat berminggu-minggu waktu Anda.',
     'price_label'=> 'Mulai dari Rp 200K',
@@ -325,7 +325,7 @@ $services = [
   'code-review' => [
     'tag'        => 'Code Review',
     'icon'       => 'search-code',
-    'illustration' => get_template_directory_uri() . '/assets/illustrations/review.svg',
+    'illustration' => get_template_directory_uri() . '/assets/illustrations/streamline/code-review.png',
     'h1'         => 'Kode Anda kami <em class="ak-underline" data-draw>review</em> — sebelum dosen yang review.',
     'hero_sub'   => 'Review kode skripsi atau proyek: refactoring, performance, security, dan dokumentasi. Agar lebih mudah diuji dosen dan lebih mudah dipelihara.',
     'price_label'=> 'Mulai dari Rp 100K',

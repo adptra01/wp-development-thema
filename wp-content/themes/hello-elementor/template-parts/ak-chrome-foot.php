@@ -37,6 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
   </div>
   <div class="ak-footer-bottom">
     &copy; <?php echo esc_html( date('Y') ); ?> Akar Solution. All rights reserved.
+    <span style="margin-left:12px;opacity:0.6;font-size:0.8rem;">Illustrations by <a href="https://www.streamlinehq.com/illustrations" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">Streamline</a> (CC BY 4.0)</span>
   </div>
 </footer>
 

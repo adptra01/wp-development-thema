@@ -678,18 +678,18 @@ img { max-width: 100%; display: block; }
 .ak-sv-hero-icon:hover { transform: scale(1.04); }
 .ak-sv-hero-icon svg { width: 64px; height: 64px; }
 
-/* ── SERVICE ILLUSTRATION (static SVG from Flowbite) ── */
+/* ── SERVICE ILLUSTRATION (Streamline PNG) ── */
 .ak-sv-illustration {
-  width: 280px; height: 280px; border-radius: 20px;
+  width: 210px; height: 210px; border-radius: 16px;
   background: var(--bg-2); display: flex; align-items: center; justify-content: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.06);
   transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
-  overflow: hidden; padding: 24px;
+  overflow: hidden;
 }
 .ak-sv-illustration:hover { transform: scale(1.04); box-shadow: 0 12px 40px rgba(0,0,0,0.10); }
 .ak-sv-illustration img { width: 100%; height: 100%; object-fit: contain; }
 @media (max-width: 768px) {
-  .ak-sv-illustration { width: 200px; height: 200px; padding: 16px; }
+  .ak-sv-illustration { width: 160px; height: 160px; }
 }
 
 /* ── SERVICE DETAIL: PROBLEM SPLIT ── */
