@@ -16,6 +16,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+require_once get_template_directory() . '/template-parts/ak-icons.php';
 ?>
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <style>
@@ -205,6 +206,7 @@ img { max-width: 100%; display: block; }
 .ak-showcase-item.span-5 { grid-column: span 5; }
 .ak-showcase-item.span-4 { grid-column: span 4; }
 .ak-showcase-item.span-6 { grid-column: span 6; }
+.ak-showcase-item.span-12 { grid-column: span 12; }
 .ak-showcase-item.pill { border-radius: 9999px; }
 .ak-showcase-item.circle { border-radius: 50%; aspect-ratio: 1; }
 .ak-showcase-bg {
@@ -216,6 +218,23 @@ img { max-width: 100%; display: block; }
 }
 .ak-showcase-item:hover .ak-showcase-bg { filter: none; transform: scale(1.04); color: rgba(17,17,17,0.28); }
 .ak-showcase-item.pill .ak-showcase-bg { min-height: 480px; }
+.ak-showcase-bg.has-image { background-size: cover; background-position: center; filter: grayscale(0.35) brightness(0.94); }
+.ak-showcase-item:hover .ak-showcase-bg.has-image { filter: grayscale(0) brightness(1); }
+.ak-showcase-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 28px 24px 22px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.78) 100%);
+  color: #fff;
+  display: flex; flex-direction: column; gap: 4px;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 500ms var(--ease), transform 500ms var(--ease);
+}
+.ak-showcase-item:hover .ak-showcase-caption { opacity: 1; transform: translateY(0); }
+.ak-showcase-caption .ak-cap-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 600; opacity: 0.7; }
+.ak-showcase-caption .ak-cap-title { font-family: 'Clash Display', sans-serif; font-size: 1.4rem; font-weight: 600; line-height: 1.2; }
+.ak-showcase-caption .ak-cap-meta { font-size: 0.8rem; opacity: 0.75; font-weight: 400; }
+.ak-showcase-item { position: relative; }
+.ak-showcase-watermark { position: absolute; top: 18px; right: 18px; background: rgba(255,255,255,0.92); color: var(--text); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
 
 /* ── SERVICE CARDS (3-col, grid lines, premium feel) ── */
 .ak-services-grid {
@@ -228,22 +247,23 @@ img { max-width: 100%; display: block; }
 .ak-service-card {
   background: var(--bg);
   padding: 56px 40px 48px;
-  transition: background 400ms;
+  transition: background 400ms, transform 400ms var(--ease), box-shadow 400ms;
   position: relative;
   display: flex; flex-direction: column;
 }
-.ak-service-card:hover { background: #fff; }
+.ak-service-card:hover { background: #fff; transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
 .ak-service-icon {
   width: 80px; height: 80px;
   background: var(--bg-2);
   border: 1px solid var(--line-strong);
+  color: var(--text);
   display: flex; align-items: center; justify-content: center;
-  font-size: 2rem;
   margin-bottom: 32px;
   border-radius: 8px;
-  transition: transform 400ms var(--ease), background 400ms;
+  transition: transform 400ms var(--ease), background 400ms, border-color 400ms;
 }
-.ak-service-card:hover .ak-service-icon { transform: rotate(-6deg) scale(1.05); background: var(--bg); }
+.ak-service-icon svg { width: 32px; height: 32px; display: block; }
+.ak-service-card:hover .ak-service-icon { transform: rotate(-6deg) scale(1.05); background: var(--bg); border-color: var(--text); }
 .ak-service-card h3 {
   font-family: 'Clash Display', sans-serif;
   font-weight: 700; font-size: 1.4rem;
@@ -386,6 +406,9 @@ img { max-width: 100%; display: block; }
   transition: transform 300ms var(--ease), background 300ms;
 }
 .ak-float a:hover { transform: scale(1.08); background: var(--dark-2); }
+.ak-float a svg { width: 24px; height: 24px; color: #fff; display: block; }
+.ak-ic-inline { display: inline-flex; vertical-align: -3px; margin-right: 8px; color: rgba(246,246,246,0.6); }
+.ak-ic-inline svg { width: 14px; height: 14px; display: block; }
 
 /* ── CONTACT ── */
 .ak-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
@@ -396,8 +419,10 @@ img { max-width: 100%; display: block; }
   background: var(--bg-2);
   border: 1px solid var(--line-strong);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; flex-shrink: 0;
+  color: var(--text);
+  flex-shrink: 0;
 }
+.ak-info-ic svg { width: 22px; height: 22px; display: block; }
 .ak-info-row h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--text); }
 .ak-info-row p, .ak-info-row a { font-size: 0.98rem; font-weight: 400; color: var(--text-muted); display: block; line-height: 1.6; }
 .ak-info-row a:hover { color: var(--text); }
@@ -518,6 +543,26 @@ img { max-width: 100%; display: block; }
   .ak-parallax-col { transform: none !important; transition: none; }
 }
 
+/* ── STAGGERED CARD REVEAL ── */
+/* Children of grids with [data-stagger] reveal left→right with 120ms
+   per-child delay. Used on service-card grids instead of parallax tilt,
+   which fights the dense 1px-gap grid structure. */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+[data-stagger].visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-stagger].visible > *:nth-child(2) { transition-delay: 120ms; }
+[data-stagger].visible > *:nth-child(3) { transition-delay: 240ms; }
+[data-stagger].visible > *:nth-child(4) { transition-delay: 360ms; }
+[data-stagger].visible > *:nth-child(5) { transition-delay: 480ms; }
+[data-stagger].visible > *:nth-child(6) { transition-delay: 600ms; }
+[data-stagger].visible > * { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  [data-stagger] > * { transition: none; opacity: 1; transform: none; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .ak-nav-links { gap: 20px; }
@@ -525,7 +570,7 @@ img { max-width: 100%; display: block; }
   .ak-hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .ak-hero-visual { max-width: 480px; margin: 0 auto; }
   .ak-showcase { grid-template-columns: repeat(6, 1fr); }
-  .ak-showcase-item.span-8, .ak-showcase-item.span-7 { grid-column: span 6; }
+  .ak-showcase-item.span-8, .ak-showcase-item.span-7, .ak-showcase-item.span-12 { grid-column: span 6; }
   .ak-showcase-item.span-5, .ak-showcase-item.span-4, .ak-showcase-item.span-6 { grid-column: span 3; }
   .ak-services-grid, .ak-pricing-grid, .ak-blog-grid { grid-template-columns: 1fr; }
   .ak-narrative-grid, .ak-process { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -544,7 +589,7 @@ img { max-width: 100%; display: block; }
   .ak-hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
   .ak-echo-layer { font-size: clamp(2rem, 11vw, 50px) !important; }
   .ak-showcase { grid-template-columns: 1fr; }
-  .ak-showcase-item.span-8, .ak-showcase-item.span-7, .ak-showcase-item.span-5, .ak-showcase-item.span-4, .ak-showcase-item.span-6 { grid-column: span 1; }
+  .ak-showcase-item.span-8, .ak-showcase-item.span-7, .ak-showcase-item.span-5, .ak-showcase-item.span-4, .ak-showcase-item.span-6, .ak-showcase-item.span-12 { grid-column: span 1; }
   .ak-showcase-item.pill { border-radius: 16px; }
   .ak-showcase-item.pill .ak-showcase-bg { min-height: 280px; }
   .ak-services-grid { grid-template-columns: 1fr; }

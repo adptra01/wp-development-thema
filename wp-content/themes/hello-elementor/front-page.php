@@ -119,9 +119,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <div class="ak-section-eyebrow">Layanan</div>
       <h2 class="ak-reveal-slide" data-reveal">Tiga pilar untuk <em>transformasi</em> digital Anda.</h2>
     </div>
-    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🌐</div>
+    <div class="ak-services-grid" data-stagger>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('globe'); ?></div>
         <h3 class="cd" data-split>Website UMKM</h3>
         <p>Company profile profesional 5–10 halaman, mobile responsive, SEO dasar. Domain .com + hosting 1 tahun sudah termasuk.</p>
         <div class="ak-service-meta">
@@ -131,8 +131,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="ak-service-cta">Selengkapnya</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">⚙️</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('code'); ?></div>
         <h3 class="cd" data-split>Aplikasi Custom</h3>
         <p>Web app sesuai kebutuhan bisnis: sistem inventory, booking, CRM, dashboard admin. Dibangun dengan stack modern.</p>
         <div class="ak-service-meta">
@@ -142,8 +142,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="ak-service-cta">Selengkapnya</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">💻</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('graduation'); ?></div>
         <h3 class="cd" data-split>Mentoring IT</h3>
         <p>Pendampingan 1-on-1 untuk skripsi informatika: arsitektur sistem, code review, deployment, hingga sidang.</p>
         <div class="ak-service-meta">
@@ -164,21 +164,21 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <div class="ak-section-eyebrow">Portofolio</div>
       <h2 class="ak-reveal-slide" data-reveal">Fokus <em>industri</em> yang kami pahami dalam.</h2>
     </div>
-    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">✈️</div>
+    <div class="ak-services-grid" data-stagger>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('plane'); ?></div>
         <h3 class="cd" data-split>Travel &amp; Tour</h3>
         <p>Travel agent Jambi: company profile, sistem booking sederhana, dan integrasi WhatsApp untuk inquiry.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">📚</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('book'); ?></div>
         <h3 class="cd" data-split>Pelatihan &amp; Kursus</h3>
         <p>LPK, bimbel, atau kursus online: landing page, formulir pendaftaran, dan integrasi payment gateway.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🏥</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('hospital'); ?></div>
         <h3 class="cd" data-split>Kesehatan</h3>
-        <p>Klinik, practise dokter, atau apotek: company profile + sistem antrian online sederhana via WhatsApp.</p>
+        <p>Klinik, praktek dokter, atau apotek: company profile + sistem antrian online sederhana via WhatsApp.</p>
       </div>
     </div>
     <div style="text-align:center;margin-top:60px;">

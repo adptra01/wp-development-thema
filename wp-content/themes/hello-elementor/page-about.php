@@ -15,7 +15,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div>
       <span class="ak-hero-tag">Tentang</span>
       <h1 class="ak-reveal-slide" data-reveal>
-        Cerita di balik <em class="ak-underline" data-draw>Akar Solution</em>.
+        Cerita di balik <em class="ak-underline" data-draw>Akar Solution.</em>
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Mengapa kami berdiri, untuk siapa, dan apa yang kami yakini tentang transformasi digital di Jambi.</p>
     </div>
@@ -57,21 +57,21 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <div class="ak-section-eyebrow">Yang Kami Yakini</div>
       <h2 class="ak-reveal-slide" data-reveal">Tiga nilai yang <em>tidak bisa</em> ditawar.</h2>
     </div>
-    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🤝</div>
+    <div class="ak-services-grid" data-stagger>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('handshake'); ?></div>
         <h3 class="cd" data-split>Lokal &amp; Personal</h3>
         <p>Kami di Jambi — bukan di Jakarta. Bisa ketemu langsung, konsultasi tatap muka, dan support yang dekat. Tidak ada chatbot, tidak ada call center — manusia sungguhan yang paham konteks lokal.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">💎</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('diamond'); ?></div>
         <h3 class="cd" data-split>Harga Transparan</h3>
         <p>Semua harga dipublikasikan. Tidak ada "hubungi kami untuk penawaran" — Anda tahu persis apa yang Anda bayar sebelum memutuskan. Tidak ada hidden cost, tidak ada upsell memaksa.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🎯</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('target'); ?></div>
         <h3 class="cd" data-split>Spesialis Vertikal</h3>
-        <p>Kami fokus di industri travel, pelatihan, dan kesehatan — bukan generalis yang mengerjakan semuanya setengah-setengah. Fokus membuat kami lebih cepat, lebih murah, dan lebih paham.</p>
+        <p>Kami fokus di industri travel, Pelatihan, dan Kesehatan — bukan generalis yang mengerjakan semuanya setengah-setengah. Fokus membuat kami lebih cepat, lebih murah, dan lebih paham.</p>
       </div>
     </div>
   </div>

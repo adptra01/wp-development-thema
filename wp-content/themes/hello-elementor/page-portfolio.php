@@ -23,46 +23,42 @@ get_template_part( 'template-parts/ak-chrome-head' );
   </div>
 </section>
 
-<!-- COMING SOON — project tiles -->
+<!-- SHOWCASE — captured projects -->
 <section class="ak-section-tight">
   <div class="ak-container">
     <div class="ak-section-header">
-      <div class="ak-section-eyebrow">Proyek</div>
-      <h2 class="ak-reveal-slide" data-reveal">Segera <em>hadir</em>.</h2>
-      <p>Kami sedang dalam tahap penjajakan dengan beberapa klien pertama. Portfolio nyata akan segera dipublikasikan di sini.</p>
+      <div class="ak-section-eyebrow">Showcase</div>
+      <h2 class="ak-reveal-slide" data-reveal>Situs <em>live</em> yang sudah kami bangun.</h2>
+      <p>Tiga website nyata — dari personal portfolio hingga company profile yang sudah online dan dapat diakses publik.</p>
     </div>
     <div class="ak-showcase">
-      <div class="ak-showcase-item span-8 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#e8e8e8,#dcdcdc);min-height:380px;">
-          <div style="text-align:center;color:var(--text);">
-            <div class="cd" style="font-size:2.5rem;">Proyek #1</div>
-            <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-top:10px;opacity:0.5;">Segera Hadir</div>
-          </div>
+      <a href="https://adptra01.framer.media/" target="_blank" rel="noopener" class="ak-showcase-item span-7 ak-reveal" data-reveal>
+        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/framer-portfolio.png' ) ); ?>');min-height:420px;"></div>
+        <span class="ak-showcase-watermark">Live</span>
+        <div class="ak-showcase-caption">
+          <span class="ak-cap-tag">Personal Portfolio</span>
+          <span class="ak-cap-title">adptra01.framer.media</span>
+          <span class="ak-cap-meta">Single-page portfolio — Framer · 2026</span>
         </div>
-      </div>
-      <div class="ak-showcase-item span-4 pill ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(180deg,#e0e0e0,#d0d0d0);">
-          <div style="text-align:center;color:var(--text);">
-            <div class="cd" style="font-size:1.8rem;">Soon</div>
-            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-top:10px;opacity:0.5;">2026</div>
-          </div>
+      </a>
+      <a href="https://akar-solution.page.gd/glad2glow/" target="_blank" rel="noopener" class="ak-showcase-item span-5 ak-reveal" data-reveal>
+        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/glad2glow.png' ) ); ?>');min-height:420px;"></div>
+        <span class="ak-showcase-watermark">Live</span>
+        <div class="ak-showcase-caption">
+          <span class="ak-cap-tag">Project Subpage</span>
+          <span class="ak-cap-title">Glad2Glow</span>
+          <span class="ak-cap-meta">Project showcase — Akar Solution · 2026</span>
         </div>
-      </div>
-      <div class="ak-showcase-item span-5 circle ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#d8d8d8,#c8c8c8);">
-          <div style="text-align:center;color:var(--text);">
-            <div class="cd" style="font-size:1.5rem;">Soon</div>
-          </div>
+      </a>
+      <a href="https://akar-solution.page.gd/" target="_blank" rel="noopener" class="ak-showcase-item span-12 ak-reveal" data-reveal>
+        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/akar-solution-mirror.png' ) ); ?>');min-height:340px;"></div>
+        <span class="ak-showcase-watermark">Live</span>
+        <div class="ak-showcase-caption">
+          <span class="ak-cap-tag">Company Profile</span>
+          <span class="ak-cap-title">akar-solution.page.gd</span>
+          <span class="ak-cap-meta">Situs yang sedang Anda lihat — WordPress · 2026</span>
         </div>
-      </div>
-      <div class="ak-showcase-item span-7 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg" style="background:linear-gradient(135deg,#e4e4e4,#d4d4d4);min-height:320px;">
-          <div style="text-align:center;color:var(--text);">
-            <div class="cd" style="font-size:2.2rem;">Proyek Berikutnya</div>
-            <div style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-top:10px;opacity:0.5;">Menunggu Anda</div>
-          </div>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -99,19 +95,19 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal">Tiga <em>vertikal</em> yang kami dalami.</h2>
       <p>Fokus membuat kami lebih cepat, lebih murah, dan lebih paham dibanding generalis.</p>
     </div>
-    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">✈️</div>
+    <div class="ak-services-grid" data-stagger>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('plane'); ?></div>
         <h3 class="cd" data-split>Travel &amp; Tour</h3>
         <p>Travel agent Jambi: company profile, sistem booking sederhana, dan integrasi WhatsApp untuk inquiry. Sudah paham karakter industri ini.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">📚</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('book'); ?></div>
         <h3 class="cd" data-split>Pelatihan &amp; Kursus</h3>
         <p>LPK, bimbel, atau kursus online: landing page, formulir pendaftaran, dan integrasi payment gateway.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🏥</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('hospital'); ?></div>
         <h3 class="cd" data-split>Kesehatan</h3>
         <p>Klinik, praktek dokter, atau apotek: company profile + sistem antrian online sederhana via WhatsApp.</p>
       </div>

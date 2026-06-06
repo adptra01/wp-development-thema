@@ -29,8 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     <div>
       <h4>Hubungi</h4>
       <a href="https://wa.me/6285951572182" target="_blank" rel="noopener">0859-5157-2182</a>
-      <a>📍 Jambi, Indonesia</a>
-      <a>🕐 Sen—Jum, 09:00–17:00</a>
+      <a><span class="ak-ic-inline"><?php echo ak_icon('pin'); ?></span> Jambi, Indonesia</a>
+      <a><span class="ak-ic-inline"><?php echo ak_icon('clock'); ?></span> Sen—Jum, 09:00–17:00</a>
     </div>
   </div>
   <div class="ak-footer-bottom">
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 </footer>
 
 <div class="ak-float">
-  <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." target="_blank" rel="noopener" title="Chat via WhatsApp" aria-label="Chat via WhatsApp">💬</a>
+  <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." target="_blank" rel="noopener" title="Chat via WhatsApp" aria-label="Chat via WhatsApp"><?php echo ak_icon('message'); ?></a>
 </div>
 
 <script>
@@ -99,6 +99,29 @@ if ( ! defined( 'ABSPATH' ) ) exit;
       drawEls.forEach(function(el) { el.classList.add('drawn'); });
     }
   }
+  // Staggered card reveal — children of [data-stagger] fade-in left→right
+  // with 120ms per-child delay. Replaces parallax tilt on dense service-card
+  // grids where 3D rotateX fought the 1px-gap structure.
+  var staggerEls = document.querySelectorAll('[data-stagger]');
+  if (staggerEls.length) {
+    setTimeout(function() {
+      staggerEls.forEach(function(el) { el.classList.add('visible'); });
+    }, 2500);
+    if ('IntersectionObserver' in window) {
+      var staggerObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            staggerObserver.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+      staggerEls.forEach(function(el) { staggerObserver.observe(el); });
+    } else {
+      staggerEls.forEach(function(el) { el.classList.add('visible'); });
+    }
+  }
+
   // Per-letter H3 animation — wraps each char in <span class="ak-letter">
   // with --i custom property for staggered fade+slide+blur.
   var splitEls = document.querySelectorAll('[data-split]');

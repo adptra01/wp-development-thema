@@ -32,7 +32,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
         <h2 class="cd" style="font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:32px;letter-spacing:-0.02em;">Hubungi <em style="color:var(--text-soft);">kami</em></h2>
 
         <div class="ak-info-row">
-          <div class="ak-info-ic">💬</div>
+          <div class="ak-info-ic"><?php echo ak_icon('message'); ?></div>
           <div>
             <h4>WhatsApp</h4>
             <a href="https://wa.me/6285951572182" target="_blank" rel="noopener">0859-5157-2182</a>
@@ -41,7 +41,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
 
         <div class="ak-info-row">
-          <div class="ak-info-ic">📧</div>
+          <div class="ak-info-ic"><?php echo ak_icon('mail'); ?></div>
           <div>
             <h4>Email</h4>
             <a href="mailto:halo@akarsolution.id">halo@akarsolution.id</a>
@@ -50,7 +50,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
 
         <div class="ak-info-row">
-          <div class="ak-info-ic">📍</div>
+          <div class="ak-info-ic"><?php echo ak_icon('pin'); ?></div>
           <div>
             <h4>Lokasi</h4>
             <p>Jambi, Indonesia</p>
@@ -59,7 +59,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
 
         <div class="ak-info-row">
-          <div class="ak-info-ic">🕐</div>
+          <div class="ak-info-ic"><?php echo ak_icon('clock'); ?></div>
           <div>
             <h4>Jam Kerja</h4>
             <p>Senin – Jumat, 09:00 – 17:00 WIB</p>
@@ -68,7 +68,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
 
         <div class="ak-info-row">
-          <div class="ak-info-ic">📷</div>
+          <div class="ak-info-ic"><?php echo ak_icon('instagram'); ?></div>
           <div>
             <h4>Instagram</h4>
             <a href="https://instagram.com/akarsolution" target="_blank" rel="noopener">@akarsolution</a>

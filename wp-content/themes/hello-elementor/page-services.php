@@ -32,9 +32,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal>Website, aplikasi, &amp; <em>maintenance</em>.</h2>
       <p>Untuk UMKM, bisnis established, dan korporasi yang ingin tampil profesional di dunia digital.</p>
     </div>
-    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🌐</div>
+    <div class="ak-services-grid" data-stagger>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('globe'); ?></div>
         <h3 class="cd" data-split>Website UMKM</h3>
         <p>Company profile profesional 5–10 halaman, mobile responsive, SEO dasar. Domain .com + hosting 1 tahun sudah termasuk.</p>
         <div class="ak-service-meta">
@@ -44,8 +44,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">⚙️</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('code'); ?></div>
         <h3 class="cd" data-split>Aplikasi Custom</h3>
         <p>Web app sesuai kebutuhan spesifik: sistem inventory, booking, CRM, dashboard admin. Stack modern &amp; maintainable.</p>
         <div class="ak-service-meta">
@@ -55,8 +55,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🔧</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('wrench'); ?></div>
         <h3 class="cd" data-split>Maintenance</h3>
         <p>Update konten, backup rutin, monitoring uptime, perbaikan bug. Cocok untuk yang ingin website tetap fresh tanpa repot.</p>
         <div class="ak-service-meta">
@@ -78,9 +78,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal">Pendampingan <em>IT</em> untuk mahasiswa.</h2>
       <p>Khusus mahasiswa informatika &amp; IT yang butuh bimbingan skripsi, proyek akhir, atau konsultasi teknis.</p>
     </div>
-    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">🎓</div>
+    <div class="ak-services-grid" data-stagger>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('graduation'); ?></div>
         <h3 class="cd" data-split>Mentoring Skripsi</h3>
         <p>Pendampingan 1-on-1 untuk skripsi informatika: arsitektur sistem, code review, deployment, hingga sidang.</p>
         <div class="ak-service-meta">
@@ -90,8 +90,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>#pendidikan" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">💡</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('lightbulb'); ?></div>
         <h3 class="cd" data-split>Konsultasi Proyek</h3>
         <p>Bantu pilih stack teknologi, desain database, struktur kode, dan best practices untuk proyek akhir atau tugas besar.</p>
         <div class="ak-service-meta">
@@ -101,8 +101,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>#pendidikan" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
-        <div class="ak-service-icon">📐</div>
+      <div class="ak-service-card">
+        <div class="ak-service-icon"><?php echo ak_icon('search-code'); ?></div>
         <h3 class="cd" data-split>Code Review</h3>
         <p>Review kode skripsi/proyek: refactoring, performance, security, dan dokumentasi agar lebih mudah diuji dosen.</p>
         <div class="ak-service-meta">
