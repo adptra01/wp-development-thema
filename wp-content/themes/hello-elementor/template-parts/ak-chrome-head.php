@@ -680,16 +680,16 @@ img { max-width: 100%; display: block; }
 
 /* ── SERVICE ILLUSTRATION (Streamline PNG) ── */
 .ak-sv-illustration {
-  width: 210px; height: 210px; border-radius: 16px;
+  width: 280px; height: 280px; border-radius: 20px;
   background: var(--bg-2); display: flex; align-items: center; justify-content: center;
   box-shadow: 0 8px 32px rgba(0,0,0,0.06);
   transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
-  overflow: hidden;
+  overflow: hidden; padding: 24px;
 }
 .ak-sv-illustration:hover { transform: scale(1.04); box-shadow: 0 12px 40px rgba(0,0,0,0.10); }
 .ak-sv-illustration img { width: 100%; height: 100%; object-fit: contain; }
 @media (max-width: 768px) {
-  .ak-sv-illustration { width: 160px; height: 160px; }
+  .ak-sv-illustration { width: 200px; height: 200px; padding: 16px; }
 }
 
 /* ── SERVICE DETAIL: PROBLEM SPLIT ── */
