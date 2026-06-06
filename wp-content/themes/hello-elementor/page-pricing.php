@@ -15,7 +15,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div>
       <span class="ak-hero-tag">Harga</span>
       <h1 class="ak-reveal-slide" data-reveal>
-        Harga <em>transparan</em>, tidak ada hidden cost.
+        Harga <em class="ak-underline" data-draw>transparan</em>, tidak ada hidden cost.
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Pilih paket yang sesuai dengan kebutuhan Anda — atau hubungi kami untuk penawaran custom. Semua harga sudah final, tidak ada biaya tersembunyi.</p>
     </div>
@@ -31,9 +31,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal">Paket <em>website</em> &amp; aplikasi.</h2>
       <p>Tiga paket untuk skala bisnis yang berbeda. Upgrade atau downgrade kapan saja.</p>
     </div>
-    <div class="ak-pricing-grid">
-      <div class="ak-pcard ak-reveal-slide" data-reveal>
-        <div class="ak-pname cd-m">Website UMKM</div>
+    <div class="ak-pricing-grid ak-parallax-grid" data-parallax="1.2,1.0,1.2">
+      <div class="ak-pcard ak-reveal-slide ak-parallax-col" data-reveal>
+        <div class="ak-pname cd-m" data-split>Website UMKM</div>
         <div class="ak-pprice cd">Rp 1,5<small>jt</small></div>
         <p class="ak-pdesc">Company profile 5–10 halaman, mobile responsive, SEO dasar. Domain + hosting 1 tahun.</p>
         <ul class="ak-plist">
@@ -47,9 +47,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </ul>
         <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20paket%20Website%20UMKM." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
       </div>
-      <div class="ak-pcard feat ak-reveal-slide" data-reveal>
+      <div class="ak-pcard feat ak-reveal-slide ak-parallax-col" data-reveal>
         <span class="ak-pbadge">Paling Populer</span>
-        <div class="ak-pname cd-m">Website Bisnis</div>
+        <div class="ak-pname cd-m" data-split>Website Bisnis</div>
         <div class="ak-pprice cd">Rp 3,5<small>jt</small></div>
         <p class="ak-pdesc">Untuk bisnis yang sudah established. Lebih banyak halaman, custom fitur, dan integrasi.</p>
         <ul class="ak-plist">
@@ -64,8 +64,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </ul>
         <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20paket%20Website%20Bisnis." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
       </div>
-      <div class="ak-pcard ak-reveal-slide" data-reveal>
-        <div class="ak-pname cd-m">Aplikasi Custom</div>
+      <div class="ak-pcard ak-reveal-slide ak-parallax-col" data-reveal>
+        <div class="ak-pname cd-m" data-split>Aplikasi Custom</div>
         <div class="ak-pprice cd">Rp 8<small>jt+</small></div>
         <p class="ak-pdesc">Sistem sesuai kebutuhan spesifik bisnis Anda. Booking, inventory, CRM, dashboard, dll.</p>
         <ul class="ak-plist">
@@ -92,9 +92,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal">Paket <em>mentoring</em> &amp; konsultasi.</h2>
       <p>Untuk mahasiswa informatika yang butuh bimbingan skripsi, proyek, atau review kode.</p>
     </div>
-    <div class="ak-pricing-grid">
-      <div class="ak-pcard ak-reveal-slide" data-reveal>
-        <div class="ak-pname cd-m">Code Review</div>
+    <div class="ak-pricing-grid ak-parallax-grid" data-parallax="1.2,1.0,1.2">
+      <div class="ak-pcard ak-reveal-slide ak-parallax-col" data-reveal>
+        <div class="ak-pname cd-m" data-split>Code Review</div>
         <div class="ak-pprice cd">Rp 100<small>K</small></div>
         <p class="ak-pdesc">Review 1 file/skrip — refactoring, performance, dan best practices.</p>
         <ul class="ak-plist">
@@ -106,9 +106,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </ul>
         <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20Code%20Review." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
       </div>
-      <div class="ak-pcard feat ak-reveal-slide" data-reveal>
+      <div class="ak-pcard feat ak-reveal-slide ak-parallax-col" data-reveal>
         <span class="ak-pbadge">Paling Diminati</span>
-        <div class="ak-pname cd-m">Mentoring Skripsi</div>
+        <div class="ak-pname cd-m" data-split>Mentoring Skripsi</div>
         <div class="ak-pprice cd">Rp 150<small>K/sesi</small></div>
         <p class="ak-pdesc">Pendampingan 1-on-1 via video call. 1 sesi = 60 menit.</p>
         <ul class="ak-plist">
@@ -122,8 +122,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </ul>
         <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20Mentoring%20Skripsi." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Booking Sesi</a>
       </div>
-      <div class="ak-pcard ak-reveal-slide" data-reveal>
-        <div class="ak-pname cd-m">Konsultasi Proyek</div>
+      <div class="ak-pcard ak-reveal-slide ak-parallax-col" data-reveal>
+        <div class="ak-pname cd-m" data-split>Konsultasi Proyek</div>
         <div class="ak-pprice cd">Rp 200<small>K+</small></div>
         <p class="ak-pdesc">Untuk proyek akhir / tugas besar yang butuh guidance lebih dalam.</p>
         <ul class="ak-plist">

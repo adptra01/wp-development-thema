@@ -24,7 +24,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div>
       <span class="ak-hero-tag">Akar Solution</span>
       <h1 class="ak-reveal-slide" data-reveal>
-        Akar digital untuk <em>bisnis</em> &amp; <em>pendidikan</em> di Jambi.
+        <span class="ak-underline" data-draw>Akar</span> digital untuk <em class="ak-underline" data-draw>bisnis</em> &amp; <em class="ak-underline" data-draw>pendidikan</em> di Jambi.
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Mitra lokal Jambi yang membantu UMKM punya website profesional, bisnis punya aplikasi custom, dan mahasiswa IT punya pendamping skripsi yang paham. Semua dengan harga transparan.</p>
       <div class="ak-hero-ctas ak-reveal-slide" data-reveal>
@@ -45,15 +45,15 @@ get_template_part( 'template-parts/ak-chrome-head' );
     </div>
     <div class="ak-narrative-grid">
       <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">"Pelanggan cari di Google, tapi bisnis saya tidak muncul."</h3>
+        <h3 class="cd" data-split>"Pelanggan cari di Google, tapi bisnis saya tidak muncul."</h3>
         <p>Tanpa website, bisnis Anda invisible di Google. Pelanggan potensial yang mencari "agen travel Jambi" atau "klinik gigi Jambi" lewat pencarian organik — langsung beralih ke kompetitor yang sudah online.</p>
       </div>
       <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">"Vendor IT di Jakarta tidak paham konteks Jambi."</h3>
+        <h3 class="cd" data-split>"Vendor IT di Jakarta tidak paham konteks Jambi."</h3>
         <p>Brief harus diulang-ulang, desain terasa generik, support lambat karena beda zona waktu. Setelah deal, mereka sulit dihubungi. Biaya komunikasi ini yang tidak dihitung di awal.</p>
       </div>
       <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">"Freelancer di marketplace tidak bisa diandalkan."</h3>
+        <h3 class="cd" data-split>"Freelancer di marketplace tidak bisa diandalkan."</h3>
         <p>Hasil asal jadi, tidak ada maintenance, source code tidak diberikan. Saat website error, tidak ada yang bertanggung jawab. Website akhirnya mati dan uang terbuang.</p>
       </div>
     </div>
@@ -67,17 +67,17 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <div class="ak-section-eyebrow">Kenapa Akar Solution</div>
       <h2 class="ak-reveal-slide" data-reveal">Tiga hal yang <em>membedakan</em> kami.</h2>
     </div>
-    <div class="ak-narrative-grid">
-      <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">Lokal &amp; Personal</h3>
+    <div class="ak-narrative-grid ak-parallax-grid" data-parallax="1.15,1.0,1.25">
+      <div class="ak-reveal-slide ak-parallax-col" data-reveal>
+        <h3 class="cd" data-split>Lokal &amp; Personal</h3>
         <p>Kami di Jambi — bukan di Jakarta. Bisa ketemu langsung, konsultasi tatap muka, dan support yang dekat. Tidak ada chatbot, tidak ada call center — manusia sungguhan yang paham konteks lokal.</p>
       </div>
-      <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">Harga Transparan</h3>
+      <div class="ak-reveal-slide ak-parallax-col" data-reveal>
+        <h3 class="cd" data-split>Harga Transparan</h3>
         <p>Semua harga dipublikasikan. Tidak ada "hubungi kami untuk penawaran" — Anda tahu persis apa yang Anda bayar sebelum memutuskan. Tidak ada hidden cost, tidak ada upsell memaksa.</p>
       </div>
-      <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">Spesialis Vertikal</h3>
+      <div class="ak-reveal-slide ak-parallax-col" data-reveal>
+        <h3 class="cd" data-split>Spesialis Vertikal</h3>
         <p>Kami fokus di industri travel, pelatihan, dan kesehatan — bukan generalis yang mengerjakan semuanya setengah-setengah. Fokus membuat kami lebih cepat, lebih murah, dan lebih paham.</p>
       </div>
     </div>
@@ -119,10 +119,10 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <div class="ak-section-eyebrow">Layanan</div>
       <h2 class="ak-reveal-slide" data-reveal">Tiga pilar untuk <em>transformasi</em> digital Anda.</h2>
     </div>
-    <div class="ak-services-grid">
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">🌐</div>
-        <h3 class="cd">Website UMKM</h3>
+        <h3 class="cd" data-split>Website UMKM</h3>
         <p>Company profile profesional 5–10 halaman, mobile responsive, SEO dasar. Domain .com + hosting 1 tahun sudah termasuk.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 1,5 jt</strong></div>
@@ -131,9 +131,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="ak-service-cta">Selengkapnya</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">⚙️</div>
-        <h3 class="cd">Aplikasi Custom</h3>
+        <h3 class="cd" data-split>Aplikasi Custom</h3>
         <p>Web app sesuai kebutuhan bisnis: sistem inventory, booking, CRM, dashboard admin. Dibangun dengan stack modern.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 8 jt</strong></div>
@@ -142,9 +142,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="ak-service-cta">Selengkapnya</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">💻</div>
-        <h3 class="cd">Mentoring IT</h3>
+        <h3 class="cd" data-split>Mentoring IT</h3>
         <p>Pendampingan 1-on-1 untuk skripsi informatika: arsitektur sistem, code review, deployment, hingga sidang.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 150K / sesi</strong></div>
@@ -164,21 +164,21 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <div class="ak-section-eyebrow">Portofolio</div>
       <h2 class="ak-reveal-slide" data-reveal">Fokus <em>industri</em> yang kami pahami dalam.</h2>
     </div>
-    <div class="ak-services-grid">
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">✈️</div>
-        <h3 class="cd">Travel &amp; Tour</h3>
+        <h3 class="cd" data-split>Travel &amp; Tour</h3>
         <p>Travel agent Jambi: company profile, sistem booking sederhana, dan integrasi WhatsApp untuk inquiry.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">📚</div>
-        <h3 class="cd">Pelatihan &amp; Kursus</h3>
+        <h3 class="cd" data-split>Pelatihan &amp; Kursus</h3>
         <p>LPK, bimbel, atau kursus online: landing page, formulir pendaftaran, dan integrasi payment gateway.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">🏥</div>
-        <h3 class="cd">Kesehatan</h3>
-        <p>Klinik, praktek dokter, atau apotek: company profile + sistem antrian online sederhana via WhatsApp.</p>
+        <h3 class="cd" data-split>Kesehatan</h3>
+        <p>Klinik, practise dokter, atau apotek: company profile + sistem antrian online sederhana via WhatsApp.</p>
       </div>
     </div>
     <div style="text-align:center;margin-top:60px;">

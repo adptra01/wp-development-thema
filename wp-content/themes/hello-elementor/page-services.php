@@ -16,7 +16,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div>
       <span class="ak-hero-tag">Layanan</span>
       <h1 class="ak-reveal-slide" data-reveal>
-        Tiga pilar untuk <em>transformasi</em> digital Anda.
+        Tiga pilar untuk <em class="ak-underline" data-draw>transformasi</em> digital Anda.
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Dari UMKM Jambi hingga mahasiswa informatika — kami menyediakan layanan yang relevan, transparan, dan dampingi sampai selesai.</p>
     </div>
@@ -32,10 +32,10 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal>Website, aplikasi, &amp; <em>maintenance</em>.</h2>
       <p>Untuk UMKM, bisnis established, dan korporasi yang ingin tampil profesional di dunia digital.</p>
     </div>
-    <div class="ak-services-grid">
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">🌐</div>
-        <h3 class="cd">Website UMKM</h3>
+        <h3 class="cd" data-split>Website UMKM</h3>
         <p>Company profile profesional 5–10 halaman, mobile responsive, SEO dasar. Domain .com + hosting 1 tahun sudah termasuk.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 1,5 jt</strong></div>
@@ -44,9 +44,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">⚙️</div>
-        <h3 class="cd">Aplikasi Custom</h3>
+        <h3 class="cd" data-split>Aplikasi Custom</h3>
         <p>Web app sesuai kebutuhan spesifik: sistem inventory, booking, CRM, dashboard admin. Stack modern &amp; maintainable.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 8 jt</strong></div>
@@ -55,9 +55,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">🔧</div>
-        <h3 class="cd">Maintenance</h3>
+        <h3 class="cd" data-split>Maintenance</h3>
         <p>Update konten, backup rutin, monitoring uptime, perbaikan bug. Cocok untuk yang ingin website tetap fresh tanpa repot.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 150K / bulan</strong></div>
@@ -78,10 +78,10 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal">Pendampingan <em>IT</em> untuk mahasiswa.</h2>
       <p>Khusus mahasiswa informatika &amp; IT yang butuh bimbingan skripsi, proyek akhir, atau konsultasi teknis.</p>
     </div>
-    <div class="ak-services-grid">
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">🎓</div>
-        <h3 class="cd">Mentoring Skripsi</h3>
+        <h3 class="cd" data-split>Mentoring Skripsi</h3>
         <p>Pendampingan 1-on-1 untuk skripsi informatika: arsitektur sistem, code review, deployment, hingga sidang.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Harga</span><strong>Rp 150K / sesi</strong></div>
@@ -90,9 +90,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>#pendidikan" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">💡</div>
-        <h3 class="cd">Konsultasi Proyek</h3>
+        <h3 class="cd" data-split>Konsultasi Proyek</h3>
         <p>Bantu pilih stack teknologi, desain database, struktur kode, dan best practices untuk proyek akhir atau tugas besar.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 200K</strong></div>
@@ -101,9 +101,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
         <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>#pendidikan" class="ak-service-cta">Lihat Paket</a>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">📐</div>
-        <h3 class="cd">Code Review</h3>
+        <h3 class="cd" data-split>Code Review</h3>
         <p>Review kode skripsi/proyek: refactoring, performance, security, dan dokumentasi agar lebih mudah diuji dosen.</p>
         <div class="ak-service-meta">
           <div class="ak-service-meta-row"><span>Mulai dari</span><strong>Rp 100K</strong></div>

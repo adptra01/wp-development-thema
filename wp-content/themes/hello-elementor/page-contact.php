@@ -15,7 +15,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div>
       <span class="ak-hero-tag">Kontak</span>
       <h1 class="ak-reveal-slide" data-reveal>
-        Kami <em>fast response</em> — biasanya dalam 1–2 jam.
+        Kami <em class="ak-underline" data-draw>fast response</em> — biasanya dalam 1–2 jam.
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Pilih cara favorit Anda — WhatsApp, email, atau ketemu langsung di Jambi. Kami dengarkan dulu, baru rekomendasikan.</p>
     </div>

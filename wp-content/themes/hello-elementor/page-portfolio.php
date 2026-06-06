@@ -15,7 +15,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div>
       <span class="ak-hero-tag">Portfolio</span>
       <h1 class="ak-reveal-slide" data-reveal>
-        Karya kami — <em>riset</em> di setiap proyek, <em>hasil</em> yang terukur.
+        Karya kami — <em class="ak-underline" data-draw>riset</em> di setiap proyek, <em class="ak-underline" data-draw>hasil</em> yang terukur.
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Kami baru memulai — tapi standar yang kami pegang sudah tinggi. Setiap proyek dimulai dengan riset, ditutup dengan hasil yang terukur.</p>
     </div>
@@ -74,17 +74,17 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <div class="ak-section-eyebrow">Pendekatan</div>
       <h2 class="ak-reveal-slide" data-reveal">Cara kami <em>bekerja</em> di setiap proyek.</h2>
     </div>
-    <div class="ak-narrative-grid">
-      <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">Pendekatan Riset</h3>
+    <div class="ak-narrative-grid ak-parallax-grid" data-parallax="1.15,1.0,1.25">
+      <div class="ak-reveal-slide ak-parallax-col" data-reveal>
+        <h3 class="cd" data-split>Pendekatan Riset</h3>
         <p>Setiap proyek dimulai dengan memahami bisnis Anda — target market, kompetitor, dan goal yang ingin dicapai. Bukan cuma "bikin website".</p>
       </div>
-      <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">Desain Berorientasi Hasil</h3>
+      <div class="ak-reveal-slide ak-parallax-col" data-reveal>
+        <h3 class="cd" data-split>Desain Berorientasi Hasil</h3>
         <p>Visual yang menarik saja tidak cukup. Kami desain untuk konversi — apakah itu lead masuk, transaksi, atau sign-up.</p>
       </div>
-      <div class="ak-reveal-slide" data-reveal>
-        <h3 class="cd">Kode yang Bersih</h3>
+      <div class="ak-reveal-slide ak-parallax-col" data-reveal>
+        <h3 class="cd" data-split>Kode yang Bersih</h3>
         <p>Di balik layar, kami tulis kode yang mudah dipelihara. Bukan "asal jadi" — sehingga website Anda bisa berkembang seiring bisnis.</p>
       </div>
     </div>
@@ -99,20 +99,20 @@ get_template_part( 'template-parts/ak-chrome-head' );
       <h2 class="ak-reveal-slide" data-reveal">Tiga <em>vertikal</em> yang kami dalami.</h2>
       <p>Fokus membuat kami lebih cepat, lebih murah, dan lebih paham dibanding generalis.</p>
     </div>
-    <div class="ak-services-grid">
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+    <div class="ak-services-grid ak-parallax-grid" data-parallax="1.2,1.0,1.4">
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">✈️</div>
-        <h3 class="cd">Travel &amp; Tour</h3>
+        <h3 class="cd" data-split>Travel &amp; Tour</h3>
         <p>Travel agent Jambi: company profile, sistem booking sederhana, dan integrasi WhatsApp untuk inquiry. Sudah paham karakter industri ini.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">📚</div>
-        <h3 class="cd">Pelatihan &amp; Kursus</h3>
+        <h3 class="cd" data-split>Pelatihan &amp; Kursus</h3>
         <p>LPK, bimbel, atau kursus online: landing page, formulir pendaftaran, dan integrasi payment gateway.</p>
       </div>
-      <div class="ak-service-card ak-reveal-slide" data-reveal>
+      <div class="ak-service-card ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-service-icon">🏥</div>
-        <h3 class="cd">Kesehatan</h3>
+        <h3 class="cd" data-split>Kesehatan</h3>
         <p>Klinik, praktek dokter, atau apotek: company profile + sistem antrian online sederhana via WhatsApp.</p>
       </div>
     </div>

@@ -31,11 +31,13 @@ while ( have_posts() ) : the_post();
 <article class="ak-post-body">
   <a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="ak-post-back ak-reveal-slide" data-reveal>← Kembali ke Blog</a>
 
-  <?php if ( has_post_thumbnail() ) : ?>
-    <div class="ak-reveal" data-reveal style="margin-bottom:48px;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#e8e8e8,#d4d4d4);">
+  <div class="ak-reveal" data-reveal style="margin-bottom:48px;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#e8e8e8,#d4d4d4);display:flex;align-items:center;justify-content:center;">
+    <?php if ( has_post_thumbnail() ) : ?>
       <?php the_post_thumbnail( 'large', [ 'style' => 'width:100%;height:100%;object-fit:cover;' ] ); ?>
-    </div>
-  <?php endif; ?>
+    <?php else : ?>
+      <span style="font-family:'Clash Display',sans-serif;font-weight:700;font-size:1.2rem;color:rgba(17,17,17,0.25);letter-spacing:-0.02em;">Akar Solution</span>
+    <?php endif; ?>
+  </div>
 
   <div class="ak-reveal-slide" data-reveal>
     <?php
@@ -84,10 +86,22 @@ $related_args = [
   'orderby'        => 'date',
   'order'          => 'DESC',
 ];
-if ( $cats ) {
+if ( $cats && ! empty( $cats ) ) {
   $related_args['category__in'] = [ $cats[0]->term_id ];
 }
 $related = new WP_Query( $related_args );
+// Fallback: if no category match, show latest posts (excluding current)
+if ( ! $related->have_posts() ) {
+  wp_reset_postdata();
+  $related = new WP_Query( [
+    'post_type'      => 'post',
+    'post_status'    => 'publish',
+    'posts_per_page' => 3,
+    'post__not_in'   => [ $current_id ],
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+  ] );
+}
 if ( $related->have_posts() ) : ?>
 <section class="ak-section-tight">
   <div class="ak-container">
@@ -95,12 +109,12 @@ if ( $related->have_posts() ) : ?>
       <div class="ak-section-eyebrow">Artikel Lainnya</div>
       <h2 class="ak-reveal-slide" data-reveal>Yang <em>sejenis</em>.</h2>
     </div>
-    <div class="ak-blog-grid">
+    <div class="ak-blog-grid ak-parallax-grid" data-parallax="1.3,1.0,1.2">
       <?php $i = 1; while ( $related->have_posts() ) : $related->the_post();
         $thumb_class = 't' . ( ( $i % 3 ) + 1 );
         $i++;
       ?>
-        <a href="<?php the_permalink(); ?>" class="ak-blog-card ak-reveal-slide" data-reveal>
+        <a href="<?php the_permalink(); ?>" class="ak-blog-card ak-reveal-slide ak-parallax-col" data-reveal>
           <div class="ak-blog-thumb <?php echo esc_attr( $thumb_class ); ?>">
             <?php if ( has_post_thumbnail() ) {
               the_post_thumbnail( 'medium_large', [ 'style' => 'width:100%;height:100%;object-fit:cover;' ] );

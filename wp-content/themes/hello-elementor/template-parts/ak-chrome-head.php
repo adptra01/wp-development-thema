@@ -94,21 +94,22 @@ img { max-width: 100%; display: block; }
   font-weight: 700; font-size: 1.3rem;
   letter-spacing: -0.03em; word-spacing: 0.08em;
 }
-.ak-nav-logo em { font-style: normal; color: var(--text-soft); font-weight: 600; }
+.ak-nav-logo em { font-style: normal; color: var(--text-soft); font-weight: 600; word-spacing: 0.08em; }
 .ak-nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .ak-nav-links a {
   font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em;
   transition: color 200ms; padding: 8px 0;
 }
 .ak-nav-links a:hover { color: var(--text-soft); }
+.ak-nav-cta-wrap { display: flex; align-items: center; margin-left: 16px; }
 .ak-nav-cta {
   display: inline-flex; align-items: center;
-  padding: 12px 24px;
+  padding: 12px 22px;
   background: var(--dark); color: #fff;
   border-radius: 9999px;
   font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
   transition: background 250ms;
-  min-height: 44px;
+  min-height: 44px; white-space: nowrap;
 }
 .ak-nav-cta:hover { background: var(--dark-2); }
 
@@ -120,8 +121,8 @@ img { max-width: 100%; display: block; }
 .ak-hero h1 {
   font-family: 'Clash Display', sans-serif;
   font-weight: 700; font-size: clamp(2.6rem, 5.5vw, 4.8rem);
-  line-height: 1.02; letter-spacing: -0.04em;
-  word-spacing: 0.05em;
+  line-height: 1.05; letter-spacing: -0.02em;
+  word-spacing: 0.12em;
   color: var(--text);
   margin-bottom: 28px;
 }
@@ -170,7 +171,7 @@ img { max-width: 100%; display: block; }
   font-family: 'Clash Display', sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 3.5vw, 3rem);
-  line-height: 1.1; letter-spacing: -0.03em; word-spacing: 0.06em;
+  line-height: 1.15; letter-spacing: -0.02em; word-spacing: 0.12em;
   color: var(--text);
   margin-bottom: 20px;
 }
@@ -183,7 +184,7 @@ img { max-width: 100%; display: block; }
   font-family: 'Clash Display', sans-serif;
   font-weight: 700;
   font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-  line-height: 1.2; letter-spacing: -0.03em; word-spacing: 0.04em;
+  line-height: 1.25; letter-spacing: -0.01em; word-spacing: 0.12em;
   max-width: 880px; margin: 0 auto 72px;
   color: var(--text);
 }
@@ -247,6 +248,7 @@ img { max-width: 100%; display: block; }
   font-family: 'Clash Display', sans-serif;
   font-weight: 700; font-size: 1.4rem;
   letter-spacing: -0.02em; line-height: 1.15;
+  word-spacing: 0.04em;
   margin-bottom: 12px; color: var(--text);
 }
 .ak-service-card p { color: var(--text-muted); font-size: 0.98rem; font-weight: 400; line-height: 1.7; margin-bottom: 24px; }
@@ -280,7 +282,7 @@ img { max-width: 100%; display: block; }
 .ak-process-step::after {
   content: ''; display: block; width: 32px; height: 1px; background: var(--text); margin: 20px 0;
 }
-.ak-process-step h3 { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--text); }
+.ak-process-step h3 { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; word-spacing: 0.04em; margin-bottom: 10px; color: var(--text); }
 .ak-process-step p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; font-weight: 400; }
 
 /* ── PRICING CARDS (3-col, with featured) ── */
@@ -298,7 +300,7 @@ img { max-width: 100%; display: block; }
 .ak-pcard:hover { background: #fff; transform: translateY(-4px); border-color: var(--line); }
 .ak-pcard.feat { background: #fff; border-color: var(--text); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
 .ak-pbadge { display: inline-block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; background: var(--dark); color: #fff; padding: 5px 14px; border-radius: 9999px; margin-bottom: 24px; align-self: flex-start; }
-.ak-pname { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--text); }
+.ak-pname { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; word-spacing: 0.04em; margin-bottom: 8px; color: var(--text); }
 .ak-pprice {
   font-family: 'Clash Display', sans-serif;
   font-weight: 700;
@@ -344,7 +346,7 @@ img { max-width: 100%; display: block; }
 .ak-cta h2 {
   font-family: 'Clash Display', sans-serif;
   font-weight: 700; font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.1; letter-spacing: -0.03em;
+  line-height: 1.1; letter-spacing: -0.02em; word-spacing: 0.1em;
   margin-bottom: 20px; color: var(--text);
 }
 .ak-cta p { color: var(--text-muted); font-size: 1.1rem; font-weight: 400; line-height: 1.7; margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto; }
@@ -369,7 +371,11 @@ img { max-width: 100%; display: block; }
 .ak-footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 32px; text-align: center; font-size: 0.82rem; font-weight: 400; max-width: 1400px; margin: 0 auto; color: rgba(246,246,246,0.4); }
 
 /* ── FLOATING CTA ── */
-.ak-float { position: fixed; bottom: 32px; right: 32px; z-index: 99; }
+.ak-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 99;
+  bottom: max(32px, env(safe-area-inset-bottom, 0));
+  right: max(32px, env(safe-area-inset-right, 0));
+}
 .ak-float a {
   display: flex; align-items: center; justify-content: center;
   width: 60px; height: 60px;
@@ -430,8 +436,8 @@ img { max-width: 100%; display: block; }
 .ak-post-title { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.05; letter-spacing: -0.03em; word-spacing: 0.05em; margin-bottom: 28px; color: var(--text); }
 .ak-post-excerpt { font-size: 1.2rem; color: var(--text-muted); max-width: 720px; margin: 0 auto; font-weight: 400; line-height: 1.7; }
 .ak-post-body { max-width: 760px; margin: 0 auto; padding: 80px 48px 100px; font-size: 1.1rem; line-height: 1.85; color: var(--text-body); }
-.ak-post-body h2 { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 2rem; letter-spacing: -0.02em; margin: 56px 0 24px; color: var(--text); }
-.ak-post-body h3 { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.02em; margin: 40px 0 18px; color: var(--text); }
+.ak-post-body h2 { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 2rem; letter-spacing: 0; word-spacing: 0.2em; line-height: 1.2; margin: 56px 0 24px; color: var(--text); }
+.ak-post-body h3 { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: 0; word-spacing: 0.16em; line-height: 1.25; margin: 40px 0 18px; color: var(--text); }
 .ak-post-body p { margin-bottom: 24px; }
 .ak-post-body ul, .ak-post-body ol { margin: 0 0 24px 28px; }
 .ak-post-body li { margin-bottom: 10px; }
@@ -447,6 +453,70 @@ img { max-width: 100%; display: block; }
 .ak-reveal.visible { clip-path: inset(0 0 0 0); opacity: 1; }
 .ak-reveal-slide { opacity: 0; transform: translateY(40px); transition: opacity 800ms var(--ease), transform 800ms var(--ease); }
 .ak-reveal-slide.visible { opacity: 1; transform: translateY(0); }
+
+/* ── HAND-DRAWN UNDERLINE (scroll-triggered) ── */
+/* Wrap any keyword in <span class="ak-underline" data-draw>…</span>.
+   The marker-stroke SVG animates from 0% to 100% width when the
+   element enters the viewport (or after the 2.5s safety fallback). */
+.ak-underline {
+  display: inline-block;
+  position: relative;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 9 Q 25 4, 50 7 T 100 6 T 150 8 T 198 5' stroke='%23111111' stroke-width='2.5' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 0.35em;
+  padding-bottom: 0.18em;
+  transition: background-size 1100ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.ak-underline.drawn { background-size: 100% 0.35em; }
+/* Lighter variant for use on dark backgrounds */
+.ak-underline.on-dark { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'><path d='M2 9 Q 25 4, 50 7 T 100 6 T 150 8 T 198 5' stroke='%23f6f6f6' stroke-width='2.5' fill='none' stroke-linecap='round'/></svg>"); }
+/* Honor reduced-motion: skip the draw animation */
+@media (prefers-reduced-motion: reduce) {
+  .ak-underline { transition: none; background-size: 100% 0.35em; }
+}
+
+/* ── PER-LETTER H3 ANIMATION (scroll-triggered) ── */
+/* Add data-split to any heading. JS wraps each character in <span
+   class="ak-letter"> and sets --i for staggered fade+slide+blur. */
+.ak-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(8px);
+  transition:
+    opacity 700ms cubic-bezier(0.77, 0, 0.175, 1),
+    transform 700ms cubic-bezier(0.77, 0, 0.175, 1),
+    filter 700ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition-delay: calc(var(--i, 0) * 30ms);
+  will-change: opacity, transform, filter;
+}
+[data-split].split-done .ak-letter {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ak-letter { opacity: 1; transform: none; filter: none; transition: none; }
+}
+
+/* ── PARALLAX TILT GRID (3D scroll) ── */
+/* Container gets perspective, columns translate at independent speeds
+   on scroll, plus subtle rotateX as they enter/exit the viewport.
+   Disabled on mobile (≤768px) for performance. */
+.ak-parallax-grid {
+  perspective: 1200px;
+  perspective-origin: 50% 0%;
+}
+.ak-parallax-col {
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform 200ms linear;
+}
+@media (max-width: 768px) {
+  .ak-parallax-grid { perspective: none; }
+  .ak-parallax-col { transform: none !important; transition: none; }
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
@@ -487,17 +557,21 @@ img { max-width: 100%; display: block; }
   .ak-post-hero { padding: 120px 24px 40px; }
   .ak-post-body { padding: 48px 24px 80px; }
   .ak-btn-lg { padding: 16px 28px; font-size: 0.88rem; }
+  .ak-float a { width: 54px; height: 54px; font-size: 1.25rem; }
+  .ak-float { bottom: max(20px, env(safe-area-inset-bottom, 0)); right: max(20px, env(safe-area-inset-right, 0)); }
 }
 </style>
 
 <nav class="ak-nav" id="akNav">
-  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ak-nav-logo">Akar<em>Solution</em></a>
+  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="ak-nav-logo">Akar <em>Solution</em></a>
   <ul class="ak-nav-links">
     <li><a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Layanan</a></li>
     <li><a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>">Harga</a></li>
     <li><a href="<?php echo esc_url( home_url( '/portfolio' ) ); ?>">Portfolio</a></li>
     <li><a href="<?php echo esc_url( home_url( '/about' ) ); ?>">Tentang</a></li>
     <li><a href="<?php echo esc_url( home_url( '/blog' ) ); ?>">Blog</a></li>
-    <li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-nav-cta">Konsultasi</a></li>
   </ul>
+  <div class="ak-nav-cta-wrap">
+    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-nav-cta">Konsultasi</a>
+  </div>
 </nav>

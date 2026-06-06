@@ -16,7 +16,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div>
       <span class="ak-hero-tag">Blog</span>
       <h1 class="ak-reveal-slide" data-reveal>
-        Insight &amp; tips untuk <em>UMKM</em> dan <em>mahasiswa</em> Jambi.
+        Insight &amp; tips untuk <em class="ak-underline" data-draw>UMKM</em> dan <em class="ak-underline" data-draw>mahasiswa</em> Jambi.
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Ditulis oleh praktisi, bukan copywriter. Konten yang relevan, terapan, dan tanpa jargon.</p>
     </div>
@@ -29,12 +29,12 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-divider"></div>
     <?php if ( have_posts() ) : ?>
-      <div class="ak-blog-grid">
+      <div class="ak-blog-grid ak-parallax-grid" data-parallax="1.3,1.0,1.2">
         <?php $i = 1; while ( have_posts() ) : the_post();
           $thumb_class = 't' . ( ( $i % 3 ) + 1 );
           $i++;
         ?>
-          <a href="<?php the_permalink(); ?>" class="ak-blog-card ak-reveal-slide" data-reveal>
+          <a href="<?php the_permalink(); ?>" class="ak-blog-card ak-reveal-slide ak-parallax-col" data-reveal>
             <div class="ak-blog-thumb <?php echo esc_attr( $thumb_class ); ?>">
               <?php if ( has_post_thumbnail() ) {
                 the_post_thumbnail( 'medium_large', [ 'style' => 'width:100%;height:100%;object-fit:cover;' ] );
@@ -48,7 +48,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
                 <span>· <?php echo esc_html( $cats[0]->name ); ?></span>
               <?php } ?>
             </div>
-            <h3 class="ak-blog-title cd"><?php the_title(); ?></h3>
+            <h3 class="ak-blog-title cd" data-split><?php the_title(); ?></h3>
             <p class="ak-blog-excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 22, '…' ) ); ?></p>
             <span class="ak-blog-read">Baca</span>
           </a>
