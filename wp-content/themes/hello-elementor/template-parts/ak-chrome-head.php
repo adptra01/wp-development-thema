@@ -236,6 +236,33 @@ img { max-width: 100%; display: block; }
 .ak-showcase-item { position: relative; }
 .ak-showcase-watermark { position: absolute; top: 18px; right: 18px; background: rgba(255,255,255,0.92); color: var(--text); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
 
+/* ── GALLERY — 3-col grid of section thumbnails ── */
+.ak-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ak-gallery-item {
+  display: block; position: relative; overflow: hidden;
+  border-radius: 10px; background: var(--bg-2, #eaeaea);
+  transition: transform 500ms var(--ease), box-shadow 500ms var(--ease);
+}
+.ak-gallery-item:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+.ak-gallery-img {
+  width: 100%; aspect-ratio: 16/10;
+  background-size: cover; background-position: center top;
+  filter: grayscale(0.25) brightness(0.96);
+  transition: filter 500ms var(--ease), transform 700ms var(--ease);
+}
+.ak-gallery-item:hover .ak-gallery-img { filter: grayscale(0) brightness(1); transform: scale(1.03); }
+.ak-gallery-meta {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 18px 16px 14px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.82) 100%);
+  color: #fff; display: flex; flex-direction: column; gap: 3px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 450ms var(--ease), transform 450ms var(--ease);
+}
+.ak-gallery-item:hover .ak-gallery-meta { opacity: 1; transform: translateY(0); }
+.ak-gallery-tag { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; opacity: 0.7; }
+.ak-gallery-title { font-family: 'Clash Display', sans-serif; font-size: 1.1rem; font-weight: 600; line-height: 1.2; }
+
 /* ── SERVICE CARDS (3-col, grid lines, premium feel) ── */
 .ak-services-grid {
   display: grid;
@@ -578,6 +605,7 @@ img { max-width: 100%; display: block; }
   .ak-trust-item { border-right: none; border-bottom: 1px solid var(--line); padding: 24px; }
   .ak-footer-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
   .ak-contact-grid { grid-template-columns: 1fr; gap: 60px; }
+  .ak-gallery { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .ak-nav { padding: 0 20px; }
@@ -592,6 +620,7 @@ img { max-width: 100%; display: block; }
   .ak-showcase-item.span-8, .ak-showcase-item.span-7, .ak-showcase-item.span-5, .ak-showcase-item.span-4, .ak-showcase-item.span-6, .ak-showcase-item.span-12 { grid-column: span 1; }
   .ak-showcase-item.pill { border-radius: 16px; }
   .ak-showcase-item.pill .ak-showcase-bg { min-height: 280px; }
+  .ak-gallery { grid-template-columns: 1fr; }
   .ak-services-grid { grid-template-columns: 1fr; }
   .ak-pricing-grid { grid-template-columns: 1fr; }
   .ak-narrative-grid, .ak-process { grid-template-columns: 1fr; gap: 32px; }

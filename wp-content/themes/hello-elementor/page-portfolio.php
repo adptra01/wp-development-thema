@@ -33,7 +33,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     </div>
     <div class="ak-showcase">
       <a href="https://adptra01.framer.media/" target="_blank" rel="noopener" class="ak-showcase-item span-7 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/framer-portfolio.png' ) ); ?>');min-height:420px;"></div>
+        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/framer-portfolio-hero.png' ) ); ?>');min-height:420px;"></div>
         <span class="ak-showcase-watermark">Live</span>
         <div class="ak-showcase-caption">
           <span class="ak-cap-tag">Personal Portfolio</span>
@@ -42,7 +42,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
       </a>
       <a href="https://akar-solution.page.gd/glad2glow/" target="_blank" rel="noopener" class="ak-showcase-item span-5 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/glad2glow.png' ) ); ?>');min-height:420px;"></div>
+        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/glad2glow-hero.png' ) ); ?>');min-height:420px;"></div>
         <span class="ak-showcase-watermark">Live</span>
         <div class="ak-showcase-caption">
           <span class="ak-cap-tag">Project Subpage</span>
@@ -51,7 +51,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
         </div>
       </a>
       <a href="https://akar-solution.page.gd/" target="_blank" rel="noopener" class="ak-showcase-item span-12 ak-reveal" data-reveal>
-        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/akar-solution-mirror.png' ) ); ?>');min-height:340px;"></div>
+        <div class="ak-showcase-bg has-image" style="background-image:url('<?php echo esc_url( content_url( '/uploads/showcase/akar-solution-hero.png' ) ); ?>');min-height:340px;"></div>
         <span class="ak-showcase-watermark">Live</span>
         <div class="ak-showcase-caption">
           <span class="ak-cap-tag">Company Profile</span>
@@ -59,6 +59,42 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <span class="ak-cap-meta">Situs yang sedang Anda lihat — WordPress · 2026</span>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI SHOWCASE — multiple views per project -->
+<section class="ak-section-tight">
+  <div class="ak-container">
+    <div class="ak-section-header">
+      <div class="ak-section-eyebrow">Galeri</div>
+      <h2 class="ak-reveal-slide" data-reveal>Tiap proyek, dari berbagai <em>bagian</em>.</h2>
+      <p>Kami capture beberapa section dari setiap situs live — hero, tengah, dan footer — untuk memperlihatkan konsistensi desain di seluruh halaman.</p>
+    </div>
+    <div class="ak-gallery" data-stagger>
+      <?php
+      $gallery_items = [
+        [ 'site' => 'framer-portfolio',  'section' => '1', 'title' => 'Framer · Works',    'tag' => 'Personal Portfolio',  'url' => 'https://adptra01.framer.media/' ],
+        [ 'site' => 'framer-portfolio',  'section' => '2', 'title' => 'Framer · Detail',   'tag' => 'Personal Portfolio',  'url' => 'https://adptra01.framer.media/' ],
+        [ 'site' => 'framer-portfolio',  'section' => '3', 'title' => 'Framer · Footer',   'tag' => 'Personal Portfolio',  'url' => 'https://adptra01.framer.media/' ],
+        [ 'site' => 'akar-solution',     'section' => '1', 'title' => 'Akar · Expertise',  'tag' => 'Mentor Marketplace',  'url' => 'https://akar-solution.page.gd/' ],
+        [ 'site' => 'akar-solution',     'section' => '2', 'title' => 'Akar · Mentors',    'tag' => 'Mentor Marketplace',  'url' => 'https://akar-solution.page.gd/' ],
+        [ 'site' => 'akar-solution',     'section' => '3', 'title' => 'Akar · CTA',        'tag' => 'Mentor Marketplace',  'url' => 'https://akar-solution.page.gd/' ],
+        [ 'site' => 'glad2glow',         'section' => '1', 'title' => 'Glad2Glow · Hero',  'tag' => 'Beauty Brand',        'url' => 'https://akar-solution.page.gd/glad2glow/' ],
+        [ 'site' => 'glad2glow',         'section' => '2', 'title' => 'Glad2Glow · Stats', 'tag' => 'Beauty Brand',        'url' => 'https://akar-solution.page.gd/glad2glow/' ],
+        [ 'site' => 'glad2glow',         'section' => '3', 'title' => 'Glad2Glow · CTA',   'tag' => 'Beauty Brand',        'url' => 'https://akar-solution.page.gd/glad2glow/' ],
+      ];
+      foreach ( $gallery_items as $item ) :
+        $img_url = content_url( '/uploads/showcase/' . $item['site'] . '-section-' . $item['section'] . '.png' );
+      ?>
+        <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank" rel="noopener" class="ak-gallery-item">
+          <div class="ak-gallery-img" style="background-image:url('<?php echo esc_url( $img_url ); ?>');"></div>
+          <div class="ak-gallery-meta">
+            <span class="ak-gallery-tag"><?php echo esc_html( $item['tag'] ); ?></span>
+            <span class="ak-gallery-title"><?php echo esc_html( $item['title'] ); ?></span>
+          </div>
+        </a>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
