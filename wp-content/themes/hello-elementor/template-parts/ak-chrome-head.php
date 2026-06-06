@@ -130,17 +130,60 @@ img { max-width: 100%; display: block; }
 .ak-hero h1 em { font-style: italic; color: var(--text-soft); font-weight: 600; }
 .ak-hero-sub { font-size: 1.1rem; line-height: 1.7; color: var(--text-muted); max-width: 520px; margin-bottom: 40px; font-weight: 400; }
 .ak-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+/* ── HERO CARD STACK ── */
 .ak-hero-visual {
   position: relative;
+  width: 100%;
   aspect-ratio: 4 / 5;
-  background: linear-gradient(135deg, #e8e8e8 0%, #d4d4d4 100%);
-  border-radius: 8px;
-  overflow: hidden;
+  max-width: 380px;
+  margin-left: auto;
 }
-.ak-hero-visual::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4), transparent 50%);
+.ak-hero-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.ak-hero-card {
+  position: absolute;
+  width: 78%;
+  height: 80%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  transition: transform 600ms cubic-bezier(0.77,0,0.175,1),
+              filter 600ms cubic-bezier(0.77,0,0.175,1),
+              box-shadow 600ms cubic-bezier(0.77,0,0.175,1);
+  cursor: pointer;
+}
+.ak-hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.ak-hero-card:nth-child(1) {
+  top: 0; left: 0;
+  transform: rotate(-5deg) translateX(-6px) translateY(10px);
+  z-index: 1;
+  filter: grayscale(0.3) brightness(0.96);
+}
+.ak-hero-card:nth-child(2) {
+  top: 6%; left: 10%;
+  transform: rotate(0deg);
+  z-index: 2;
+  filter: grayscale(0.12);
+}
+.ak-hero-card:nth-child(3) {
+  top: 12%; left: 22%;
+  transform: rotate(3deg) translateX(4px) translateY(8px);
+  z-index: 3;
+}
+.ak-hero-card:hover {
+  transform: rotate(0deg) translateX(0) translateY(-6px) scale(1.02);
+  z-index: 10;
+  filter: grayscale(0) brightness(1);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.18);
 }
 
 /* Hero echo-stack (used on inner pages) */
@@ -615,6 +658,11 @@ img { max-width: 100%; display: block; }
   .ak-cta { padding: 80px 24px; }
   .ak-hero { padding: 120px 24px 80px; min-height: auto; }
   .ak-hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .ak-hero-visual { max-width: 280px; margin: 0 auto; }
+  .ak-hero-card { width: 82%; height: 80%; }
+  .ak-hero-card:nth-child(1) { transform: rotate(-4deg) translateX(-4px) translateY(6px); }
+  .ak-hero-card:nth-child(2) { top: 5%; left: 8%; }
+  .ak-hero-card:nth-child(3) { top: 10%; left: 18%; transform: rotate(2deg) translateX(3px) translateY(5px); }
   .ak-echo-layer { font-size: clamp(2rem, 11vw, 50px) !important; }
   .ak-showcase { grid-template-columns: 1fr; }
   .ak-showcase-item.span-8, .ak-showcase-item.span-7, .ak-showcase-item.span-5, .ak-showcase-item.span-4, .ak-showcase-item.span-6, .ak-showcase-item.span-12 { grid-column: span 1; }

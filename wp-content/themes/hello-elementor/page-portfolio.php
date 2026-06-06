@@ -19,7 +19,19 @@ get_template_part( 'template-parts/ak-chrome-head' );
       </h1>
       <p class="ak-hero-sub ak-reveal-slide" data-reveal>Kami baru memulai — tapi standar yang kami pegang sudah tinggi. Setiap proyek dimulai dengan riset, ditutup dengan hasil yang terukur.</p>
     </div>
-    <div class="ak-hero-visual ak-reveal" data-reveal></div>
+    <div class="ak-hero-visual ak-reveal" data-reveal>
+      <div class="ak-hero-cards">
+        <a href="https://akar-solution.page.gd/glad2glow/" target="_blank" rel="noopener" class="ak-hero-card">
+          <img src="<?php echo esc_url( content_url( '/uploads/showcase/glad2glow-hero.png' ) ); ?>" alt="Glad2Glow" loading="lazy">
+        </a>
+        <a href="https://adptra01.framer.media/" target="_blank" rel="noopener" class="ak-hero-card">
+          <img src="<?php echo esc_url( content_url( '/uploads/showcase/framer-portfolio-hero.png' ) ); ?>" alt="Framer Portfolio" loading="lazy">
+        </a>
+        <a href="https://akar-solution.page.gd/" target="_blank" rel="noopener" class="ak-hero-card">
+          <img src="<?php echo esc_url( content_url( '/uploads/showcase/akar-solution-hero.png' ) ); ?>" alt="Akar Solution" loading="lazy">
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
