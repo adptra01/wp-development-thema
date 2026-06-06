@@ -24,6 +24,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         <a href="https://akar-solution.page.gd/glad2glow/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/glad2glow-hero.png' ) ); ?>" alt="Glad2Glow" loading="lazy">
         </a>
+        <a href="https://sibanyu.com/news/categories" target="_blank" rel="noopener" class="ak-hero-card">
+          <img src="<?php echo esc_url( content_url( '/uploads/showcase/sibanyu-hero.png' ) ); ?>" alt="Sibanyu News" loading="lazy">
+        </a>
         <a href="https://adptra01.framer.media/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/framer-portfolio-hero.png' ) ); ?>" alt="Framer Portfolio" loading="lazy">
         </a>
@@ -81,7 +84,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Galeri</div>
       <h2 class="ak-reveal-slide" data-reveal>Tiap proyek, dari berbagai <em>bagian</em>.</h2>
-      <p>Kami capture beberapa section dari setiap situs live — hero, tengah, dan footer — untuk memperlihatkan konsistensi desain di seluruh halaman.</p>
+      <p>Capture dari 7 situs live — hero, tengah, dan footer — menunjukkan konsistensi desain di seluruh halaman, dari personal portfolio hingga company profile.</p>
     </div>
     <div class="ak-gallery" data-stagger>
       <?php
@@ -95,6 +98,15 @@ get_template_part( 'template-parts/ak-chrome-head' );
         [ 'site' => 'glad2glow',         'section' => '1', 'title' => 'Glad2Glow · Hero',  'tag' => 'Beauty Brand',        'url' => 'https://akar-solution.page.gd/glad2glow/' ],
         [ 'site' => 'glad2glow',         'section' => '2', 'title' => 'Glad2Glow · Stats', 'tag' => 'Beauty Brand',        'url' => 'https://akar-solution.page.gd/glad2glow/' ],
         [ 'site' => 'glad2glow',         'section' => '3', 'title' => 'Glad2Glow · CTA',   'tag' => 'Beauty Brand',        'url' => 'https://akar-solution.page.gd/glad2glow/' ],
+        [ 'site' => 'sibanyu',           'section' => '1', 'title' => 'Sibanyu · Headlines','tag' => 'News Portal',       'url' => 'https://sibanyu.com/news/categories' ],
+        [ 'site' => 'sibanyu',           'section' => '2', 'title' => 'Sibanyu · Categories','tag' => 'News Portal',      'url' => 'https://sibanyu.com/news/categories' ],
+        [ 'site' => 'sibanyu',           'section' => '3', 'title' => 'Sibanyu · Footer',  'tag' => 'News Portal',         'url' => 'https://sibanyu.com/news/categories' ],
+        [ 'site' => 'futsal',            'section' => '1', 'title' => 'Futsal · Hero',     'tag' => 'Sports Booking',      'url' => 'https://futsal.42web.io/?i=1' ],
+        [ 'site' => 'futsal',            'section' => '2', 'title' => 'Futsal · Field',    'tag' => 'Sports Booking',      'url' => 'https://futsal.42web.io/?i=1' ],
+        [ 'site' => 'futsal',            'section' => '3', 'title' => 'Futsal · Footer',   'tag' => 'Sports Booking',      'url' => 'https://futsal.42web.io/?i=1' ],
+        [ 'site' => 'expression-hairsalon','section' => '1', 'title' => 'Expression · Hero',  'tag' => 'Hair Salon',     'url' => 'https://expression-hairsalon.page.gd/?i=1' ],
+        [ 'site' => 'expression-hairsalon','section' => '2', 'title' => 'Expression · Services','tag' => 'Hair Salon',    'url' => 'https://expression-hairsalon.page.gd/?i=1' ],
+        [ 'site' => 'expression-hairsalon','section' => '3', 'title' => 'Expression · Footer', 'tag' => 'Hair Salon',     'url' => 'https://expression-hairsalon.page.gd/?i=1' ],
       ];
       foreach ( $gallery_items as $item ) :
         $img_url = content_url( '/uploads/showcase/' . $item['site'] . '-section-' . $item['section'] . '.png' );
@@ -146,12 +158,12 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div class="ak-services-grid" data-stagger>
       <div class="ak-service-card">
         <div class="ak-service-icon"><?php echo ak_icon('plane'); ?></div>
-        <h3 class="cd" data-split>Travel &amp; Tour</h3>
+        <h3 class="cd" data-split>Travel & Tour</h3>
         <p>Travel agent Jambi: company profile, sistem booking sederhana, dan integrasi WhatsApp untuk inquiry. Sudah paham karakter industri ini.</p>
       </div>
       <div class="ak-service-card">
         <div class="ak-service-icon"><?php echo ak_icon('book'); ?></div>
-        <h3 class="cd" data-split>Pelatihan &amp; Kursus</h3>
+        <h3 class="cd" data-split>Pelatihan & Kursus</h3>
         <p>LPK, bimbel, atau kursus online: landing page, formulir pendaftaran, dan integrasi payment gateway.</p>
       </div>
       <div class="ak-service-card">

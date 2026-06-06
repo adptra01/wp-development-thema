@@ -24,6 +24,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         <a href="https://akar-solution.page.gd/glad2glow/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/glad2glow-hero.png' ) ); ?>" alt="Glad2Glow" loading="lazy">
         </a>
+        <a href="https://sibanyu.com/news/categories" target="_blank" rel="noopener" class="ak-hero-card">
+          <img src="<?php echo esc_url( content_url( '/uploads/showcase/sibanyu-hero.png' ) ); ?>" alt="Sibanyu News" loading="lazy">
+        </a>
         <a href="https://akar-solution.page.gd/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/akar-solution-hero.png' ) ); ?>" alt="Akar Solution" loading="lazy">
         </a>

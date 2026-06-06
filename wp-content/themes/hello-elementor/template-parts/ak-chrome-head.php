@@ -145,8 +145,8 @@ img { max-width: 100%; display: block; }
 }
 .ak-hero-card {
   position: absolute;
-  width: 78%;
-  height: 80%;
+  width: 72%;
+  height: 78%;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.10);
@@ -164,20 +164,26 @@ img { max-width: 100%; display: block; }
 }
 .ak-hero-card:nth-child(1) {
   top: 0; left: 0;
-  transform: rotate(-5deg) translateX(-6px) translateY(10px);
+  transform: rotate(-6deg) translateX(-8px) translateY(14px);
   z-index: 1;
-  filter: grayscale(0.3) brightness(0.96);
+  filter: grayscale(0.35) brightness(0.94);
 }
 .ak-hero-card:nth-child(2) {
-  top: 6%; left: 10%;
-  transform: rotate(0deg);
+  top: 4%; left: 7%;
+  transform: rotate(-2deg) translateX(-3px) translateY(6px);
   z-index: 2;
-  filter: grayscale(0.12);
+  filter: grayscale(0.18);
 }
 .ak-hero-card:nth-child(3) {
-  top: 12%; left: 22%;
-  transform: rotate(3deg) translateX(4px) translateY(8px);
+  top: 8%; left: 15%;
+  transform: rotate(2deg) translateX(2px) translateY(4px);
   z-index: 3;
+  filter: grayscale(0.06);
+}
+.ak-hero-card:nth-child(4) {
+  top: 13%; left: 23%;
+  transform: rotate(4deg) translateX(4px) translateY(7px);
+  z-index: 4;
 }
 .ak-hero-card:hover {
   transform: rotate(0deg) translateX(0) translateY(-6px) scale(1.02);
@@ -659,10 +665,11 @@ img { max-width: 100%; display: block; }
   .ak-hero { padding: 120px 24px 80px; min-height: auto; }
   .ak-hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
   .ak-hero-visual { max-width: 280px; margin: 0 auto; }
-  .ak-hero-card { width: 82%; height: 80%; }
-  .ak-hero-card:nth-child(1) { transform: rotate(-4deg) translateX(-4px) translateY(6px); }
-  .ak-hero-card:nth-child(2) { top: 5%; left: 8%; }
-  .ak-hero-card:nth-child(3) { top: 10%; left: 18%; transform: rotate(2deg) translateX(3px) translateY(5px); }
+  .ak-hero-card { width: 76%; height: 78%; }
+  .ak-hero-card:nth-child(1) { transform: rotate(-4deg) translateX(-4px) translateY(8px); }
+  .ak-hero-card:nth-child(2) { top: 3%; left: 6%; transform: rotate(-1deg) translateX(-1px) translateY(3px); }
+  .ak-hero-card:nth-child(3) { top: 6%; left: 12%; transform: rotate(1deg) translateX(1px) translateY(2px); }
+  .ak-hero-card:nth-child(4) { top: 10%; left: 19%; transform: rotate(3deg) translateX(2px) translateY(4px); }
   .ak-echo-layer { font-size: clamp(2rem, 11vw, 50px) !important; }
   .ak-showcase { grid-template-columns: 1fr; }
   .ak-showcase-item.span-8, .ak-showcase-item.span-7, .ak-showcase-item.span-5, .ak-showcase-item.span-4, .ak-showcase-item.span-6, .ak-showcase-item.span-12 { grid-column: span 1; }

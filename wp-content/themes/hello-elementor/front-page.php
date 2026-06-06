@@ -37,6 +37,9 @@ get_template_part( 'template-parts/ak-chrome-head' );
         <a href="https://akar-solution.page.gd/glad2glow/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/glad2glow-hero.png' ) ); ?>" alt="Glad2Glow" loading="lazy">
         </a>
+        <a href="https://sibanyu.com/news/categories" target="_blank" rel="noopener" class="ak-hero-card">
+          <img src="<?php echo esc_url( content_url( '/uploads/showcase/sibanyu-hero.png' ) ); ?>" alt="Sibanyu News" loading="lazy">
+        </a>
         <a href="https://akar-solution.page.gd/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/akar-solution-hero.png' ) ); ?>" alt="Akar Solution" loading="lazy">
         </a>
@@ -179,12 +182,12 @@ get_template_part( 'template-parts/ak-chrome-head' );
     <div class="ak-services-grid" data-stagger>
       <div class="ak-service-card">
         <div class="ak-service-icon"><?php echo ak_icon('plane'); ?></div>
-        <h3 class="cd" data-split>Travel &amp; Tour</h3>
+        <h3 class="cd" data-split>Travel & Tour</h3>
         <p>Travel agent Jambi: company profile, sistem booking sederhana, dan integrasi WhatsApp untuk inquiry.</p>
       </div>
       <div class="ak-service-card">
         <div class="ak-service-icon"><?php echo ak_icon('book'); ?></div>
-        <h3 class="cd" data-split>Pelatihan &amp; Kursus</h3>
+        <h3 class="cd" data-split>Pelatihan & Kursus</h3>
         <p>LPK, bimbel, atau kursus online: landing page, formulir pendaftaran, dan integrasi payment gateway.</p>
       </div>
       <div class="ak-service-card">

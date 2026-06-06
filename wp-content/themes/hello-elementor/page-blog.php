@@ -36,6 +36,9 @@ $blog_query = new WP_Query( [
         <a href="https://akar-solution.page.gd/glad2glow/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/glad2glow-hero.png' ) ); ?>" alt="Glad2Glow" loading="lazy">
         </a>
+        <a href="https://sibanyu.com/news/categories" target="_blank" rel="noopener" class="ak-hero-card">
+          <img src="<?php echo esc_url( content_url( '/uploads/showcase/sibanyu-hero.png' ) ); ?>" alt="Sibanyu News" loading="lazy">
+        </a>
         <a href="https://adptra01.framer.media/" target="_blank" rel="noopener" class="ak-hero-card">
           <img src="<?php echo esc_url( content_url( '/uploads/showcase/framer-portfolio-hero.png' ) ); ?>" alt="Framer Portfolio" loading="lazy">
         </a>
