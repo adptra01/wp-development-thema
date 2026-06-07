@@ -680,16 +680,19 @@ img { max-width: 100%; display: block; }
 
 /* ── SERVICE ILLUSTRATION (Streamline PNG) ── */
 .ak-sv-illustration {
-  width: 420px; height: 420px; border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0.3) 75%, rgba(255,255,255,0.05) 100%);
+  width: 420px; height: 420px; position: relative;
   display: flex; align-items: center; justify-content: center;
   transition: transform 400ms var(--ease);
-  overflow: visible; padding: 40px;
+  overflow: hidden;
+}
+.ak-sv-illustration::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, #F3F3F3 75%);
 }
 .ak-sv-illustration:hover { transform: scale(1.04); }
-.ak-sv-illustration img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08)); }
+.ak-sv-illustration img { width: 100%; height: 100%; object-fit: contain; }
 @media (max-width: 768px) {
-  .ak-sv-illustration { width: 280px; height: 280px; padding: 24px; }
+  .ak-sv-illustration { width: 280px; height: 280px; }
 }
 
 /* ── SERVICE DETAIL: PROBLEM SPLIT ── */
