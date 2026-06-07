@@ -680,16 +680,16 @@ img { max-width: 100%; display: block; }
 
 /* ── SERVICE ILLUSTRATION (Streamline PNG) ── */
 .ak-sv-illustration {
-  width: 360px; height: 360px; border-radius: 24px;
-  background: var(--bg-2); display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-  transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
-  overflow: hidden; padding: 32px;
+  width: 420px; height: 420px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.4) 60%, rgba(255,255,255,0) 70%);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 400ms var(--ease);
+  overflow: visible; padding: 40px;
 }
-.ak-sv-illustration:hover { transform: scale(1.04); box-shadow: 0 12px 40px rgba(0,0,0,0.10); }
-.ak-sv-illustration img { width: 100%; height: 100%; object-fit: contain; }
+.ak-sv-illustration:hover { transform: scale(1.04); }
+.ak-sv-illustration img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08)); }
 @media (max-width: 768px) {
-  .ak-sv-illustration { width: 240px; height: 240px; padding: 20px; }
+  .ak-sv-illustration { width: 280px; height: 280px; padding: 24px; }
 }
 
 /* ── SERVICE DETAIL: PROBLEM SPLIT ── */
