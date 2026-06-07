@@ -249,7 +249,7 @@ $services = [
       'quote'  => 'Saya sudah mau menyerah. Tim Akar bantu saya paham kenapa kode saya tidak jalan — bukan cuma fix, tapi menjelaskan kenapa. Sekarang saya lebih confident coding.',
       'name'   => 'Dani Pratama',
       'role'   => 'Mahasiswa Informatika',
-      'company' => 'Universitas Jambi',
+      'company' => 'Universitas Swasta',
     ],
     'faq'        => [
       ['q' => 'Apakah mentoring hanya untuk skripsi?',                    'a' => 'Bisa juga untuk proyek akhir, tugas besar, atau belajar teknologi baru. Yang penting ada target yang jelas.'],
@@ -309,7 +309,7 @@ $services = [
       'quote'  => 'Sesi 90 menit menghemat 2 minggu waktu saya. Saya tahu persis apa yang harus dilakukan setelah konsultasi. Worth it banget.',
       'name'   => 'Sarah Putri',
       'role'   => 'Mahasiswa Teknik Informatika',
-      'company' => 'STIKOM Jambi',
+      'company' => 'STIKOM',
     ],
     'faq'        => [
       ['q' => 'Konsultasi cocok untuk proyek apa?',                       'a' => 'Proyek akhir, tugas besar, side project, atau startup MVP. Yang penting ada ide yang jelas tentang apa yang ingin dibangun.'],
@@ -370,7 +370,7 @@ $services = [
       'quote'  => 'Saya kira kode saya sudah bagus. Ternyata masih banyak yang bisa diperbaiki. Laporan review-nya detail banget — saya langsung tahu apa yang harus diubah.',
       'name'   => 'Rizky Aditya',
       'role'   => 'Mahasiswa S1 Informatika',
-      'company' => 'Universitas Jambi',
+      'company' => 'Universitas Negeri',
     ],
     'faq'        => [
       ['q' => 'File seberapa besar yang bisa di-review?',                  'a' => 'Sampai 5.000 baris kode per sesi. Jika lebih, kami bagi beberapa file dan review bertahap.'],
