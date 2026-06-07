@@ -680,19 +680,29 @@ img { max-width: 100%; display: block; }
 
 /* ── SERVICE ILLUSTRATION (Streamline PNG) ── */
 .ak-sv-illustration {
-  width: 420px; height: 420px; position: relative;
-  display: flex; align-items: center; justify-content: center;
-  transition: transform 400ms var(--ease);
-  overflow: hidden;
+  position: relative; display: inline-block;
 }
-.ak-sv-illustration::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse at center, transparent 40%, #F3F3F3 75%);
+.ak-sv-illustration::before {
+  content: ''; position: absolute;
+  width: 650px; height: 650px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle,
+    rgba(243,243,243,0.95) 0%,
+    rgba(243,243,243,0.5) 55%,
+    rgba(243,243,243,0) 100%
+  );
+  filter: blur(40px);
+  z-index: 0;
 }
-.ak-sv-illustration:hover { transform: scale(1.04); }
-.ak-sv-illustration img { width: 100%; height: 100%; object-fit: contain; }
+.ak-sv-illustration img {
+  position: relative; z-index: 1;
+  display: block; width: 100%; max-width: 480px; height: auto;
+}
+.ak-sv-illustration:hover img { transform: scale(1.04); transition: transform 400ms var(--ease); }
 @media (max-width: 768px) {
-  .ak-sv-illustration { width: 280px; height: 280px; }
+  .ak-sv-illustration::before { width: 400px; height: 400px; }
+  .ak-sv-illustration img { max-width: 320px; }
 }
 
 /* ── SERVICE DETAIL: PROBLEM SPLIT ── */
