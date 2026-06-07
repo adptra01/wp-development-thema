@@ -681,7 +681,7 @@ img { max-width: 100%; display: block; }
 /* ── SERVICE ILLUSTRATION (Streamline PNG) ── */
 .ak-sv-illustration {
   width: 420px; height: 420px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,0.4) 60%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0.3) 75%, rgba(255,255,255,0.05) 100%);
   display: flex; align-items: center; justify-content: center;
   transition: transform 400ms var(--ease);
   overflow: visible; padding: 40px;
