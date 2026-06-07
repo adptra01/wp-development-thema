@@ -751,7 +751,7 @@ img { max-width: 100%; display: block; }
 .ak-sv-table .cross { color: var(--text-soft); opacity: 0.35; }
 
 /* ── SERVICE DETAIL: VERTICAL TIMELINE ── */
-.ak-sv-timeline { position: relative; padding-left: 48px; max-width: 640px; }
+.ak-sv-timeline { position: relative; padding-left: 48px; max-width: 640px; place-self: center; }
 .ak-sv-timeline::before {
   content: ''; position: absolute; left: 17px; top: 8px; bottom: 8px;
   width: 2px; background: var(--line-strong);
