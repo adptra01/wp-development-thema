@@ -2,12 +2,12 @@
 
 ## Overview
 
-WordPress child theme + API plugin for Akar Solution website.
+WordPress child theme + plugins for Akar Solution website.
 
 | File | Size | Description |
 |------|------|-------------|
 | `akar-theme.zip` | ~430KB | Child theme (templates, CSS, JS, illustrations) |
-| `akar-plugins.zip` | ~25KB | Custom API endpoint plugin (read + CRUD) |
+| `akar-plugins.zip` | ~27KB | 2 plugins: Custom API Endpoint (CRUD) + Akar llms.txt |
 | `akar-mu-plugins.zip` | ~1.3KB | 2 mu-plugins (disable header/footer, hide admin bar) |
 | `akar-database.sql` | 1.4MB | WordPress database dump |
 
@@ -23,6 +23,7 @@ WordPress child theme + API plugin for Akar Solution website.
 - API: full CRUD (create/update/delete posts) + read endpoints
 - Proper escaping: `esc_url()`, `esc_html()`, `esc_attr()`, `wp_kses_post()`, `absint()`
 - Schema.org structured data on service detail pages
+- **llms.txt**: Dynamic `/llms.txt` endpoint for AI tool visibility (ChatGPT, Gemini, Claude)
 
 ---
 
@@ -44,11 +45,13 @@ WordPress child theme + API plugin for Akar Solution website.
 4. Extract the zip
 5. Verify `akar-solution/` folder exists in `themes/`
 
-### 3. Upload Plugin
+### 3. Upload Plugins
 
 1. Navigate to `htdocs/wp-content/plugins/`
 2. Upload `akar-plugins.zip`
-3. Extract → verify `custom-api-endpoint/` folder exists
+3. Extract → verify **2 folders** exist:
+   - `custom-api-endpoint/`
+   - `akar-llms-txt/`
 
 ### 4. Upload Mu-Plugins
 
@@ -90,9 +93,42 @@ define( 'WP_HOME', 'https://yourdomain.com' );
 3. Activate **Akar Solution** child theme
 4. Go to **Plugins** → **Installed Plugins**
 5. Activate **Custom API Endpoint**
-6. Go to **Settings** → **Custom API Endpoint** → Generate API key
-7. Go to **Appearance** → **Customize** → **Akar Solution** panel
-8. Update WhatsApp number, email, address, colors
+6. Activate **Akar llms.txt**
+7. Go to **Settings** → **Permalinks** → click **Save Changes** (flushes rewrite rules)
+8. Go to **Settings** → **Custom API Endpoint** → Generate API key
+9. Go to **Appearance** → **Customize** → **Akar Solution** panel
+10. Update WhatsApp number, email, address, colors
+
+### 8. Verify llms.txt
+
+After activating **Akar llms.txt** and flushing permalinks:
+
+1. Visit `https://yourdomain.com/llms.txt`
+2. You should see a markdown file listing your services, pages, and contact info
+3. If you get a 404, go to **Settings** → **Permalinks** → **Save Changes** again
+
+---
+
+## How llms.txt Works
+
+The **Akar llms.txt** plugin creates a virtual `/llms.txt` endpoint using WordPress rewrite rules. No `.htaccess` edits needed.
+
+When activated, it:
+1. Adds a rewrite rule: `/llms.txt` → `index.php?akar_llms=1`
+2. Intercepts the request via `template_redirect` hook
+3. Outputs dynamic markdown with your Customizer settings
+4. Sets `Content-Type: text/markdown; charset=utf-8`
+5. Cache-Control: `public, max-age=3600` (1 hour)
+
+The content automatically updates when you change Customizer settings (WhatsApp, email, etc.).
+
+### What appears in /llms.txt
+
+- Site name and tagline
+- Links to all main pages (Beranda, Layanan, Harga, etc.)
+- Service list with prices
+- Contact info (WhatsApp, email, hours, address)
+- Industry focus areas
 
 ---
 
@@ -146,14 +182,40 @@ See `API-DOCUMENTATION.md` in the plugin folder for full reference.
 
 - [ ] Activate Akar Solution child theme
 - [ ] Activate Custom API Endpoint plugin
+- [ ] Activate Akar llms.txt plugin
+- [ ] Flush permalinks: **Settings** → **Permalinks** → **Save Changes**
 - [ ] Generate new API key
 - [ ] Configure WhatsApp number in Customizer
 - [ ] Configure email address in Customizer
+- [ ] Test `https://yourdomain.com/llms.txt` returns markdown
 - [ ] Test all pages load correctly
 - [ ] Test API read: `GET /wp-api-proxy.php/status`
 - [ ] Test API CRUD: `POST /wp-api-proxy.php/posts`
 - [ ] Enable SSL in Control Panel → SSL Certificates
 - [ ] Set PHP 8.0+ in Control Panel → PHP Configuration
+
+---
+
+## Troubleshooting
+
+### /llms.txt returns 404
+
+1. Go to **Settings** → **Permalinks** → **Save Changes** (flushes rewrite rules)
+2. If still 404, deactivate and reactivate the **Akar llms.txt** plugin
+3. Check that the plugin is activated (should appear in Plugins list)
+
+### Customizer values not appearing in /llms.txt
+
+1. Go to **Appearance** → **Customize** → **Akar Solution**
+2. Verify the WhatsApp, email, and other fields have values
+3. Click **Save & Publish**
+4. Refresh `/llms.txt`
+
+### API returns 403 or "Invalid API key"
+
+1. Go to **Settings** → **Custom API Endpoint**
+2. Click **Generate New Key** or copy the existing key
+3. Use the key in your request: `?api_key=YOUR_KEY`
 
 ---
 
@@ -163,3 +225,4 @@ See `API-DOCUMENTATION.md` in the plugin folder for full reference.
 - **Multisite**: Not supported on InfinityFree (skipped)
 - **Fonts**: Loaded from FontShare CDN (Clash Display + Satoshi)
 - **Illustrations**: Streamline (CC BY 4.0)
+- **llms.txt**: Dynamic plugin — no `.htaccess` edits needed, just activate and flush permalinks

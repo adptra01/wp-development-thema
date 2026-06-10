@@ -4,6 +4,9 @@
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+# llms.txt → llms.php (AI visibility endpoint)
+RewriteRule ^llms\.txt$ /llms.php [L]
+
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 
