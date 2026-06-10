@@ -128,7 +128,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Pendekatan</div>
-      <h2 class="ak-reveal-slide" data-reveal">Cara kami <em>bekerja</em> di setiap proyek.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Cara kami <em>bekerja</em> di setiap proyek.</h2>
     </div>
     <div class="ak-narrative-grid ak-parallax-grid" data-parallax="1.15,1.0,1.25">
       <div class="ak-reveal-slide ak-parallax-col" data-reveal>
@@ -152,7 +152,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Fokus Industri</div>
-      <h2 class="ak-reveal-slide" data-reveal">Tiga <em>vertikal</em> yang kami dalami.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Tiga <em>vertikal</em> yang kami dalami.</h2>
       <p>Fokus membuat kami lebih cepat, lebih murah, dan lebih paham dibanding generalis.</p>
     </div>
     <div class="ak-services-grid" data-stagger>
@@ -217,7 +217,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <h2 class="cd">Jadilah proyek pertama kami.</h2>
   <p>Atau proyek ke-2, ke-3 — yang penting Anda puas.</p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20bekerja%20sama." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Mulai Proyek</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik bekerja sama.' ) ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Mulai Proyek</a>
     <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Lihat Harga</a>
   </div>
 </section>

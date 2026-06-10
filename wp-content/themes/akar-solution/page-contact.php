@@ -50,7 +50,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <div class="ak-info-ic"><?php echo ak_icon('message'); ?></div>
           <div>
             <h4>WhatsApp</h4>
-            <a href="https://wa.me/6285951572182" target="_blank" rel="noopener">0859-5157-2182</a>
+            <a href="<?php echo esc_url( akar_whatsapp_url() ); ?>" target="_blank" rel="noopener">0859-5157-2182</a>
             <p style="font-size:0.85rem;margin-top:4px;color:var(--text-muted);">Respons tercepat — klik untuk chat langsung</p>
           </div>
         </div>
@@ -59,7 +59,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <div class="ak-info-ic"><?php echo ak_icon('mail'); ?></div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:halo@akarsolution.id">halo@akarsolution.id</a>
+            <a href="mailto:<?php echo esc_attr( akar_email() ); ?>"><?php echo esc_html( akar_email() ); ?></a>
             <p style="font-size:0.85rem;margin-top:4px;color:var(--text-muted);">Untuk inquiry detail atau proposal</p>
           </div>
         </div>
@@ -86,7 +86,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <div class="ak-info-ic"><?php echo ak_icon('instagram'); ?></div>
           <div>
             <h4>Instagram</h4>
-            <a href="https://instagram.com/akarsolution" target="_blank" rel="noopener">@akarsolution</a>
+            <a href="https://instagram.com/<?php echo esc_attr( akar_instagram() ); ?>" target="_blank" rel="noopener">@<?php echo esc_html( akar_instagram() ); ?></a>
             <p style="font-size:0.85rem;margin-top:4px;color:var(--text-muted);">Untuk update &amp; portfolio</p>
           </div>
         </div>
@@ -134,8 +134,8 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <h2 class="cd">Atau langsung chat sekarang.</h2>
   <p>Tidak perlu formal — sapa saja, kami balas sopan.</p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
-    <a href="tel:+6285951572182" class="ak-btn ak-btn-outline ak-btn-lg">📞 0859-5157-2182</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url() ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Chat via WhatsApp</a>
+    <a href="tel:+<?php echo esc_attr( akar_whatsapp_number() ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">0859-5157-2182</a>
   </div>
 </section>
 
@@ -148,7 +148,7 @@ function akSubmitForm(e) {
   var service = f.service.value;
   var message = f.message.value.trim();
   var text = 'Halo Akar Solution,%0A%0ANama: ' + encodeURIComponent(name) + '%0AKontak: ' + encodeURIComponent(contact) + '%0ALayanan: ' + encodeURIComponent(service) + '%0A%0APesan:%0A' + encodeURIComponent(message);
-  window.open('https://wa.me/6285951572182?text=' + text, '_blank');
+  window.open('https://wa.me/<?php echo esc_js( akar_whatsapp_number() ); ?>?text=' + text, '_blank');
   return false;
 }
 </script>

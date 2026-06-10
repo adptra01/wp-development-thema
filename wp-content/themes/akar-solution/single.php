@@ -71,7 +71,7 @@ while ( have_posts() ) : the_post();
   <div style="margin-top:60px;text-align:center;padding:60px 32px;background:var(--dark);border-radius:8px;color:#f6f6f6;">
     <div class="cd" style="font-weight:700;font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-0.02em;line-height:1.1;margin-bottom:14px;word-spacing:0.05em;">Butuh bantuan profesional?</div>
     <p style="color:rgba(246,246,246,0.65);font-weight:400;margin-bottom:28px;line-height:1.7;">Konsultasi gratis 15 menit — kami bantu analisis kebutuhan Anda.</p>
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." class="ak-btn" target="_blank" rel="noopener" style="background:#f6f6f6;color:var(--dark);border-color:#f6f6f6;">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url() ); ?>" class="ak-btn" target="_blank" rel="noopener" style="background:#f6f6f6;color:var(--dark);border-color:#f6f6f6;">Chat via WhatsApp</a>
   </div>
 </article>
 

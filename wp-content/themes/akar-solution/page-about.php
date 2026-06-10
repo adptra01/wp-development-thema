@@ -55,7 +55,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container ak-container-narrow">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Cerita</div>
-      <h2 class="ak-reveal-slide" data-reveal">Kenapa <em>Akar</em>.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Kenapa <em>Akar</em>.</h2>
     </div>
     <div class="ak-narrative" style="text-align:left;">
       <p class="ak-reveal-slide" data-reveal style="font-size:1.15rem;line-height:1.85;margin-bottom:28px;">Kami memulai dengan pertanyaan sederhana: <em>kenapa banyak bisnis lokal Jambi masih tidak punya website, atau punya website yang tidak terurus?</em> Jawabannya bukan karena mereka tidak butuh — tapi karena solusi yang ditawarkan tidak relevan, terlalu mahal, atau tidak ada yang mendampingi.</p>
@@ -70,7 +70,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Yang Kami Yakini</div>
-      <h2 class="ak-reveal-slide" data-reveal">Tiga nilai yang <em>tidak bisa</em> ditawar.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Tiga nilai yang <em>tidak bisa</em> ditawar.</h2>
     </div>
     <div class="ak-services-grid" data-stagger>
       <div class="ak-service-card">
@@ -121,7 +121,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <h2 class="cd">Mari terhubung.</h2>
   <p>Diskusi gratis 15 menit — kami dengarkan dulu, baru rekomendasikan.</p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20ingin%20mengenal%20lebih%20lanjut." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Hubungi Kami</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya ingin mengenal lebih lanjut.' ) ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Hubungi Kami</a>
     <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Lihat Layanan</a>
   </div>
 </section>

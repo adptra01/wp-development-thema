@@ -432,7 +432,7 @@ add_action( 'wp_head', function() use ( $sv, $slug ) {
       <p class="ak-hero-sub ak-reveal-slide" data-reveal><?php echo esc_html( $sv['hero_sub'] ); ?></p>
       <div class="ak-hero-ctas ak-reveal-slide" data-reveal>
         <span class="ak-btn" style="pointer-events:none;opacity:0.7;"><?php echo esc_html( $sv['price_label'] ); ?></span>
-        <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20<?php echo urlencode( $sv['tag'] ); ?>." class="ak-btn" target="_blank" rel="noopener">Konsultasi Gratis</a>
+        <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik dengan layanan ' . $sv['tag'] . '.' ) ); ?>" class="ak-btn" target="_blank" rel="noopener">Konsultasi Gratis</a>
       </div>
     </div>
     <div class="ak-sv-hero-visual ak-reveal" data-reveal>
@@ -614,7 +614,7 @@ add_action( 'wp_head', function() use ( $sv, $slug ) {
   <h2 class="cd"><?php echo esc_html( $sv['cta_heading'] ); ?></h2>
   <p><?php echo esc_html( $sv['cta_sub'] ); ?></p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20<?php echo urlencode( $sv['tag'] ); ?>." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik dengan layanan ' . $sv['tag'] . '.' ) ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Chat via WhatsApp</a>
     <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Form Kontak</a>
   </div>
 </section>

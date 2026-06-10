@@ -2,28 +2,27 @@
 
 ## Overview
 
-Optimized WordPress child theme + API plugin for Akar Solution website.
+WordPress child theme + API plugin for Akar Solution website.
 
 | File | Size | Description |
 |------|------|-------------|
-| `akar-theme.zip` | 432KB | Child theme (templates, CSS, JS, illustrations) |
-| `akar-plugins.zip` | 24KB | Custom API endpoint plugin |
-| `akar-mu-plugins.zip` | 1.1KB | 2 mu-plugins (disable header/footer, hide admin bar) |
+| `akar-theme.zip` | ~430KB | Child theme (templates, CSS, JS, illustrations) |
+| `akar-plugins.zip` | ~25KB | Custom API endpoint plugin (read + CRUD) |
+| `akar-mu-plugins.zip` | ~1.3KB | 2 mu-plugins (disable header/footer, hide admin bar) |
 | `akar-database.sql` | 1.4MB | WordPress database dump |
 
 ---
 
-## What's New in v1.1 (Optimized)
+## Features
 
-- ✅ CSS/JS extracted to external files (browser-cached)
-- ✅ Fonts enqueued via `wp_enqueue_style()` (not inline `<link>`)
-- ✅ Customizer settings for WhatsApp, email, colors
-- ✅ i18n-ready with `akar-solution` textdomain
-- ✅ Fixed child theme paths (`get_stylesheet_directory()`)
-- ✅ Removed duplicate `<title>` tag
-- ✅ Fixed API: removed email/capability leak
-- ✅ Fixed API: return type mismatch bug
-- ✅ Screenshot included for theme picker
+- CSS/JS extracted to external files (browser-cached)
+- Fonts enqueued via `wp_enqueue_style()` (FontShare CDN)
+- Customizer settings: WhatsApp, email, Instagram, address, hours, brand name, colors
+- All hardcoded values replaced with Customizer helpers
+- i18n-ready with `akar-solution` textdomain
+- API: full CRUD (create/update/delete posts) + read endpoints
+- Proper escaping: `esc_url()`, `esc_html()`, `esc_attr()`, `wp_kses_post()`, `absint()`
+- Schema.org structured data on service detail pages
 
 ---
 
@@ -120,15 +119,24 @@ Access via **Appearance** → **Customize** → **Akar Solution**:
 After deployment:
 
 ```
-GET https://yourdomain.com/wp-api-proxy.php/status
-GET https://yourdomain.com/wp-api-proxy.php/posts
-GET https://yourdomain.com/wp-api-proxy.php/posts/{id}
-GET https://yourdomain.com/wp-api-proxy.php/post_types
-GET https://yourdomain.com/wp-api-proxy.php/taxonomies
-GET https://yourdomain.com/wp-api-proxy.php/terms?taxonomy=category
-GET https://yourdomain.com/wp-api-proxy.php/users
-GET https://yourdomain.com/wp-api-proxy.php/seo/{id}
+# Read
+GET /wp-api-proxy.php/status
+GET /wp-api-proxy.php/posts
+GET /wp-api-proxy.php/posts/{id}
+GET /wp-api-proxy.php/posts/{slug}
+GET /wp-api-proxy.php/post_types
+GET /wp-api-proxy.php/taxonomies
+GET /wp-api-proxy.php/terms?taxonomy=category
+GET /wp-api-proxy.php/users
+GET /wp-api-proxy.php/seo/{id}
+
+# Write (requires API key with permissions)
+POST   /wp-api-proxy.php/posts        { title, content, status, type, categories, tags }
+PUT    /wp-api-proxy.php/posts/{id}   { title, content, status, slug }
+DELETE /wp-api-proxy.php/posts/{id}
 ```
+
+Authentication: `?api_key=`, `X-API-Key:` header, or `Authorization: Bearer`.
 
 See `API-DOCUMENTATION.md` in the plugin folder for full reference.
 
@@ -142,7 +150,8 @@ See `API-DOCUMENTATION.md` in the plugin folder for full reference.
 - [ ] Configure WhatsApp number in Customizer
 - [ ] Configure email address in Customizer
 - [ ] Test all pages load correctly
-- [ ] Test API: `https://yourdomain.com/wp-api-proxy.php/status`
+- [ ] Test API read: `GET /wp-api-proxy.php/status`
+- [ ] Test API CRUD: `POST /wp-api-proxy.php/posts`
 - [ ] Enable SSL in Control Panel → SSL Certificates
 - [ ] Set PHP 8.0+ in Control Panel → PHP Configuration
 

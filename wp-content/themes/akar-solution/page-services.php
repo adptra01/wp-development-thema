@@ -90,7 +90,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Divisi Pendidikan</div>
-      <h2 class="ak-reveal-slide" data-reveal">Pendampingan <em>IT</em> untuk mahasiswa.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Pendampingan <em>IT</em> untuk mahasiswa.</h2>
       <p>Khusus mahasiswa informatika &amp; IT yang butuh bimbingan skripsi, proyek akhir, atau konsultasi teknis.</p>
     </div>
     <div class="ak-services-grid" data-stagger>
@@ -136,7 +136,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Cara Kerja</div>
-      <h2 class="ak-reveal-slide" data-reveal">Empat langkah <em>simpel</em> sampai jadi.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Empat langkah <em>simpel</em> sampai jadi.</h2>
       <p>Proses yang jelas dan terstruktur — tidak ada yang disembunyikan di belakang "hubungi kami".</p>
     </div>
     <div class="ak-process">
@@ -165,7 +165,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <h2 class="cd">Mulai proyek Anda?</h2>
   <p>Konsultasi gratis 15 menit — tanpa komitmen.</p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url() ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Chat via WhatsApp</a>
     <a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Lihat Harga</a>
   </div>
 </section>

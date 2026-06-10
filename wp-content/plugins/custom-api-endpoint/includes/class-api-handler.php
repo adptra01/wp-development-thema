@@ -190,6 +190,14 @@ class Custom_API_Handler {
 	}
 
 	private function route_request( string $action, string $api_key ): array {
+		$method = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ?? 'GET' ) );
+
+		// ── Write operations (POST/PUT/DELETE) ──
+		if ( in_array( $method, array( 'POST', 'PUT', 'DELETE' ), true ) ) {
+			return $this->handle_write_request( $action, $method, $api_key );
+		}
+
+		// ── Read operations (GET) ──
 		switch ( $action ) {
 			case 'posts':
 				if ( isset( $this->route_segments[1] ) ) {
@@ -251,18 +259,80 @@ class Custom_API_Handler {
 				return array(
 					'message' => 'Custom API Endpoint is active.',
 					'available_actions' => array(
-						'posts'       => 'GET /posts — List posts (supports type, per_page, page, status, search, category, tag, author, orderby, order, slug, id, taxonomy+term, include_meta, include_taxonomies)',
-						'post'        => 'GET /posts/{id|slug} — Single post by id or slug (auto-detected)',
-						'post_types'  => 'GET /post_types — List available post types',
-						'taxonomies'  => 'GET /taxonomies[/post_type] — List taxonomies (optionally filtered by post_type)',
-						'terms'       => 'GET /terms?taxonomy=xxx — List terms in a taxonomy',
-						'users'       => 'GET /users — List users (requires users permission)',
-						'seo'         => 'GET /seo/{id} — SEO data for a post by id (requires seo permission)',
-						'status'      => 'GET /status — Endpoint health check',
+						'posts'       => 'GET /posts — List posts',
+						'posts_create' => 'POST /posts — Create post (title, content, status, type, categories, tags)',
+						'posts_update' => 'PUT /posts/{id} — Update post',
+						'posts_delete' => 'DELETE /posts/{id} — Trash post',
+						'post'        => 'GET /posts/{id|slug} — Single post',
+						'post_types'  => 'GET /post_types — List post types',
+						'taxonomies'  => 'GET /taxonomies — List taxonomies',
+						'terms'       => 'GET /terms?taxonomy=xxx — List terms',
+						'users'       => 'GET /users — List users',
+						'seo'         => 'GET /seo/{id} — SEO data',
+						'status'      => 'GET /status — Health check',
 					),
-					'permissions'       => $this->auth->validate_key( $api_key )['permissions'] ?? array(),
+					'permissions' => $this->auth->validate_key( $api_key )['permissions'] ?? array(),
 				);
 		}
+	}
+
+	/**
+	 * Handle write operations (POST, PUT, DELETE).
+	 */
+	private function handle_write_request( string $action, string $method, string $api_key ): array {
+		if ( 'posts' !== $action ) {
+			$this->send_error( 'Write operations only supported on posts.', 405 );
+		}
+
+		$body = $this->get_request_body();
+
+		// CREATE: POST /posts
+		if ( 'POST' === $method ) {
+			if ( empty( $body['title'] ) ) {
+				throw new Exception( 'Missing required field: title.' );
+			}
+			return $this->provider->create_post( $body );
+		}
+
+		$id = $this->resolve_post_id();
+		if ( ! $id ) {
+			throw new Exception( 'Missing post id.' );
+		}
+
+		// UPDATE: PUT /posts/{id}
+		if ( 'PUT' === $method ) {
+			return $this->provider->update_post( $id, $body );
+		}
+
+		// DELETE: DELETE /posts/{id}
+		if ( 'DELETE' === $method ) {
+			return $this->provider->delete_post( $id );
+		}
+
+		return array();
+	}
+
+	/**
+	 * Resolve post ID from route segments or body.
+	 */
+	private function resolve_post_id(): int {
+		$segment = $this->route_segments[1] ?? '';
+		if ( is_numeric( $segment ) && $segment > 0 ) {
+			return absint( $segment );
+		}
+		return 0;
+	}
+
+	/**
+	 * Read and decode JSON request body.
+	 */
+	private function get_request_body(): array {
+		$raw = file_get_contents( 'php://input' );
+		if ( empty( $raw ) ) {
+			return array();
+		}
+		$data = json_decode( $raw, true );
+		return is_array( $data ) ? $data : array();
 	}
 
 	/**

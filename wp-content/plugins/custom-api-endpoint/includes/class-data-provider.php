@@ -390,4 +390,190 @@ class Custom_API_Data_Provider {
 
 		return 'publish';
 	}
+
+	// ──────────────────────────────────────────
+	// CRUD: Create / Update / Delete
+	// ──────────────────────────────────────────
+
+	/**
+	 * Create a new post.
+	 */
+	public function create_post( array $data ): array {
+		if ( ! current_user_can( 'edit_posts' ) ) {
+			return array( 'error' => 'insufficient_permissions', 'status' => 403 );
+		}
+
+		$post_type = sanitize_text_field( $data['type'] ?? 'post' );
+		if ( ! post_type_exists( $post_type ) ) {
+			return array( 'error' => 'Invalid post type: ' . $post_type, 'status' => 400 );
+		}
+
+		$status = sanitize_text_field( $data['status'] ?? 'draft' );
+		$allowed_status = array( 'publish', 'draft', 'pending', 'private' );
+		if ( ! in_array( $status, $allowed_status, true ) ) {
+			$status = 'draft';
+		}
+
+		$post_data = array(
+			'post_title'   => sanitize_text_field( wp_unslash( $data['title'] ) ),
+			'post_content' => wp_kses_post( wp_unslash( $data['content'] ?? '' ) ),
+			'post_excerpt' => wp_kses_post( wp_unslash( $data['excerpt'] ?? '' ) ),
+			'post_status'  => $status,
+			'post_type'    => $post_type,
+			'post_name'    => ! empty( $data['slug'] ) ? sanitize_title( $data['slug'] ) : '',
+		);
+
+		if ( ! empty( $data['author'] ) && is_numeric( $data['author'] ) ) {
+			$post_data['post_author'] = absint( $data['author'] );
+		}
+
+		if ( ! empty( $data['date'] ) ) {
+			$post_data['post_date'] = sanitize_text_field( $data['date'] );
+		}
+
+		$post_id = wp_insert_post( $post_data, true );
+
+		if ( is_wp_error( $post_id ) ) {
+			return array( 'error' => $post_id->get_error_message(), 'status' => 500 );
+		}
+
+		// Set categories
+		if ( ! empty( $data['categories'] ) && is_array( $data['categories'] ) && 'post' === $post_type ) {
+			$cat_ids = array_map( 'absint', $data['categories'] );
+			wp_set_post_categories( $post_id, $cat_ids );
+		}
+
+		// Set tags
+		if ( ! empty( $data['tags'] ) && is_array( $data['tags'] ) && 'post' === $post_type ) {
+			$tags = array_map( 'sanitize_text_field', $data['tags'] );
+			wp_set_post_tags( $post_id, $tags );
+		}
+
+		return $this->format_single_post( $post_id );
+	}
+
+	/**
+	 * Update an existing post.
+	 */
+	public function update_post( int $post_id, array $data ): array {
+		$existing = get_post( $post_id );
+		if ( ! $existing ) {
+			return array( 'error' => 'Post not found.', 'status' => 404 );
+		}
+
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return array( 'error' => 'insufficient_permissions', 'status' => 403 );
+		}
+
+		$post_data = array( 'ID' => $post_id );
+
+		if ( isset( $data['title'] ) ) {
+			$post_data['post_title'] = sanitize_text_field( wp_unslash( $data['title'] ) );
+		}
+
+		if ( isset( $data['content'] ) ) {
+			$post_data['post_content'] = wp_kses_post( wp_unslash( $data['content'] ) );
+		}
+
+		if ( isset( $data['excerpt'] ) ) {
+			$post_data['post_excerpt'] = wp_kses_post( wp_unslash( $data['excerpt'] ) );
+		}
+
+		if ( isset( $data['status'] ) ) {
+			$status = sanitize_text_field( $data['status'] );
+			$allowed_status = array( 'publish', 'draft', 'pending', 'private' );
+			if ( in_array( $status, $allowed_status, true ) ) {
+				$post_data['post_status'] = $status;
+			}
+		}
+
+		if ( isset( $data['slug'] ) ) {
+			$post_data['post_name'] = sanitize_title( $data['slug'] );
+		}
+
+		if ( isset( $data['author'] ) && is_numeric( $data['author'] ) ) {
+			$post_data['post_author'] = absint( $data['author'] );
+		}
+
+		$result = wp_update_post( $post_data, true );
+
+		if ( is_wp_error( $result ) ) {
+			return array( 'error' => $result->get_error_message(), 'status' => 500 );
+		}
+
+		// Update categories
+		if ( isset( $data['categories'] ) && is_array( $data['categories'] ) ) {
+			$cat_ids = array_map( 'absint', $data['categories'] );
+			wp_set_post_categories( $post_id, $cat_ids );
+		}
+
+		// Update tags
+		if ( isset( $data['tags'] ) && is_array( $data['tags'] ) ) {
+			$tags = array_map( 'sanitize_text_field', $data['tags'] );
+			wp_set_post_tags( $post_id, $tags );
+		}
+
+		return $this->format_single_post( $post_id );
+	}
+
+	/**
+	 * Delete (trash) a post.
+	 */
+	public function delete_post( int $post_id ): array {
+		$existing = get_post( $post_id );
+		if ( ! $existing ) {
+			return array( 'error' => 'Post not found.', 'status' => 404 );
+		}
+
+		if ( ! current_user_can( 'delete_post', $post_id ) ) {
+			return array( 'error' => 'insufficient_permissions', 'status' => 403 );
+		}
+
+		$result = wp_delete_post( $post_id, true ); // true = force delete
+
+		if ( ! $result ) {
+			return array( 'error' => 'Failed to delete post.', 'status' => 500 );
+		}
+
+		return array(
+			'deleted' => true,
+			'id'      => $post_id,
+			'message' => 'Post deleted.',
+		);
+	}
+
+	/**
+	 * Format a single post for API response.
+	 */
+	private function format_single_post( int $post_id ): array {
+		$post = get_post( $post_id );
+		if ( ! $post ) {
+			return array();
+		}
+
+		$author = get_userdata( $post->post_author );
+
+		return array(
+			'post' => array(
+				'id'             => $post->ID,
+				'title'          => $post->post_title,
+				'slug'           => $post->post_name,
+				'type'           => $post->post_type,
+				'status'         => $post->post_status,
+				'date'           => $post->post_date_gmt,
+				'modified'       => $post->post_modified_gmt,
+				'excerpt'        => $post->post_excerpt,
+				'content'        => $post->post_content,
+				'link'           => get_permalink( $post ),
+				'featured_image' => get_the_post_thumbnail_url( $post_id, 'medium' ) ?: null,
+				'author'         => $author ? array(
+					'id'           => $author->ID,
+					'display_name' => $author->display_name,
+					'login'        => $author->user_login,
+				) : null,
+				'categories'     => wp_get_post_categories( $post_id, array( 'fields' => 'ids' ) ),
+				'tags'           => wp_get_post_tags( $post_id, array( 'fields' => 'ids' ) ),
+			),
+		);
+	}
 }

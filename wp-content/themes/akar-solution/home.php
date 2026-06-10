@@ -99,7 +99,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <h2 class="cd">Punya pertanyaan?</h2>
   <p>Konsultasi gratis — kami balas dalam 1–2 jam.</p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20mau%20tanya-tanya." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya mau tanya-tanya.' ) ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Chat via WhatsApp</a>
     <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Form Kontak</a>
   </div>
 </section>

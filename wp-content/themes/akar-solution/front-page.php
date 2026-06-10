@@ -80,7 +80,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Kenapa Akar Solution</div>
-      <h2 class="ak-reveal-slide" data-reveal">Tiga hal yang <em>membedakan</em> kami.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Tiga hal yang <em>membedakan</em> kami.</h2>
     </div>
     <div class="ak-narrative-grid ak-parallax-grid" data-parallax="1.15,1.0,1.25">
       <div class="ak-reveal-slide ak-parallax-col" data-reveal>
@@ -104,7 +104,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Cara Kami Kerja</div>
-      <h2 class="ak-reveal-slide" data-reveal">Empat langkah <em>simpel</em> dari brief sampai live.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Empat langkah <em>simpel</em> dari brief sampai live.</h2>
     </div>
     <div class="ak-process">
       <div class="ak-process-step ak-reveal-slide" data-reveal>
@@ -177,7 +177,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Portofolio</div>
-      <h2 class="ak-reveal-slide" data-reveal">Fokus <em>industri</em> yang kami pahami dalam.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Fokus <em>industri</em> yang kami pahami dalam.</h2>
     </div>
     <div class="ak-services-grid" data-stagger>
       <div class="ak-service-card">
@@ -223,7 +223,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <h2 class="cd">Siap tumbuh bareng kami?</h2>
   <p>Konsultasi gratis 15 menit — tanpa komitmen. Kami dengarkan dulu, baru rekomendasikan.</p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20dengan%20layanan%20Anda." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url() ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Chat via WhatsApp</a>
     <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Form Kontak</a>
   </div>
 </section>

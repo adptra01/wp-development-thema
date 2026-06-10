@@ -43,7 +43,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Divisi Bisnis</div>
-      <h2 class="ak-reveal-slide" data-reveal">Paket <em>website</em> &amp; aplikasi.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Paket <em>website</em> &amp; aplikasi.</h2>
       <p>Tiga paket untuk skala bisnis yang berbeda. Upgrade atau downgrade kapan saja.</p>
     </div>
     <div class="ak-pricing-grid ak-parallax-grid" data-parallax="1.2,1.0,1.2">
@@ -60,7 +60,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <li>Free domain .com + hosting 1 tahun</li>
           <li>Garansi revisi 2 minggu</li>
         </ul>
-        <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20paket%20Website%20UMKM." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
+        <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik paket Website UMKM.' ) ); ?>" class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
       </div>
       <div class="ak-pcard feat ak-reveal-slide ak-parallax-col" data-reveal>
         <span class="ak-pbadge">Paling Populer</span>
@@ -77,7 +77,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <li>Free domain + hosting 1 tahun</li>
           <li>Garansi revisi 1 bulan</li>
         </ul>
-        <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20paket%20Website%20Bisnis." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
+        <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik paket Website Bisnis.' ) ); ?>" class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
       </div>
       <div class="ak-pcard ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-pname cd-m" data-split>Aplikasi Custom</div>
@@ -93,7 +93,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <li>Free maintenance 3 bulan</li>
           <li>Training penggunaan</li>
         </ul>
-        <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20ingin%20konsultasi%20aplikasi%20custom." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Konsultasi Gratis</a>
+        <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya ingin konsultasi aplikasi custom.' ) ); ?>" class="ak-btn ak-btn-block" target="_blank" rel="noopener">Konsultasi Gratis</a>
       </div>
     </div>
   </div>
@@ -104,7 +104,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">Divisi Pendidikan</div>
-      <h2 class="ak-reveal-slide" data-reveal">Paket <em>mentoring</em> &amp; konsultasi.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Paket <em>mentoring</em> &amp; konsultasi.</h2>
       <p>Untuk mahasiswa informatika yang butuh bimbingan skripsi, proyek, atau review kode.</p>
     </div>
     <div class="ak-pricing-grid ak-parallax-grid" data-parallax="1.2,1.0,1.2">
@@ -119,7 +119,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <li>Best practices check</li>
           <li>Estimasi 2–3 hari kerja</li>
         </ul>
-        <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20Code%20Review." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
+        <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik Code Review.' ) ); ?>" class="ak-btn ak-btn-block" target="_blank" rel="noopener">Pesan Sekarang</a>
       </div>
       <div class="ak-pcard feat ak-reveal-slide ak-parallax-col" data-reveal>
         <span class="ak-pbadge">Paling Diminati</span>
@@ -135,7 +135,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <li>Catatan &amp; rekaman sesi</li>
           <li>Free follow-up chat 1 minggu</li>
         </ul>
-        <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20Mentoring%20Skripsi." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Booking Sesi</a>
+        <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik Mentoring Skripsi.' ) ); ?>" class="ak-btn ak-btn-block" target="_blank" rel="noopener">Booking Sesi</a>
       </div>
       <div class="ak-pcard ak-reveal-slide ak-parallax-col" data-reveal>
         <div class="ak-pname cd-m" data-split>Konsultasi Proyek</div>
@@ -149,7 +149,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
           <li>Bimbingan deployment</li>
           <li>Paket 5+ sesi (diskon 20%)</li>
         </ul>
-        <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20tertarik%20Konsultasi%20Proyek." class="ak-btn ak-btn-block" target="_blank" rel="noopener">Konsultasi Gratis</a>
+        <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya tertarik Konsultasi Proyek.' ) ); ?>" class="ak-btn ak-btn-block" target="_blank" rel="noopener">Konsultasi Gratis</a>
       </div>
     </div>
   </div>
@@ -160,7 +160,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <div class="ak-container ak-container-narrow">
     <div class="ak-section-header">
       <div class="ak-section-eyebrow">FAQ</div>
-      <h2 class="ak-reveal-slide" data-reveal">Pertanyaan yang <em>sering</em> ditanyakan.</h2>
+      <h2 class="ak-reveal-slide" data-reveal>Pertanyaan yang <em>sering</em> ditanyakan.</h2>
     </div>
     <div class="ak-narrative" style="text-align:left;">
       <div class="ak-reveal-slide" data-reveal style="padding:28px 0;border-bottom:1px solid var(--line);">
@@ -188,7 +188,7 @@ get_template_part( 'template-parts/ak-chrome-head' );
   <h2 class="cd">Masih ragu?</h2>
   <p>Diskusi 15 menit gratis — kami bantu pilih paket yang pas.</p>
   <div class="ak-ctas">
-    <a href="https://wa.me/6285951572182?text=Halo%20Akar%20Solution%2C%20saya%20mau%20konsultasi%20paket." class="ak-btn ak-btn-lg" target="_blank" rel="noopener">💬 Chat via WhatsApp</a>
+    <a href="<?php echo esc_url( akar_whatsapp_url( 'Halo Akar Solution, saya mau konsultasi paket.' ) ); ?>" class="ak-btn ak-btn-lg" target="_blank" rel="noopener">Chat via WhatsApp</a>
     <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="ak-btn ak-btn-outline ak-btn-lg">Form Kontak</a>
   </div>
 </section>
