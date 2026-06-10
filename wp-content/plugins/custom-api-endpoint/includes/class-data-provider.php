@@ -226,9 +226,7 @@ class Custom_API_Data_Provider {
 				'id'            => $user->ID,
 				'login'         => $user->user_login,
 				'display_name'  => $user->display_name,
-				'email'         => $user->user_email,
 				'roles'         => $user->roles,
-				'allcaps'       => array_keys( array_filter( $user->allcaps ) ),
 				'registered'    => $user->user_registered,
 				'avatar'        => get_avatar_url( $user->ID ),
 				'link'          => get_author_posts_url( $user->ID ),
@@ -379,13 +377,13 @@ class Custom_API_Data_Provider {
 		return array( 'results' => $results );
 	}
 
-	private function get_allowed_post_status( array $args ): string {
+	private function get_allowed_post_status( array $args ) {
 		$status = sanitize_text_field( $args['status'] ?? 'publish' );
 		$allowed = array( 'publish', 'draft', 'pending', 'private', 'future', 'trash', 'any' );
 
 		if ( in_array( $status, $allowed, true ) ) {
 			if ( 'any' === $status ) {
-				return array( 'publish', 'draft', 'pending', 'private', 'future' );
+				return array( 'publish', 'draft', 'pending' );
 			}
 			return $status;
 		}

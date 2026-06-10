@@ -85,7 +85,7 @@ $services = [
     'illustration' => get_template_directory_uri() . '/assets/illustrations/streamline/aplikasi-custom.png',
     'h1'         => 'Web app <em class="ak-underline" data-draw>custom</em> sesuai kebutuhan bisnis Anda.',
     'hero_sub'   => 'Sistem inventory, booking, CRM, dashboard admin — dibangun dari nol dengan stack modern yang bisa Anda kembangkan nanti.',
-    'price_label'=> 'Mulai dari Rp 8 jt',
+    'price_label'=> 'Mulai dari Rp 2,5 jt',
     'problems'   => [
       ['title' => 'Proses manual memakan waktu dan sering salah',         'desc' => 'Catat di Excel, hitung manual, follow up via chat. Semua proses manual membuat bisnis lambat dan rawan human error.'],
       ['title' => 'Software off-the-shackle tidak cocok dengan workflow', 'desc' => 'Software generic dipaksa masuk ke cara kerja bisnis Anda. Hasilnya: fitur yang tidak dipakai dan fitur yang dibutuhkan tidak ada.'],
@@ -391,23 +391,21 @@ if ( ! $sv ) {
   return;
 }
 
-/* SEO Meta */
+/* SEO Meta — description + canonical + Schema.org (title handled by theme_support 'title-tag') */
 add_action( 'wp_head', function() use ( $sv, $slug ) {
-  $title = $sv['tag'] . ' — Harga & Proses | Akar Solution Jambi';
   $desc  = $sv['hero_sub'];
   $url   = home_url( '/services/' . $slug );
-  echo '<title>' . esc_html( $title ) . '</title>' . "\n";
   echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
   echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
   // Schema.org Service markup
   $schema = [
     '@context'    => 'https://schema.org',
     '@type'       => 'Service',
-    'name'        => $sv['tag'] . ' — Akar Solution',
+    'name'        => $sv['tag'] . ' — ' . ( function_exists( 'akar_brand' ) ? akar_brand() : 'Akar Solution' ),
     'description' => $sv['hero_sub'],
     'provider'    => [
       '@type' => 'Organization',
-      'name'  => 'Akar Solution',
+      'name'  => function_exists( 'akar_brand' ) ? akar_brand() : 'Akar Solution',
       'url'   => home_url( '/' ),
     ],
     'areaServed'  => [
