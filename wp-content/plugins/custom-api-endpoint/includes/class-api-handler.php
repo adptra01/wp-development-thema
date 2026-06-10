@@ -284,6 +284,34 @@ class Custom_API_Handler {
 			$this->send_error( 'Write operations only supported on posts.', 405 );
 		}
 
+		$validation = $this->auth->validate_key( $api_key );
+		if ( empty( $validation['valid'] ) || empty( $validation['permissions'] ) ) {
+			$this->send_error( 'invalid_api_key', 401 );
+		}
+
+		$write_perms   = array( 'posts', 'custom', 'metadata' );
+		$has_write_perm = false;
+		foreach ( $write_perms as $perm ) {
+			if ( in_array( $perm, $validation['permissions'], true ) ) {
+				$has_write_perm = true;
+				break;
+			}
+		}
+		if ( ! $has_write_perm ) {
+			$this->send_error( 'insufficient_permissions', 403 );
+		}
+
+		$admin_users = get_users( array(
+			'role'    => 'administrator',
+			'number'  => 1,
+			'orderby' => 'ID',
+			'order'   => 'ASC',
+		) );
+		if ( empty( $admin_users ) ) {
+			$this->send_error( 'no_admin_user_found', 500 );
+		}
+		wp_set_current_user( $admin_users[0]->ID );
+
 		$body = $this->get_request_body();
 
 		// CREATE: POST /posts
