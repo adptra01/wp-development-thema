@@ -8,17 +8,31 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#DC2626">
+    <meta name="theme-color" content="#FF5722">
     <link rel="preconnect" href="https://api.fontshare.com">
     <?php wp_head(); ?>
+    <script>
+    (function(){
+        var theme = localStorage.getItem('jp-theme');
+        if (!theme) theme = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+        if (theme === 'dark') document.documentElement.classList.add('jp-dark-mode');
+    })();
+    </script>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a href="#main-content" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;background:var(--jp-white);color:var(--jp-black);font-size:.875rem;font-weight:600;z-index:999;">
+    Langsung ke konten
+</a>
+<style>
+    a[href="#main-content"]:focus { width:auto; height:auto; padding:12px 20px; margin:8px; clip:auto; white-space:normal; border:2px solid var(--jp-red); border-radius:6px; }
+</style>
+
 <!-- ============================================================
      TOP UTILITY BAR (date + weather)
      ============================================================ -->
-<div style="background: var(--jp-black); color: var(--jp-grey-400); font-size: .75rem;">
+<div style="background: var(--jp-grey-100); color: var(--jp-grey-600); font-size: .75rem;">
     <div class="jp-container" style="display:flex; align-items:center; justify-content:space-between; height: 36px; gap: 16px;">
         <div style="display:flex; align-items:center; gap: 16px; overflow:hidden;">
             <span style="white-space:nowrap;"><?php echo date( 'l, j F Y' ); ?></span>
@@ -29,7 +43,7 @@
             </span>
         </div>
         <div style="display:none; align-items:center; gap: 14px;" class="jp-utility-links">
-            <a href="<?php echo esc_url( home_url( '/e-paper' ) ); ?>" style="color:inherit; hover-color:#fff;">E-Paper</a>
+            <a href="<?php echo esc_url( home_url( '/e-paper' ) ); ?>" style="color:inherit;">E-Paper</a>
             <span style="opacity:.3;">|</span>
             <a href="<?php echo esc_url( home_url( '/hubungi-redaksi' ) ); ?>" style="color:inherit;">Kontak Redaksi</a>
             <span style="opacity:.3;">|</span>
@@ -38,7 +52,7 @@
     </div>
     <style>
         @media (min-width: 768px) { .jp-utility-links { display: flex !important; } }
-        .jp-utility-links a:hover { color: #fff; }
+        .jp-utility-links a:hover { color: var(--jp-red); }
     </style>
 </div>
 
@@ -84,30 +98,48 @@
         <?php if ( has_custom_logo() ) : ?>
             <?php the_custom_logo(); ?>
         <?php else : ?>
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" style="display:flex; align-items:center; gap: 2px; flex-shrink:0;">
-            <span style="font-family: var(--jp-font); font-weight: 900; font-size: 1.875rem; color: var(--jp-red); letter-spacing: -.02em; line-height: 1;">JAMBI</span>
-            <span style="font-family: var(--jp-font); font-weight: 900; font-size: 1.875rem; color: var(--jp-black); letter-spacing: -.02em; line-height: 1; margin-left: 4px;">PRESS</span>
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" style="display:flex; align-items:center; flex-shrink:0;" aria-label="Jambi Press">
+            <svg width="160" height="36" viewBox="0 0 180 40" fill="none" role="img" aria-label="Jambi Press">
+                <text x="0" y="32" font-family="'Cabinet Grotesk','Inter',system-ui,sans-serif" font-weight="900" font-size="32" letter-spacing="-0.02" fill="var(--jp-red)">JAMBI</text>
+                <text x="104" y="32" font-family="'Cabinet Grotesk','Inter',system-ui,sans-serif" font-weight="900" font-size="32" letter-spacing="-0.02" fill="var(--jp-black)">PRESS</text>
+            </svg>
         </a>
         <?php endif; ?>
 
         <nav class="jp-cat-nav" aria-label="Navigasi Kategori" style="display:none; align-items:center; gap: 2px; flex:1; justify-content:center;">
             <?php
-            $cats = get_categories( [ 'hide_empty' => true, 'number' => 9, 'orderby' => 'count', 'order' => 'DESC' ] );
-            $i = 0;
-            foreach ( $cats as $cat ) :
-                if ( $i >= 7 ) break;
+            $all_cats = get_categories( [ 'hide_empty' => true, 'number' => 30, 'orderby' => 'count', 'order' => 'DESC', 'exclude' => get_option('default_category') ] );
+            $primary_cats = array_slice( $all_cats, 0, 7 );
+            $more_cats = array_slice( $all_cats, 7 );
+            foreach ( $primary_cats as $pc ) :
             ?>
-            <a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" class="jp-cat-nav-item">
-                <?php echo esc_html( $cat->name ); ?>
+            <a href="<?php echo esc_url( get_category_link( $pc->term_id ) ); ?>" class="jp-cat-nav-item">
+                <?php echo esc_html( $pc->name ); ?>
             </a>
-            <?php $i++; endforeach; ?>
-            <a href="<?php echo esc_url( home_url( '/kategori' ) ); ?>" class="jp-cat-nav-item" style="color: var(--jp-red); font-weight: 700;">Lainnya &rsaquo;</a>
+            <?php endforeach; ?>
+            <?php if ( ! empty( $more_cats ) ) : ?>
+            <div class="jp-mega-wrap">
+                <a href="#" class="jp-cat-nav-item" style="color: var(--jp-red); font-weight: 700;" onclick="return false;">Lainnya &rsaquo;</a>
+                <div class="jp-mega-dropdown">
+                    <?php foreach ( $more_cats as $mc ) : ?>
+                    <a href="<?php echo esc_url( get_category_link( $mc->term_id ) ); ?>">
+                        <?php echo esc_html( $mc->name ); ?>
+                        <span style="font-weight:400; color:var(--jp-grey-400); font-size:.6875rem; margin-left:4px;">(<?php echo $mc->count; ?>)</span>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endif; ?>
         </nav>
         <style>
             @media (min-width: 1024px) { .jp-cat-nav { display: flex !important; } }
         </style>
 
         <div style="display:flex; align-items:center; gap: 8px;">
+            <button id="jp-dark-toggle" class="jp-icon-btn" aria-label="Ganti mode gelap/terang" style="position:relative;">
+                <svg class="jp-sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <svg class="jp-moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
             <button id="jp-search-toggle" class="jp-icon-btn" aria-label="Cari">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </button>
@@ -145,7 +177,7 @@
     <div id="jp-mobile-menu" style="display:none; background: var(--jp-white); border-top: 1px solid var(--jp-grey-100);">
         <div class="jp-container" style="padding: 16px 16px;">
             <nav style="display:flex; flex-direction:column; gap: 2px;">
-                <?php foreach ( $cats as $cat ) : ?>
+                <?php foreach ( $all_cats as $cat ) : ?>
                 <a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" style="padding: 12px 16px; font-size: .875rem; font-weight: 600; color: var(--jp-grey-700); border-radius: 6px; display:flex; align-items:center; justify-content:space-between;">
                     <?php echo esc_html( $cat->name ); ?>
                     <span style="color: var(--jp-grey-400); font-size: .75rem;">(<?php echo $cat->count; ?>)</span>

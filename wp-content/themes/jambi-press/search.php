@@ -5,7 +5,7 @@
  */
 get_header();
 ?>
-<main style="overflow-x:hidden; width:100%; max-width:100%; padding:48px 0 80px;">
+<main style="width:100%; max-width:100%; padding:48px 0 80px;">
   <div class="jp-container">
     <header style="margin-bottom:32px;">
       <h1 class="jp-display-3" style="margin:0;">Hasil Pencarian: "<?php echo esc_html( get_search_query() ); ?>"</h1>
@@ -18,7 +18,7 @@ get_header();
       <?php while ( have_posts() ) : the_post(); $cats = get_the_category(); ?>
       <article style="display:flex; gap:20px; padding:20px 0; border-bottom:1px solid var(--jp-grey-100);">
         <a href="<?php the_permalink(); ?>" class="jp-media" style="flex-shrink:0; width:160px; height:100px; border-radius:6px;">
-          <img src="https://picsum.photos/seed/<?php echo esc_attr( sanitize_title( get_the_title() ) ); ?>/400/300" alt="<?php the_title_attribute(); ?>" class="jp-img-fluid" loading="lazy">
+          <?php jp_post_thumb( 'jp-thumb', 400, 300 ); ?>
         </a>
         <div style="flex:1; min-width:0;">
           <span class="jp-cat" style="color:var(--jp-red);"><?php echo esc_html( $cats[0]->name ); ?></span>
@@ -31,12 +31,17 @@ get_header();
       </article>
       <?php endwhile; ?>
     </div>
-    <div style="margin-top:48px; display:flex; justify-content:center; gap:4px;">
-      <?php the_posts_pagination( [
-        'mid_size' => 2, 'prev_text' => '&laquo;', 'next_text' => '&raquo;',
-        'before_page_number' => '<span style="padding:6px 12px; border:1px solid var(--jp-grey-200); border-radius:4px; font-size:.875rem; font-weight:600;">',
-        'after_page_number' => '</span>',
-      ] ); ?>
+    <div style="margin-top:48px; display:flex; justify-content:center; gap:6px;">
+      <style>
+        .jp-pagination .page-numbers { display:inline-flex; align-items:center; justify-content:center; min-width:40px; height:40px; font-size:.875rem; font-weight:600; color:var(--jp-grey-700); background:var(--jp-white); border:1px solid var(--jp-grey-200); border-radius:6px; transition:all .2s ease; }
+        .jp-pagination .page-numbers:hover { color:var(--jp-red); border-color:var(--jp-red); background:var(--jp-grey-100); }
+        .jp-pagination .page-numbers.current { color:var(--jp-white); background:var(--jp-red); border-color:var(--jp-red); }
+      </style>
+      <div class="jp-pagination">
+        <?php the_posts_pagination( [
+          'mid_size' => 2, 'prev_text' => '‹', 'next_text' => '›',
+        ] ); ?>
+      </div>
     </div>
     <?php else : ?>
     <div style="text-align:center; padding:80px 0;">

@@ -5,7 +5,7 @@
  */
 get_header();
 ?>
-<main style="overflow-x:hidden; width:100%; max-width:100%; padding:80px 0 120px;">
+<main style="width:100%; max-width:100%; padding:80px 0 120px;">
   <div class="jp-container" style="max-width:600px; text-align:center;">
     <p style="font-size: clamp(5rem, 12vw, 9rem); font-weight: 900; color: var(--jp-grey-100); margin: 0; line-height: .9; font-feature-settings: 'tnum';">404</p>
     <h1 class="jp-display-3" style="margin: 8px 0 16px;">Halaman Tidak Ditemukan</h1>

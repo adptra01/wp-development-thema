@@ -20,6 +20,7 @@ add_action( 'after_setup_theme', function() {
     load_theme_textdomain( 'jambi-press', JP_DIR . '/languages' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'html5', [
         'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script'
     ] );
@@ -40,6 +41,8 @@ add_action( 'after_setup_theme', function() {
     add_image_size( 'jp-hero', 1200, 630, true );
     add_image_size( 'jp-card', 600, 400, true );
     add_image_size( 'jp-thumb', 300, 200, true );
+    add_image_size( 'jp-square', 200, 200, true );
+    add_image_size( 'jp-list', 120, 80, true );
 } );
 
 /* ============================================================
@@ -77,7 +80,7 @@ add_action( 'widgets_init', function() {
     register_sidebar( [
         'name'          => __( 'Sidebar Berita', 'jambi-press' ),
         'id'            => 'sidebar-news',
-        'before_widget' => '<div class="mb-6">',
+        'before_widget' => '<div style="margin-bottom:24px;">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 style="font-size:1.125rem; font-weight:800; margin:0 0 12px; padding:0 0 8px; border-bottom:3px solid var(--jp-red);">',
         'after_title'   => '</h3>',
@@ -86,25 +89,25 @@ add_action( 'widgets_init', function() {
     register_sidebar( [
         'name'          => __( 'Area Iklan Atas', 'jambi-press' ),
         'id'            => 'ad-top',
-        'before_widget' => '<div class="jp-ad-slot w-full h-24 md:h-32 mb-6">',
+        'before_widget' => '<div class="jp-ad" style="width:100%; height:96px; margin-bottom:24px;">',
         'after_widget'  => '</div>',
-        'before_title'  => '<span class="sr-only">',
+        'before_title'  => '<span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">',
         'after_title'   => '</span>',
     ] );
 
     register_sidebar( [
         'name'          => __( 'Area Iklan Bawah', 'jambi-press' ),
         'id'            => 'ad-bottom',
-        'before_widget' => '<div class="jp-ad-slot w-full h-24 md:h-32 mb-6">',
+        'before_widget' => '<div class="jp-ad" style="width:100%; height:96px; margin-bottom:24px;">',
         'after_widget'  => '</div>',
-        'before_title'  => '<span class="sr-only">',
+        'before_title'  => '<span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">',
         'after_title'   => '</span>',
     ] );
 
     register_sidebar( [
         'name'          => __( 'Footer Widget 1', 'jambi-press' ),
         'id'            => 'footer-1',
-        'before_widget' => '<div class="mb-6">',
+        'before_widget' => '<div style="margin-bottom:24px;">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4 style="font-size:.8125rem; font-weight:800; text-transform:uppercase; letter-spacing:.14em; color:var(--jp-white); margin:0 0 16px;">',
         'after_title'   => '</h4>',
@@ -113,7 +116,7 @@ add_action( 'widgets_init', function() {
     register_sidebar( [
         'name'          => __( 'Footer Widget 2', 'jambi-press' ),
         'id'            => 'footer-2',
-        'before_widget' => '<div class="mb-6">',
+        'before_widget' => '<div style="margin-bottom:24px;">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4 style="font-size:.8125rem; font-weight:800; text-transform:uppercase; letter-spacing:.14em; color:var(--jp-white); margin:0 0 16px;">',
         'after_title'   => '</h4>',
@@ -188,36 +191,45 @@ function jp_excerpt( $length = 20, $post_id = null ) {
 }
 
 /**
- * Category badge color mapping
- */
-function jp_category_color( $cat_id ) {
-    $colors = [
-        'politik'       => 'bg-red-600',
-        'pemerintahan'  => 'bg-blue-700',
-        'ekonomi'       => 'bg-emerald-600',
-        'kriminal'      => 'bg-orange-600',
-        'pendidikan'    => 'bg-indigo-600',
-        'olahraga'      => 'bg-green-600',
-        'budaya'        => 'bg-amber-600',
-        'wisata'        => 'bg-teal-600',
-        'umkm'          => 'bg-pink-600',
-    ];
-
-    $cat = get_category( $cat_id );
-    if ( ! $cat ) return 'bg-jp-red';
-
-    $slug = strtolower( $cat->slug );
-    foreach ( $colors as $key => $color ) {
-        if ( strpos( $slug, $key ) !== false ) return $color;
-    }
-    return 'bg-jp-red';
-}
-
-/**
  * Custom except length
  */
 add_filter( 'excerpt_length', function() { return 20; } );
 add_filter( 'excerpt_more', function() { return '...'; } );
+
+/**
+ * Placeholder image for posts without featured image
+ */
+function jp_placeholder_img( $width = 600, $height = 400 ) {
+    $color = '#E5E5E5';
+    $text_color = '#A3A3A3';
+    $text = 'Jambi Press';
+    return 'data:image/svg+xml,' . rawurlencode( '<svg xmlns="http://www.w3.org/2000/svg" width="' . $width . '" height="' . $height . '" viewBox="0 0 ' . $width . ' ' . $height . '"><rect fill="' . $color . '" width="' . $width . '" height="' . $height . '"/><text fill="' . $text_color . '" font-family="system-ui,sans-serif" font-size="14" font-weight="600" text-anchor="middle" x="' . ($width/2) . '" y="' . ($height/2) . '" dominant-baseline="middle">' . $text . '</text></svg>' );
+}
+
+/**
+ * Get post thumbnail or placeholder
+ */
+function jp_post_thumb( $size = 'jp-thumb', $width = 600, $height = 400, $loading = 'lazy' ) {
+    if ( has_post_thumbnail() ) {
+        the_post_thumbnail( $size, [ 'style' => 'width:100%; height:100%; object-fit:cover;', 'loading' => $loading ] );
+    } else {
+        echo '<img src="' . jp_placeholder_img( $width, $height ) . '" alt="" style="width:100%; height:100%; object-fit:cover;" loading="' . $loading . '">';
+    }
+}
+
+/**
+ * Check if post is sponsored / advertorial
+ */
+function jp_is_sponsored( $post_id = null ) {
+    $post_id = $post_id ?: get_the_ID();
+    return get_post_meta( $post_id, 'jp_sponsored', true ) === '1';
+}
+
+function jp_sponsored_badge( $post_id = null ) {
+    if ( jp_is_sponsored( $post_id ) ) {
+        echo '<span class="jp-sponsor">Sponsored</span>';
+    }
+}
 
 /**
  * Add custom body classes
@@ -237,8 +249,62 @@ add_action( 'init', function() {
 } );
 
 /**
+ * Enable Yoast breadcrumb support
+ */
+add_theme_support( 'yoast-seo-breadcrumbs' );
+
+/**
  * Remove unnecessary head items
  */
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'rsd_link' );
+
+/**
+ * Auto-create required pages on theme activation
+ */
+add_action( 'after_switch_theme', function() {
+    $pages = [
+        'e-paper' => [
+            'title'   => 'E-Paper',
+            'content' => 'Edisi digital Jambi Press dapat diakses di sini. Pilih edisi terbaru atau cari arsip berdasarkan tanggal.',
+            'template'=> 'template-epaper.php',
+        ],
+        'hubungi-redaksi' => [
+            'title'   => 'Kontak Redaksi',
+            'content' => 'Hubungi redaksi Jambi Press untuk informasi, pengaduan, atau kerja sama.',
+            'template'=> 'template-contact.php',
+        ],
+        'pedoman-media-siber' => [
+            'title'   => 'Pedoman Media Siber',
+            'content' => 'Jambi Press berkomitmen mengikuti Pedoman Media Siber Indonesia dalam setiap aspek pemberitaan dan pengelolaan media.',
+            'template'=> 'template-pedoman.php',
+        ],
+        'kebijakan-privasi' => [
+            'title'   => 'Kebijakan Privasi',
+            'content' => 'Kebijakan privasi Jambi Press mengatur pengumpulan, penggunaan, dan perlindungan data pribadi pengguna.',
+            'template'=> '',
+        ],
+        'tentang-kami' => [
+            'title'   => 'Tentang Kami',
+            'content' => 'Jambi Press adalah portal media digital resmi untuk Provinsi Jambi. Berita kredibel, cepat, dan independen.',
+            'template'=> '',
+        ],
+    ];
+
+    foreach ( $pages as $slug => $page ) {
+        $existing = get_posts( [ 'name' => $slug, 'post_type' => 'page', 'post_status' => 'any', 'posts_per_page' => 1 ] );
+        if ( ! $existing ) {
+            $id = wp_insert_post( [
+                'post_title'   => $page['title'],
+                'post_content' => $page['content'],
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_name'    => $slug,
+            ] );
+            if ( $id && $page['template'] ) {
+                update_post_meta( $id, '_wp_page_template', $page['template'] );
+            }
+        }
+    }
+} );

@@ -1,6 +1,16 @@
 (function() {
   "use strict";
 
+  // Dark mode toggle
+  var darkToggle = document.getElementById("jp-dark-toggle");
+  var htmlEl = document.documentElement;
+  if (darkToggle) {
+    darkToggle.addEventListener("click", function() {
+      var dark = htmlEl.classList.toggle("jp-dark-mode");
+      localStorage.setItem("jp-theme", dark ? "dark" : "light");
+    });
+  }
+
   // Search toggle
   var toggle = document.getElementById("jp-search-toggle");
   var overlay = document.getElementById("jp-search-overlay");
