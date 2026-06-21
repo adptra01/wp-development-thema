@@ -35,8 +35,12 @@ get_header();
   </div>
   <?php endif; ?>
 
+  <?php echo adinserter(2); ?>
+
   <div class="jp-container" style="max-width:800px; padding:48px 16px 80px;">
     <div class="jp-prose"><?php the_content(); ?></div>
+
+    <?php echo adinserter(5); ?>
 
     <?php $tags = get_the_tags(); if ( $tags ) : ?>
     <div style="margin-top:40px; padding-top:32px; border-top:1px solid var(--jp-grey-200); display:flex; flex-wrap:wrap; gap:8px;">
@@ -89,6 +93,9 @@ get_header();
       </div>
     </div>
   </section>
+
+  <?php echo adinserter(4); ?>
+
   <?php endwhile; ?>
 </main>
 <?php get_footer(); ?>

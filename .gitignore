@@ -36,3 +36,4 @@ vendor/
 /wp-content/uploads/
 /wp-includes/
 *.zip
+wp-content/plugins/ad-inserter/
