@@ -96,14 +96,14 @@ get_header();
       </article>
     <?php $bi++; endwhile; wp_reset_postdata(); endif; ?>
     <?php if ( $bento_q->post_count >= 3 ) : ?>
-    <div class="jp-native-ad item-wide" style="display:flex; align-items:center; gap:16px;">
-      <div style="flex-shrink:0; width:80px; height:80px; border-radius:8px; background:var(--jp-grey-100); display:flex; align-items:center; justify-content:center;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--jp-grey-300)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <div class="jp-native-ad item-wide" style="display:flex; align-items:center; gap:16px; padding:16px; background:var(--jp-grey-50); border:1px solid var(--jp-grey-200);">
+      <div style="flex-shrink:0; width:64px; height:64px; border-radius:8px; background:var(--jp-grey-100); display:flex; align-items:center; justify-content:center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jp-grey-300)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <div style="flex:1; min-width:0;">
-        <span style="font-size:.6875rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.08em;">Iklan</span>
-        <p style="font-size:.8125rem; font-weight:600; color:var(--jp-grey-600); margin:4px 0 0;">Ruang Iklan Tersedia &mdash; Hubungi Redaksi</p>
-        <span style="font-size:.6875rem; color:var(--jp-grey-400);">Promosikan brand Anda di Jambi Press</span>
+        <span style="font-size:.625rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.1em;">Iklan</span>
+        <p style="font-size:.8125rem; font-weight:600; color:var(--jp-grey-600); margin:2px 0 0;">Ruang Iklan Tersedia</p>
+        <span style="font-size:.6875rem; color:var(--jp-grey-400);">Hubungi redaksi untuk pemasangan</span>
       </div>
       <span class="jp-native-ad-badge">Ad</span>
     </div>

@@ -9,8 +9,9 @@
      SECTION B: STICKY MOBILE AD
      ============================================================ -->
 <div class="jp-sticky-mobile">
-    <div style="background: var(--jp-grey-100); height: 50px; border-radius: 6px; display:flex; align-items:center; justify-content:center; font-size: .6875rem; color: var(--jp-grey-500); font-weight: 700; letter-spacing: .14em; text-transform: uppercase;">
-        Sticky Ad &middot; 320x50
+    <div style="background: var(--jp-grey-100); height: 50px; border-radius: 6px; display:flex; align-items:center; justify-content:center; font-size: .625rem; color: var(--jp-grey-400); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; flex-direction:column;">
+        <span>Iklan</span>
+        <span style="font-size:.5625rem; font-weight:400; letter-spacing:0; text-transform:none; color:var(--jp-grey-400);">320&times;50</span>
     </div>
 </div>
 
