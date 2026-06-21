@@ -6,7 +6,7 @@
             ],
             "command": "lerd",
             "env": {
-                "LERD_SITE_PATH": "/mnt/DiskD/Projects/wordpress"
+                "LERD_SITE_PATH": "/mnt/DiskD/Projects/wp-development-thema"
             }
         },
         "playwright": {
