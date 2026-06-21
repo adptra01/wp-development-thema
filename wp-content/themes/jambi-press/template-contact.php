@@ -55,7 +55,7 @@ while ( have_posts() ) : the_post();
 
   <!-- Ad Leaderboard -->
   <div class="jp-container" style="max-width:900px; padding-top:48px;">
-    <div class="jp-ad-container" style="width:100%; min-height:90px;">
+    <div class="jp-ad-container jp-ad-leaderboard" style="width:100%; min-height:90px;">
       <span class="jp-ad-label">Iklan</span>
       <script>
         atOptions = {

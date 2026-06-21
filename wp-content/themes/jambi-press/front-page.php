@@ -176,7 +176,7 @@ get_header();
 <!-- SECTION 6: AD LEADERBOARD -->
 <section class="jp-section-tight jp-ad-section" style="background:var(--jp-grey-50);">
   <div class="jp-container">
-    <div class="jp-ad-container" style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px; min-height:90px;">
+    <div class="jp-ad-container jp-ad-leaderboard" style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px; min-height:90px;">
       <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
       <script>
         atOptions = {

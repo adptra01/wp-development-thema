@@ -25,7 +25,7 @@ get_header();
       <?php endif; ?>
     </header>
     <!-- Ad Leaderboard -->
-    <div class="jp-ad-container" style="width:100%; min-height:90px; margin-bottom:32px;">
+    <div class="jp-ad-container jp-ad-leaderboard" style="width:100%; min-height:90px; margin-bottom:32px;">
       <span class="jp-ad-label">Iklan</span>
       <script>
         atOptions = {

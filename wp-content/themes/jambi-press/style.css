@@ -221,6 +221,11 @@ a:hover .jp-post-title,
   align-items: center;
   justify-content: center;
   gap: 4px;
+  overflow: hidden;
+  max-width: 100%;
+}
+.jp-ad-container iframe {
+  max-width: 100%;
 }
 .jp-ad-label {
   font-size: .625rem;
@@ -231,9 +236,10 @@ a:hover .jp-post-title,
   margin-bottom: 4px;
 }
 
-/* Hide certain ads on mobile */
+/* Responsive: hide leaderboard 728x90 on mobile, show smaller ads */
 @media (max-width: 767px) {
   .jp-hide-mobile { display: none !important; }
+  .jp-ad-leaderboard { display: none !important; }
 }
 
 /* ===== Sponsor / Advertorial ===== */
