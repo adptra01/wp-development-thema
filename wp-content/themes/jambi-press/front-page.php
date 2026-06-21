@@ -44,26 +44,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 2: AD LEADERBOARD -->
-<section class="jp-section-tight" style="background:var(--jp-grey-50); border-bottom:1px solid var(--jp-grey-200);">
-  <div class="jp-container">
-    <div style="width:100%; display:flex; justify-content:center;">
-      <span class="jp-ad-label" style="display:block; text-align:center; margin-bottom:4px;">Iklan</span>
-      <script>
-        atOptions = {
-          'key' : 'a38fb2cdad5a14e10708902b31e90271',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/a38fb2cdad5a14e10708902b31e90271/invoke.js"></script>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 3: BERITA TERBARU (BENTO GRID) -->
+<!-- SECTION 2: BERITA TERBARU (BENTO GRID) -->
 <section class="jp-section" id="berita-terbaru">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
@@ -96,23 +77,18 @@ get_header();
       </article>
     <?php $bi++; endwhile; wp_reset_postdata(); endif; ?>
     <?php if ( $bento_q->post_count >= 3 ) : ?>
-    <a href="https://www.effectivecpmnetwork.com/tat55r36?key=4259da98dece6aa02e99d74bb47fc311" rel="nofollow sponsored" target="_blank" class="jp-native-ad item-wide" style="display:flex; align-items:center; gap:16px; padding:16px; background:var(--jp-grey-50); border:1px solid var(--jp-grey-200); text-decoration:none;">
-      <div style="flex-shrink:0; width:64px; height:64px; border-radius:8px; background:var(--jp-grey-100); display:flex; align-items:center; justify-content:center;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jp-grey-300)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      </div>
-      <div style="flex:1; min-width:0;">
-        <span style="font-size:.625rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.1em;">Sponsored</span>
-        <p style="font-size:.8125rem; font-weight:600; color:var(--jp-grey-700); margin:2px 0 0;">Kunjungi Sponsor Kami</p>
-        <span style="font-size:.6875rem; color:var(--jp-secondary);">Klik untuk informasi lebih lanjut &rsaquo;</span>
-      </div>
+    <div class="item-wide" style="display:flex; align-items:center; justify-content:center; background:var(--jp-grey-50); border:1px solid var(--jp-grey-200); border-radius:8px; padding:8px;">
+      <a href="/hubungi-redaksi" rel="nofollow sponsored" target="_blank">
+        <img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif" style="display:block; max-width:100%; height:auto; border-radius:4px;">
+      </a>
       <span class="jp-native-ad-badge">Ad</span>
-    </a>
+    </div>
     <?php endif; ?>
     </div>
   </div>
 </section>
 
-<!-- SECTION 4: BANNER 300x250 -->
+<!-- SECTION 3: BANNER 300x250 -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50);">
   <div class="jp-container">
     <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px;">
@@ -131,7 +107,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: KATEGORI POPULER -->
+<!-- SECTION 4: KATEGORI POPULER -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50);">
   <div class="jp-container">
     <div style="display:flex; gap:8px; overflow-x:auto; scrollbar-width:thin; padding-bottom:4px;">
@@ -152,7 +128,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: BERITA DAERAH (dynamic WP_Query from latest posts) -->
+<!-- SECTION 5: BERITA DAERAH (dynamic WP_Query from latest posts) -->
 <section class="jp-section">
   <div class="jp-container" style="display:grid; gap:40px;">
     <style>
@@ -208,7 +184,26 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: AD SPACER -->
+<!-- SECTION 6: AD LEADERBOARD -->
+<section class="jp-section-tight jp-ad-section" style="background:var(--jp-grey-50);">
+  <div class="jp-container">
+    <div class="jp-ad-container" style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px; min-height:90px;">
+      <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
+      <script>
+        atOptions = {
+          'key' : 'a38fb2cdad5a14e10708902b31e90271',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/a38fb2cdad5a14e10708902b31e90271/invoke.js"></script>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: AD SPACER -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50); border-top:1px solid var(--jp-grey-200); border-bottom:1px solid var(--jp-grey-200);">
   <div class="jp-container">
     <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
@@ -219,7 +214,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: TRENDING (order by comment count / date) -->
+<!-- SECTION 8: TRENDING (order by comment count / date) -->
 <section class="jp-section">
   <div class="jp-container">
     <h2 class="jp-display-3" style="margin:0 0 32px;">Paling Banyak Dibaca</h2>
@@ -256,7 +251,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: HEADLINE DAERAH (11 kabupaten/kota Jambi) -->
+<!-- SECTION 9: HEADLINE DAERAH (11 kabupaten/kota Jambi) -->
 <section class="jp-section" style="background:var(--jp-grey-50);">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:24px;">
@@ -292,7 +287,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: PILIHAN REDAKSI (featured hero + list) -->
+<!-- SECTION 10: PILIHAN REDAKSI (featured hero + list) -->
 <section class="jp-section">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
@@ -350,7 +345,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: WISATA JAMBI (dynamic from category 'wisata') -->
+<!-- SECTION 11: WISATA JAMBI (dynamic from category 'wisata') -->
 <section class="jp-section">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
@@ -406,7 +401,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 13: UMKM & BISNIS LOKAL (dynamic from category 'umkm') -->
+<!-- SECTION 12: UMKM & BISNIS LOKAL (dynamic from category 'umkm') -->
 <section class="jp-section" style="background:var(--jp-grey-50);">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
@@ -446,7 +441,7 @@ get_header();
   <div class="jp-container">
     <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px;">
       <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
-      <a href="https://www.effectivecpmnetwork.com/tat55r36?key=4259da98dece6aa02e99d74bb47fc311" rel="nofollow sponsored" target="_blank" style="display:flex; width:100%; max-width:728px; height:90px; background:var(--jp-grey-100); border:1px dashed var(--jp-grey-300); border-radius:6px; align-items:center; justify-content:center; color:var(--jp-grey-400); font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.12em; transition:all .2s ease; text-decoration:none;">
+      <a href="/hubungi-redaksi" rel="nofollow sponsored" target="_blank" style="display:flex; width:100%; max-width:728px; height:90px; background:var(--jp-grey-100); border:1px dashed var(--jp-grey-300); border-radius:6px; align-items:center; justify-content:center; color:var(--jp-grey-400); font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.12em; transition:all .2s ease; text-decoration:none;">
         Iklan &middot; 728&times;90
       </a>
     </div>

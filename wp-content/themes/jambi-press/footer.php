@@ -9,7 +9,7 @@
      SECTION B: STICKY MOBILE AD
      ============================================================ -->
 <div class="jp-sticky-mobile">
-    <a href="https://www.effectivecpmnetwork.com/tat55r36?key=4259da98dece6aa02e99d74bb47fc311" rel="nofollow sponsored" target="_blank" style="width:100%; height:50px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1px; background: var(--jp-grey-100); text-decoration:none;">
+    <a href="/hubungi-redaksi" rel="nofollow sponsored" target="_blank" style="width:100%; height:50px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1px; background: var(--jp-grey-100); text-decoration:none;">
         <span style="font-size:.5625rem; font-weight:600; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.1em;">Iklan</span>
         <span style="font-size:.625rem; font-weight:700; color:var(--jp-grey-600);">Klik Disini &rsaquo;</span>
     </a>
