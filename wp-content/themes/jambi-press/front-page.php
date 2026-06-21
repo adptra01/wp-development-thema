@@ -219,7 +219,7 @@ get_header();
         while ( $trend_q->have_posts() ) : $trend_q->the_post(); $tc = get_the_category();
       ?>
         <article style="display:flex; align-items:flex-start; gap:16px; padding: 16px 0; border-bottom: 1px solid var(--jp-grey-100); <?php echo $ti>3 ? 'border-bottom:0;' : ''; ?> <?php echo $ti<2 ? 'padding-top:0;' : ''; ?>">
-          <span class="jp-rank" style="flex-shrink:0; width:36px; text-align:right;"><?php echo str_pad($ti+1,2,'0',STR_PAD_LEFT); ?></span>
+          <span class="jp-rank" style="color: var(--jp-red);flex-shrink:0; width:36px; text-align:right; z-index:10;"><?php echo str_pad($ti+1,2,'0',STR_PAD_LEFT); ?></span>
           <a href="<?php the_permalink(); ?>" class="jp-media" style="flex-shrink:0; width:80px; height:60px; border-radius:4px;">
             <?php jp_post_thumb( 'jp-list', 160, 120 ); ?>
           </a>
