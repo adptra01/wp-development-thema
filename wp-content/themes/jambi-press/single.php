@@ -47,12 +47,18 @@ get_header();
     <?php endif; ?>
   </div>
 
-  <!-- Native Ad -->
+  <!-- CTA Iklan -->
   <div class="jp-container" style="max-width:800px; padding:0 16px;">
-    <div style="background:var(--jp-grey-50); border:1px solid var(--jp-grey-200); border-radius:10px; padding:24px; text-align:center;">
-      <span style="font-size:.625rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.1em; display:block; margin-bottom:8px;">Iklan</span>
-      <a href="/hubungi-redaksi" style="display:inline-block; font-size:.875rem; font-weight:600; color:var(--jp-secondary); text-decoration:underline;">Info Pasang Iklan &rsaquo;</a>
-    </div>
+    <a href="/hubungi-redaksi" style="display:flex; align-items:center; gap:16px; padding:20px 24px; background:var(--jp-white); border:2px dashed var(--jp-grey-300); border-radius:12px; text-decoration:none; transition:all .2s ease;">
+      <div style="flex-shrink:0; width:48px; height:48px; border-radius:9999px; background:var(--jp-red); display:flex; align-items:center; justify-content:center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      </div>
+      <div style="flex:1;">
+        <p style="font-size:.9375rem; font-weight:700; color:var(--jp-grey-900); margin:0 0 2px;">Pasang Iklan di Jambi Press</p>
+        <span style="font-size:.75rem; color:var(--jp-grey-500);">Jangkau ribuan pembaca setiap hari &rsaquo;</span>
+      </div>
+      <span style="font-size:.75rem; font-weight:700; color:var(--jp-red); white-space:nowrap;">Hubungi</span>
+    </a>
   </div>
 
   <!-- Related Posts -->

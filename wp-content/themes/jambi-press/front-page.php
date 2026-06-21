@@ -76,33 +76,22 @@ get_header();
         </a>
       </article>
     <?php $bi++; endwhile; wp_reset_postdata(); endif; ?>
-    <?php if ( $bento_q->post_count >= 3 ) : ?>
-    <div class="item-wide" style="display:flex; align-items:center; justify-content:center; background:var(--jp-grey-50); border:1px solid var(--jp-grey-200); border-radius:8px; padding:8px;">
-      <a href="/hubungi-redaksi" rel="nofollow sponsored" target="_blank">
-        <img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/gif/720x90_adsterra_reff.gif" style="display:block; max-width:100%; height:auto; border-radius:4px;">
-      </a>
-      <span class="jp-native-ad-badge">Ad</span>
-    </div>
-    <?php endif; ?>
+   
     </div>
   </div>
 </section>
 
-<!-- SECTION 3: BANNER 300x250 -->
+<!-- SECTION 3: PANEL IKLAN LOKAL -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50);">
   <div class="jp-container">
-    <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px;">
-      <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
-      <script>
-        atOptions = {
-          'key' : '7f612bdca5a16a4c9fe7dc1cca6a77a8',
-          'format' : 'iframe',
-          'height' : 250,
-          'width' : 300,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/7f612bdca5a16a4c9fe7dc1cca6a77a8/invoke.js"></script>
+    <div style="display:flex; align-items:center; justify-content:center; gap:16px; padding:20px 24px; background:var(--jp-white); border:2px dashed var(--jp-grey-200); border-radius:12px;">
+      <div style="flex-shrink:0; width:40px; height:40px; border-radius:9999px; background:var(--jp-grey-100); display:flex; align-items:center; justify-content:center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--jp-grey-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div style="flex:1; text-align:center;">
+        <span style="font-size:.6875rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.12em;">Iklan Lokal</span>
+        <p style="font-size:.8125rem; color:var(--jp-grey-500); margin:4px 0 0;">Ruang ini dapat diisi iklan UMKM dan brand lokal Jambi</p>
+      </div>
     </div>
   </div>
 </section>
@@ -445,6 +434,23 @@ get_header();
         Iklan &middot; 728&times;90
       </a>
     </div>
+  </div>
+</section>
+
+<!-- SECTION 14: CTA IKLAN -->
+<section class="jp-section-tight" style="background:var(--jp-grey-50);">
+  <div class="jp-container">
+    <a href="/hubungi-redaksi" style="display:flex; align-items:center; justify-content:center; gap:20px; padding:24px 32px; background:var(--jp-white); border:2px dashed var(--jp-grey-300); border-radius:12px; text-decoration:none; transition:all .2s ease;">
+      <div style="flex-shrink:0; width:56px; height:56px; border-radius:9999px; background:var(--jp-red); display:flex; align-items:center; justify-content:center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      </div>
+      <div style="flex:1;">
+        <span style="font-size:.6875rem; font-weight:700; color:var(--jp-red); text-transform:uppercase; letter-spacing:.12em;">Info Iklan</span>
+        <p style="font-size:1rem; font-weight:700; color:var(--jp-grey-900); margin:4px 0 0;">Pasang Iklan di Jambi Press</p>
+        <p style="font-size:.8125rem; color:var(--jp-grey-500); margin:4px 0 0;">Jangkau ribuan pembaca setiap hari &rsaquo;</p>
+      </div>
+      <span style="font-size:.8125rem; font-weight:700; color:var(--jp-red); white-space:nowrap;">Hubungi &rsaquo;</span>
+    </a>
   </div>
 </section>
 
