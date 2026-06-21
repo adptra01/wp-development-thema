@@ -236,9 +236,15 @@ a:hover .jp-post-title,
   margin-bottom: 4px;
 }
 
+/* Responsive: desktop-only / mobile-only ad blocks */
+.jp-ad-desktop { display: block; }
+.jp-ad-mobile { display: none; }
+
 /* Responsive: hide leaderboard 728x90 on mobile, show smaller ads */
 @media (max-width: 767px) {
   .jp-hide-mobile { display: none !important; }
+  .jp-ad-desktop { display: none !important; }
+  .jp-ad-mobile { display: block !important; }
   .jp-ad-leaderboard { display: none !important; }
 }
 

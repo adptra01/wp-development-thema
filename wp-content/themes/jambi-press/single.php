@@ -35,12 +35,22 @@ get_header();
   </div>
   <?php endif; ?>
 
-  <?php echo adinserter(2); ?>
+  <div class="jp-ad-container jp-ad-leaderboard jp-ad-desktop" style="width:100%; min-height:90px; margin-bottom:32px;">
+    <span class="jp-ad-label">Iklan</span>
+    <?php if (function_exists('adinserter')) echo adinserter(2); ?>
+  </div>
+  <div class="jp-ad-container jp-ad-mobile" style="width:100%; min-height:50px; margin-bottom:32px;">
+    <span class="jp-ad-label">Iklan</span>
+    <?php if (function_exists('adinserter')) echo adinserter(6); ?>
+  </div>
 
   <div class="jp-container" style="max-width:800px; padding:48px 16px 80px;">
     <div class="jp-prose"><?php the_content(); ?></div>
 
-    <?php echo adinserter(5); ?>
+    <div class="jp-ad-container" style="width:100%; min-height:50px; margin:32px 0;">
+      <span class="jp-ad-label">Iklan</span>
+      <?php if (function_exists('adinserter')) echo adinserter(5); ?>
+    </div>
 
     <?php $tags = get_the_tags(); if ( $tags ) : ?>
     <div style="margin-top:40px; padding-top:32px; border-top:1px solid var(--jp-grey-200); display:flex; flex-wrap:wrap; gap:8px;">
@@ -94,7 +104,10 @@ get_header();
     </div>
   </section>
 
-  <?php echo adinserter(4); ?>
+  <div class="jp-ad-container" style="width:100%; min-height:90px; margin:32px 0;">
+    <span class="jp-ad-label">Iklan</span>
+    <?php if (function_exists('adinserter')) echo adinserter(4); ?>
+  </div>
 
   <?php endwhile; ?>
 </main>
