@@ -47,9 +47,18 @@ get_header();
 <!-- SECTION 2: AD LEADERBOARD -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50); border-bottom:1px solid var(--jp-grey-200);">
   <div class="jp-container">
-    <div class="jp-ad" style="width:100%; height:90px; border-radius:6px;">
-      <span class="jp-ad-label">Iklan</span>
-      <span>Leaderboard &middot; 728&times;90</span>
+    <div style="width:100%; display:flex; justify-content:center;">
+      <span class="jp-ad-label" style="display:block; text-align:center; margin-bottom:4px;">Iklan</span>
+      <script>
+        atOptions = {
+          'key' : 'a38fb2cdad5a14e10708902b31e90271',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/a38fb2cdad5a14e10708902b31e90271/invoke.js"></script>
     </div>
   </div>
 </section>
@@ -183,9 +192,10 @@ get_header();
 <!-- SECTION 6: AD SPACER -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50); border-top:1px solid var(--jp-grey-200); border-bottom:1px solid var(--jp-grey-200);">
   <div class="jp-container">
-    <div class="jp-ad" style="width:100%; height:100px; border-radius:6px;">
-      <span class="jp-ad-label">Iklan</span>
-      <span>Billboard &middot; 970&times;90</span>
+    <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
+      <span class="jp-ad-label" style="display:block; text-align:center; margin-bottom:4px;">Iklan</span>
+      <script async="async" data-cfasync="false" src="https://pl29830690.effectivecpmnetwork.com/cee6f0597c021563225baffc54e104f8/invoke.js"></script>
+      <div id="container-cee6f0597c021563225baffc54e104f8"></div>
     </div>
   </div>
 </section>
