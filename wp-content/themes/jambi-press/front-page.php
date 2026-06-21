@@ -10,16 +10,20 @@ get_header();
 
 <!-- SECTION 1: HERO EDITORIAL -->
 <section class="jp-hero" style="position:relative; background: var(--jp-dark); overflow:hidden; min-height: 500px;">
+  <?php
+  $hero_q = new WP_Query( [ 'posts_per_page' => 1, 'post_status' => 'publish', 'no_found_rows' => true ] );
+  if ( $hero_q->have_posts() ) : $hero_q->the_post(); $hero_cats = get_the_category();
+  ?>
   <div style="position:absolute; inset:0;">
-    <img src="https://picsum.photos/seed/jambi-hero/1920/1080" alt=""
+    <?php if ( has_post_thumbnail() ) : ?>
+    <img src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'full' ) ); ?>" alt=""
          style="width:100%; height:100%; object-fit:cover; opacity:1; filter: contrast(1.05);">
+    <?php else : ?>
+    <div style="width:100%; height:100%; background: linear-gradient(135deg, var(--jp-dark) 0%, var(--jp-secondary) 100%);"></div>
+    <?php endif; ?>
     <div style="position:absolute; inset:0; background: linear-gradient(to right, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 35%, rgba(0,0,0,.05) 100%);"></div>
   </div>
   <div class="jp-container" style="position:relative; z-index:2; height:100%; min-height:500px; display:flex; flex-direction:column; justify-content:flex-end; padding-top:80px; padding-bottom:40px;">
-    <?php
-    $hero_q = new WP_Query( [ 'posts_per_page' => 1, 'post_status' => 'publish', 'no_found_rows' => true ] );
-    if ( $hero_q->have_posts() ) : $hero_q->the_post(); $hero_cats = get_the_category();
-    ?>
     <div style="margin-bottom:16px;">
       <a href="<?php echo esc_url( get_category_link( $hero_cats[0]->term_id ) ); ?>" class="jp-cat-bg jp-bg-primary"><?php echo esc_html( $hero_cats[0]->name ); ?></a>
     </div>
