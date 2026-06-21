@@ -84,15 +84,7 @@ get_header();
 <!-- SECTION 3: PANEL IKLAN LOKAL -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50);">
   <div class="jp-container">
-    <div style="display:flex; align-items:center; justify-content:center; gap:16px; padding:20px 24px; background:var(--jp-white); border:2px dashed var(--jp-grey-200); border-radius:12px;">
-      <div style="flex-shrink:0; width:40px; height:40px; border-radius:9999px; background:var(--jp-grey-100); display:flex; align-items:center; justify-content:center;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--jp-grey-400)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      </div>
-      <div style="flex:1; text-align:center;">
-        <span style="font-size:.6875rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.12em;">Iklan Lokal</span>
-        <p style="font-size:.8125rem; color:var(--jp-grey-500); margin:4px 0 0;">Ruang ini dapat diisi iklan UMKM dan brand lokal Jambi</p>
-      </div>
-    </div>
+    <?php if (function_exists('adinserter')) echo adinserter(4); ?>
   </div>
 </section>
 
@@ -176,18 +168,9 @@ get_header();
 <!-- SECTION 6: AD LEADERBOARD -->
 <section class="jp-section-tight jp-ad-section" style="background:var(--jp-grey-50);">
   <div class="jp-container">
-    <div class="jp-ad-container jp-ad-leaderboard" style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px; min-height:90px;">
-      <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
-      <script>
-        atOptions = {
-          'key' : 'a38fb2cdad5a14e10708902b31e90271',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/a38fb2cdad5a14e10708902b31e90271/invoke.js"></script>
+    <div class="jp-ad-container jp-ad-leaderboard" style="width:100%; min-height:90px;">
+      <span class="jp-ad-label">Iklan</span>
+      <?php if (function_exists('adinserter')) echo adinserter(2); ?>
     </div>
   </div>
 </section>
@@ -197,8 +180,7 @@ get_header();
   <div class="jp-container">
     <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
       <span class="jp-ad-label" style="display:block; text-align:center; margin-bottom:4px;">Iklan</span>
-      <script async="async" data-cfasync="false" src="https://pl29830690.effectivecpmnetwork.com/cee6f0597c021563225baffc54e104f8/invoke.js"></script>
-      <div id="container-cee6f0597c021563225baffc54e104f8"></div>
+      <?php if (function_exists('adinserter')) echo adinserter(3); ?>
     </div>
   </div>
 </section>
@@ -430,9 +412,7 @@ get_header();
   <div class="jp-container">
     <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px;">
       <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
-      <a href="/hubungi-redaksi" rel="nofollow sponsored" target="_blank" style="display:flex; width:100%; max-width:728px; height:90px; background:var(--jp-grey-100); border:1px dashed var(--jp-grey-300); border-radius:6px; align-items:center; justify-content:center; color:var(--jp-grey-400); font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.12em; transition:all .2s ease; text-decoration:none;">
-        Iklan &middot; 728&times;90
-      </a>
+      <?php if (function_exists('adinserter')) echo adinserter(5); ?>
     </div>
   </div>
 </section>

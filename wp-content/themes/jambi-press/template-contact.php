@@ -57,16 +57,7 @@ while ( have_posts() ) : the_post();
   <div class="jp-container" style="max-width:900px; padding-top:48px;">
     <div class="jp-ad-container jp-ad-leaderboard" style="width:100%; min-height:90px;">
       <span class="jp-ad-label">Iklan</span>
-      <script>
-        atOptions = {
-          'key' : 'a38fb2cdad5a14e10708902b31e90271',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highperformanceformat.com/a38fb2cdad5a14e10708902b31e90271/invoke.js"></script>
+      <?php if (function_exists('adinserter')) echo adinserter(2); ?>
     </div>
   </div>
 

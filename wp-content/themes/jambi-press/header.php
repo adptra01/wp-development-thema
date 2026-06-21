@@ -18,7 +18,7 @@
         if (theme === 'dark') document.documentElement.classList.add('jp-dark-mode');
     })();
     </script>
-<script src="https://pl29831136.effectivecpmnetwork.com/10/44/58/104458e8180778f093bdf03c0491d4f3.js"></script>
+<?php if (function_exists('adinserter')) echo adinserter(1); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
