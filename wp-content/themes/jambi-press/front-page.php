@@ -360,7 +360,7 @@ get_header();
       <?php while ( $wisata_q->have_posts() ) : $wisata_q->the_post(); $is_first = ( $wi === 0 ); ?>
         <?php if ( $is_first ) : ?>
         <!-- Feature card -->
-        <article class="jp-media" style="border-radius:10px; position:relative; aspect-ratio:4/3; min-height:360px;">
+        <article class="jp-media" style="border-radius:10px; position:relative; aspect-ratio:4/3;">
           <a href="<?php the_permalink(); ?>" style="display:block; width:100%; height:100%;">
             <?php jp_post_thumb( 'jp-card', 800, 600 ); ?>
             <div style="position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 50%);"></div>
