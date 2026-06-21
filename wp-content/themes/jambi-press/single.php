@@ -47,6 +47,14 @@ get_header();
     <?php endif; ?>
   </div>
 
+  <!-- Native Ad -->
+  <div class="jp-container" style="max-width:800px; padding:0 16px;">
+    <div style="background:var(--jp-grey-50); border:1px solid var(--jp-grey-200); border-radius:10px; padding:24px; text-align:center;">
+      <span style="font-size:.625rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.1em; display:block; margin-bottom:8px;">Iklan</span>
+      <a href="https://www.effectivecpmnetwork.com/tat55r36?key=4259da98dece6aa02e99d74bb47fc311" rel="nofollow sponsored" target="_blank" style="display:inline-block; font-size:.875rem; font-weight:600; color:var(--jp-secondary); text-decoration:underline;">Kunjungi Sponsor Kami &rsaquo;</a>
+    </div>
+  </div>
+
   <!-- Related Posts -->
   <section style="background:var(--jp-grey-50); padding:48px 0;">
     <div class="jp-container">

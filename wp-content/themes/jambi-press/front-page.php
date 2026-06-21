@@ -96,23 +96,42 @@ get_header();
       </article>
     <?php $bi++; endwhile; wp_reset_postdata(); endif; ?>
     <?php if ( $bento_q->post_count >= 3 ) : ?>
-    <div class="jp-native-ad item-wide" style="display:flex; align-items:center; gap:16px; padding:16px; background:var(--jp-grey-50); border:1px solid var(--jp-grey-200);">
+    <a href="https://www.effectivecpmnetwork.com/tat55r36?key=4259da98dece6aa02e99d74bb47fc311" rel="nofollow sponsored" target="_blank" class="jp-native-ad item-wide" style="display:flex; align-items:center; gap:16px; padding:16px; background:var(--jp-grey-50); border:1px solid var(--jp-grey-200); text-decoration:none;">
       <div style="flex-shrink:0; width:64px; height:64px; border-radius:8px; background:var(--jp-grey-100); display:flex; align-items:center; justify-content:center;">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--jp-grey-300)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <div style="flex:1; min-width:0;">
-        <span style="font-size:.625rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.1em;">Iklan</span>
-        <p style="font-size:.8125rem; font-weight:600; color:var(--jp-grey-600); margin:2px 0 0;">Ruang Iklan Tersedia</p>
-        <span style="font-size:.6875rem; color:var(--jp-grey-400);">Hubungi redaksi untuk pemasangan</span>
+        <span style="font-size:.625rem; font-weight:700; color:var(--jp-grey-400); text-transform:uppercase; letter-spacing:.1em;">Sponsored</span>
+        <p style="font-size:.8125rem; font-weight:600; color:var(--jp-grey-700); margin:2px 0 0;">Kunjungi Sponsor Kami</p>
+        <span style="font-size:.6875rem; color:var(--jp-secondary);">Klik untuk informasi lebih lanjut &rsaquo;</span>
       </div>
       <span class="jp-native-ad-badge">Ad</span>
-    </div>
+    </a>
     <?php endif; ?>
     </div>
   </div>
 </section>
 
-<!-- SECTION 4: KATEGORI POPULER -->
+<!-- SECTION 4: BANNER 300x250 -->
+<section class="jp-section-tight" style="background:var(--jp-grey-50);">
+  <div class="jp-container">
+    <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
+      <script>
+        atOptions = {
+          'key' : '7f612bdca5a16a4c9fe7dc1cca6a77a8',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/7f612bdca5a16a4c9fe7dc1cca6a77a8/invoke.js"></script>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 13: KATEGORI POPULER -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50);">
   <div class="jp-container">
     <div style="display:flex; gap:8px; overflow-x:auto; scrollbar-width:thin; padding-bottom:4px;">
@@ -133,7 +152,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 5: BERITA DAERAH (dynamic WP_Query from latest posts) -->
+<!-- SECTION 13: BERITA DAERAH (dynamic WP_Query from latest posts) -->
 <section class="jp-section">
   <div class="jp-container" style="display:grid; gap:40px;">
     <style>
@@ -189,7 +208,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 6: AD SPACER -->
+<!-- SECTION 13: AD SPACER -->
 <section class="jp-section-tight" style="background:var(--jp-grey-50); border-top:1px solid var(--jp-grey-200); border-bottom:1px solid var(--jp-grey-200);">
   <div class="jp-container">
     <div style="width:100%; display:flex; flex-direction:column; align-items:center;">
@@ -200,7 +219,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 7: TRENDING (order by comment count / date) -->
+<!-- SECTION 13: TRENDING (order by comment count / date) -->
 <section class="jp-section">
   <div class="jp-container">
     <h2 class="jp-display-3" style="margin:0 0 32px;">Paling Banyak Dibaca</h2>
@@ -237,7 +256,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 8: HEADLINE DAERAH (11 kabupaten/kota Jambi) -->
+<!-- SECTION 13: HEADLINE DAERAH (11 kabupaten/kota Jambi) -->
 <section class="jp-section" style="background:var(--jp-grey-50);">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:24px;">
@@ -273,7 +292,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 9: PILIHAN REDAKSI (featured hero + list) -->
+<!-- SECTION 13: PILIHAN REDAKSI (featured hero + list) -->
 <section class="jp-section">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
@@ -331,7 +350,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 10: WISATA JAMBI (dynamic from category 'wisata') -->
+<!-- SECTION 13: WISATA JAMBI (dynamic from category 'wisata') -->
 <section class="jp-section">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
@@ -387,7 +406,7 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 11: UMKM & BISNIS LOKAL (dynamic from category 'umkm') -->
+<!-- SECTION 13: UMKM & BISNIS LOKAL (dynamic from category 'umkm') -->
 <section class="jp-section" style="background:var(--jp-grey-50);">
   <div class="jp-container">
     <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px;">
@@ -422,12 +441,14 @@ get_header();
   </div>
 </section>
 
-<!-- SECTION 12: AD BOTTOM -->
+<!-- SECTION 13: AD BOTTOM -->
 <section class="jp-section-tight" style="border-bottom:1px solid var(--jp-grey-200);">
   <div class="jp-container">
-    <div class="jp-ad" style="width:100%; height:100px; border-radius:6px;">
-      <span class="jp-ad-label">Iklan</span>
-      <span>970&times;90</span>
+    <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <span class="jp-ad-label" style="display:block; text-align:center;">Iklan</span>
+      <a href="https://www.effectivecpmnetwork.com/tat55r36?key=4259da98dece6aa02e99d74bb47fc311" rel="nofollow sponsored" target="_blank" style="display:flex; width:100%; max-width:728px; height:90px; background:var(--jp-grey-100); border:1px dashed var(--jp-grey-300); border-radius:6px; align-items:center; justify-content:center; color:var(--jp-grey-400); font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.12em; transition:all .2s ease; text-decoration:none;">
+        Iklan &middot; 728&times;90
+      </a>
     </div>
   </div>
 </section>
