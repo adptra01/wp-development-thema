@@ -51,7 +51,37 @@ while ( have_posts() ) : the_post();
         </form>
       </div>
     </div>
-    <div class="jp-prose" style="margin-top:48px;"><?php the_content(); ?></div>
+  </div>
+
+  <!-- Ad Leaderboard -->
+  <div class="jp-container" style="max-width:900px; padding-top:48px;">
+    <div class="jp-ad-container" style="width:100%; min-height:90px;">
+      <span class="jp-ad-label">Iklan</span>
+      <script>
+        atOptions = {
+          'key' : 'a38fb2cdad5a14e10708902b31e90271',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/a38fb2cdad5a14e10708902b31e90271/invoke.js"></script>
+    </div>
+  </div>
+
+  <!-- CTA Iklan -->
+  <div class="jp-container" style="max-width:900px; padding-top:24px;">
+    <a href="/hubungi-redaksi" style="display:flex; align-items:center; gap:16px; padding:20px 24px; background:var(--jp-white); border:2px dashed var(--jp-grey-300); border-radius:12px; text-decoration:none;">
+      <div style="flex-shrink:0; width:48px; height:48px; border-radius:9999px; background:var(--jp-red); display:flex; align-items:center; justify-content:center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      </div>
+      <div style="flex:1;">
+        <p style="font-size:.9375rem; font-weight:700; color:var(--jp-grey-900); margin:0 0 2px;">Pasang Iklan di Jambi Press</p>
+        <span style="font-size:.75rem; color:var(--jp-grey-500);">Jangkau ribuan pembaca setiap hari &rsaquo;</span>
+      </div>
+      <span style="font-size:.75rem; font-weight:700; color:var(--jp-red); white-space:nowrap;">Hubungi</span>
+    </a>
   </div>
 </main>
 <?php endwhile; get_footer();
