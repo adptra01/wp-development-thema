@@ -87,7 +87,10 @@
                     <h4 style="color: var(--jp-white); font-size: .8125rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 16px;">Redaksi</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 10px;">
                         <li><a href="<?php echo esc_url( home_url( '/tentang-kami' ) ); ?>" style="font-size: .875rem;">Tentang Kami</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/profil-redaksi' ) ); ?>" style="font-size: .875rem;">Profil Redaksi</a></li>
                         <li><a href="<?php echo esc_url( home_url( '/pedoman-media-siber' ) ); ?>" style="font-size: .875rem;">Pedoman Media Siber</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/kebijakan-editorial' ) ); ?>" style="font-size: .875rem;">Kebijakan Editorial</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/kode-etik' ) ); ?>" style="font-size: .875rem;">Kode Etik</a></li>
                     </ul>
                 </div>
 
@@ -96,6 +99,9 @@
                     <h4 style="color: var(--jp-white); font-size: .8125rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 16px;">Kontak</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 10px;">
                         <li><a href="<?php echo esc_url( home_url( '/hubungi-redaksi' ) ); ?>" style="font-size: .875rem;">Hubungi Redaksi</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/iklan' ) ); ?>" style="font-size: .875rem;">Iklan & Kerja Sama</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/karier' ) ); ?>" style="font-size: .875rem;">Karier</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/press-release' ) ); ?>" style="font-size: .875rem;">Press Release</a></li>
                     </ul>
                 </div>
 
@@ -104,6 +110,9 @@
                     <h4 style="color: var(--jp-white); font-size: .8125rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 16px;">Kebijakan</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 10px;">
                         <li><a href="<?php echo esc_url( home_url( '/kebijakan-privasi' ) ); ?>" style="font-size: .875rem;">Kebijakan Privasi</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/disclaimer' ) ); ?>" style="font-size: .875rem;">Disclaimer</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/syarat-ketentuan' ) ); ?>" style="font-size: .875rem;">Syarat & Ketentuan</a></li>
+                        <li><a href="<?php echo esc_url( home_url( '/hak-cipta' ) ); ?>" style="font-size: .875rem;">Hak Cipta</a></li>
                     </ul>
                 </div>
 
@@ -137,6 +146,8 @@
                 </p>
                 <div style="display:flex; align-items:center; gap: 16px; font-size: .75rem;">
                     <a href="<?php echo esc_url( home_url( '/kebijakan-privasi' ) ); ?>" style="color: var(--jp-grey-400);">Kebijakan Privasi</a>
+                    <span style="color: var(--jp-grey-600);">|</span>
+                    <a href="<?php echo esc_url( home_url( '/disclaimer' ) ); ?>" style="color: var(--jp-grey-400);">Disclaimer</a>
                     <span style="color: var(--jp-grey-600);">|</span>
                     <a href="<?php echo esc_url( home_url( '/pedoman-media-siber' ) ); ?>" style="color: var(--jp-grey-400);">Pedoman Media Siber</a>
                 </div>
