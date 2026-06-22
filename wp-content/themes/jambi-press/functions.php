@@ -283,12 +283,57 @@ add_action( 'after_switch_theme', function() {
         'kebijakan-privasi' => [
             'title'   => 'Kebijakan Privasi',
             'content' => 'Kebijakan privasi Jambi Press mengatur pengumpulan, penggunaan, dan perlindungan data pribadi pengguna.',
-            'template'=> '',
+            'template'=> 'template-footer-page.php',
         ],
         'tentang-kami' => [
             'title'   => 'Tentang Kami',
             'content' => 'Jambi Press adalah portal media digital resmi untuk Provinsi Jambi. Berita kredibel, cepat, dan independen.',
-            'template'=> '',
+            'template'=> 'template-footer-page.php',
+        ],
+        'profil-redaksi' => [
+            'title'   => 'Profil Redaksi',
+            'content' => 'Redaksi Jambi Press terdiri dari wartawan dan editor profesional yang berkomitmen menyajikan berita akurat, berimbang, dan terpercaya. Dipimpin oleh pemimpin redaksi dengan pengalaman lebih dari 10 tahun di industri media. Seluruh konten diproduksi sesuai standar jurnalistik dan Pedoman Media Siber Indonesia.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'kebijakan-editorial' => [
+            'title'   => 'Kebijakan Editorial',
+            'content' => 'Jambi Press berpegang pada prinsip independensi, akurasi, dan keberimbangan dalam setiap pemberitaan. Keputusan redaksi bersifat independen dan tidak dipengaruhi oleh kepentingan politik, ekonomi, atau golongan tertentu. Setiap berita diverifikasi minimal dua sumber independen sebelum dipublikasikan. Hak jawab dan hak koreksi diberikan secara proporsional kepada pihak yang merasa dirugikan oleh pemberitaan.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'kode-etik' => [
+            'title'   => 'Kode Etik',
+            'content' => 'Seluruh wartawan Jambi Press terikat pada Kode Etik Jurnalistik dan Pedoman Perilaku Penyiaran. Menjaga independensi, tidak menerima suap, melindungi identitas korban kejahatan susila, dan tidak menyiarkan berita bohong atau fitnah. Pelanggaran kode etik akan ditindak tegas sesuai sanksi yang berlaku.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'iklan' => [
+            'title'   => 'Iklan & Kerja Sama',
+            'content' => 'Jangkau ribuan pembaca setiap hari melalui platform Jambi Press. Tersedia berbagai paket iklan: banner display 728x90, 300x250, native advertorial, dan sponsored post. Hubungi tim kami untuk diskusi lebih lanjut mengenai kerja sama media dan promosi.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'karier' => [
+            'title'   => 'Karier',
+            'content' => 'Bergabunglah dengan tim Jambi Press. Kami membuka kesempatan bagi wartawan, editor, videografer, dan digital marketer yang bersemangat dan profesional. Kirimkan CV dan portofolio Anda ke alamat email yang tercantum di halaman kontak.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'press-release' => [
+            'title'   => 'Press Release',
+            'content' => 'Kirimkan siaran pers Anda ke redaksi Jambi Press. Siaran pers akan ditinjau oleh tim redaksi dan diterbitkan jika sesuai dengan kriteria dan kebijakan editorial. Lampirkan materi pendukung seperti foto atau video jika tersedia.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'disclaimer' => [
+            'title'   => 'Disclaimer',
+            'content' => 'Seluruh konten di Jambi Press disajikan untuk tujuan informasi. Jambi Press tidak bertanggung jawab atas kerugian yang timbul akibat penggunaan informasi dari situs ini. Konten dari sumber eksternal adalah tanggung jawab masing-masing pemilik. Jambi Press berhak mengubah, menghapus, atau menonaktifkan konten tanpa pemberitahuan sebelumnya.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'syarat-ketentuan' => [
+            'title'   => 'Syarat & Ketentuan',
+            'content' => 'Dengan mengakses dan menggunakan situs Jambi Press, Anda menyetujui syarat dan ketentuan berikut. Seluruh konten dilindungi hak cipta. Dilarang mereproduksi, mendistribusikan, atau memanfaatkan konten tanpa izin tertulis. Komentar dan konten pengguna adalah tanggung jawab pengguna masing-masing.',
+            'template'=> 'template-footer-page.php',
+        ],
+        'hak-cipta' => [
+            'title'   => 'Hak Cipta',
+            'content' => 'Seluruh konten yang dipublikasikan di Jambi Press dilindungi oleh Undang-Undang Hak Cipta Indonesia. Setiap reproduksi, distribusi, atau penggunaan komersial tanpa izin tertulis dari Jambi Press dilarang keras. Pengutipan untuk tujuan non-komersial diperbolehkan dengan menyertakan sumber yang jelas.',
+            'template'=> 'template-footer-page.php',
         ],
     ];
 
