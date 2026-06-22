@@ -100,7 +100,6 @@
                     <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 10px;">
                         <li><a href="<?php echo esc_url( home_url( '/hubungi-redaksi' ) ); ?>" style="font-size: .875rem;">Hubungi Redaksi</a></li>
                         <li><a href="<?php echo esc_url( home_url( '/iklan' ) ); ?>" style="font-size: .875rem;">Iklan & Kerja Sama</a></li>
-                        <li><a href="<?php echo esc_url( home_url( '/karier' ) ); ?>" style="font-size: .875rem;">Karier</a></li>
                         <li><a href="<?php echo esc_url( home_url( '/press-release' ) ); ?>" style="font-size: .875rem;">Press Release</a></li>
                     </ul>
                 </div>

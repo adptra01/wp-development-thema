@@ -310,11 +310,6 @@ add_action( 'after_switch_theme', function() {
             'content' => 'Jangkau ribuan pembaca setiap hari melalui platform Jambi Press. Tersedia berbagai paket iklan: banner display 728x90, 300x250, native advertorial, dan sponsored post. Hubungi tim kami untuk diskusi lebih lanjut mengenai kerja sama media dan promosi.',
             'template'=> 'template-footer-page.php',
         ],
-        'karier' => [
-            'title'   => 'Karier',
-            'content' => 'Bergabunglah dengan tim Jambi Press. Kami membuka kesempatan bagi wartawan, editor, videografer, dan digital marketer yang bersemangat dan profesional. Kirimkan CV dan portofolio Anda ke alamat email yang tercantum di halaman kontak.',
-            'template'=> 'template-footer-page.php',
-        ],
         'press-release' => [
             'title'   => 'Press Release',
             'content' => 'Kirimkan siaran pers Anda ke redaksi Jambi Press. Siaran pers akan ditinjau oleh tim redaksi dan diterbitkan jika sesuai dengan kriteria dan kebijakan editorial. Lampirkan materi pendukung seperti foto atau video jika tersedia.',
