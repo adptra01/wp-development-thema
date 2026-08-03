@@ -37,3 +37,4 @@ vendor/
 /wp-includes/
 *.zip
 wp-content/plugins/ad-inserter/
+n8n/
