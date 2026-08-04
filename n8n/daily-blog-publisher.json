@@ -1,725 +1,870 @@
 {
- "nodes": [
-  {
-   "parameters": {},
-   "type": "n8n-nodes-base.manualTrigger",
-   "typeVersion": 1,
-   "position": [
-    0,
-    -16
-   ],
-   "id": "a6f73144-22a4-456d-8496-422e6b93988c",
-   "name": "When clicking \u2018Test workflow\u2019"
-  },
-  {
-   "parameters": {
-    "rule": {
-     "interval": [
-      {
-       "field": "cronExpression",
-       "expression": "0 6 * * *"
-      }
-     ]
-    }
-   },
-   "type": "n8n-nodes-base.scheduleTrigger",
-   "typeVersion": 1,
-   "position": [
-    0,
-    -208
-   ],
-   "id": "57bcf56a-3ba6-4688-adc4-24fd34149ee6",
-   "name": "Schedule (06:00 harian)"
-  },
-  {
-   "parameters": {
-    "documentId": {
-     "__rl": true,
-     "value": "1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4",
-     "mode": "list",
-     "cachedResultName": "Complete Plan Blog post",
-     "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4/edit?usp=drivesdk"
-    },
-    "sheetName": {
-     "__rl": true,
-     "value": "gid=0",
-     "mode": "list",
-     "cachedResultName": "Foglio1"
-    },
-    "options": {}
-   },
-   "type": "n8n-nodes-base.googleSheets",
-   "typeVersion": 4.5,
-   "position": [
-    224,
-    -112
-   ],
-   "id": "8d692782-fef3-49c6-937f-2ddd923fdc1e",
-   "name": "Get Next Topic"
-  },
-  {
-   "parameters": {
-    "jsCode": "// Ambil baris pertama yang belum dipublikasikan (ID POST kosong)\nconst rows = items.map(i => i.json);\nconst pending = rows.find(r => !r['ID POST'] || String(r['ID POST']).trim() === '');\nif (!pending) return []; // tidak ada topik pending -> flow berhenti diam-diam\nreturn [{ json: pending }];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    448,
-    -112
-   ],
-   "id": "672d2b74-62e1-4f34-9e7c-fa6b81fe0f1b",
-   "name": "Select Topic"
-  },
-  {
-   "parameters": {
-    "url": "https://akar-solution.page.gd/wp-api-proxy.php/",
-    "sendHeaders": true,
-    "headerParameters": {
-     "parameters": [
-      {
-       "name": "User-Agent",
-       "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
-      }
-     ]
-    },
-    "options": {
-     "response": {
-      "response": {
-       "neverError": true
-      }
-     },
-     "timeout": 30000
-    }
-   },
-   "type": "n8n-nodes-base.httpRequest",
-   "typeVersion": 4.2,
-   "position": [
-    672,
-    -112
-   ],
-   "id": "get-proxy-challenge-0001",
-   "name": "Get Proxy Challenge"
-  },
-  {
-   "parameters": {
-    "jsCode": "// Ambil HTML challenge dari Get Proxy Challenge, ekstrak ciphertext\n// CURRENT, lalu solve SlowAES (AES-128-CBC, no padding) -> cookie __test.\n// Key & IV stabil; ciphertext ROTASI setiap challenge page.\nconst crypto = require('crypto');\n\nconst html = String($('Get Proxy Challenge').first().json.data || '');\nconst m = html.match(/toNumbers\\(\"([0-9a-f]{32})\"\\)/g) || [];\n// urutan: a=key, b=iv, c=ct\nconst hexes = m.map(x => x.replace(/^.*toNumbers\\(\"/, '').replace(/\"\\)$/, ''));\nif (hexes.length < 3) throw new Error('Challenge pattern tidak ditemukan di HTML');\nconst ct = Buffer.from(hexes[2], 'hex');\nconst key = Buffer.from(hexes[0], 'hex');\nconst iv = Buffer.from(hexes[1], 'hex');\n\nconst d = crypto.createDecipheriv('aes-128-cbc', key, iv);\nd.setAutoPadding(false);\nconst cookieVal = Buffer.concat([d.update(ct), d.final()]).toString('hex');\nconst ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';\nreturn [{ json: { cookie: '__test=' + cookieVal, ua: ua } }];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    896,
-    -112
-   ],
-   "id": "4f1910f0-e55d-4189-b738-ee6b2bd2ffd3",
-   "name": "Solve Proxy Challenge"
-  },
-  {
-   "parameters": {
-    "url": "https://akar-solution.page.gd/wp-api-proxy.php/terms?taxonomy=category",
-    "authentication": "predefinedCredentialType",
-    "nodeCredentialType": "httpHeaderAuth",
-    "sendHeaders": true,
-    "headerParameters": {
-     "parameters": [
-      {
-       "name": "Cookie",
-       "value": "={{ $('Solve Proxy Challenge').first().json.cookie }}"
-      },
-      {
-       "name": "User-Agent",
-       "value": "={{ $('Solve Proxy Challenge').first().json.ua }}"
-      }
-     ]
-    },
-    "options": {}
-   },
-   "type": "n8n-nodes-base.httpRequest",
-   "typeVersion": 4.2,
-   "position": [
-    1120,
-    -112
-   ],
-   "id": "3d220d49-9b4e-4dca-a830-16437e924bd6",
-   "name": "Fetch Categories",
-   "retryOnFail": true,
-   "maxTries": 3,
-   "waitBetweenTries": 3000,
-   "credentials": {
-    "httpHeaderAuth": {
-     "id": "fEVtF4JT62fU0nSN",
-     "name": "WP API Proxy Key"
-    }
-   }
-  },
-  {
-   "parameters": {
-    "jsCode": "const row = $('Select Topic').first().json;\nconst topic = String(row['PROMPT'] || row.TITLE || '').trim();\nconst keyword = String(row['TERGET KEYWORD'] || '').trim();\nconst category = String(row.KATEGORI || '').trim();\nconst sheetTitle = String(row.TITLE || '').trim();\nconst sheetImg = String(row.IMAGEGENERATOR || '').trim();\n\n// slug deterministik dari topik -> idempotency antar run\nconst slug = (topic.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')\n  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 180))\n  || ('post-' + Date.now());\n\nconst system = `Kamu adalah content writer SEO profesional berbahasa Indonesia dengan standar E-E-A-T (Experience, Expertise, Authority, Trust) Google. Tugasmu menulis artikel blog 900-1050 kata berdasarkan topik, keyword, dan kategori yang diberikan. Niche situs: jasa pembuatan website, aplikasi custom, mentoring skripsi, jasa joki tugas, konsultasi IT untuk mahasiswa dan UMKM di Jambi, Indonesia.\nGaya: humanis, storytelling, kalimat bervariasi (pendek/sedang/panjang), sertakan data/statistik bila relevan, internal linking wajar. Struktur: hook pembuka kuat berisi keyword utama, overview bullet/numbering, minimal 3-5 section dengan heading <h2> dan sub-heading <h3>, bagian FAQ 3-5 pertanyaan, Call to Action natural di akhir.\nOUTPUT: HANYA satu objek JSON valid, tanpa teks lain, TANPA markdown fences (jangan bungkus JSON dengan code fence), dengan skema:\n{\n  \"title\": \"judul artikel\",\n  \"excerpt\": \"ringkasan 1-2 kalimat\",\n  \"content_html\": \"HTML lengkap artikel (h2/h3/p/ul/strong/em; jangan tambahkan <img>)\",\n  \"focus_keyword\": \"keyword utama\",\n  \"meta_description\": \"meta description 150-160 karakter\",\n  \"tags\": [\"tag1\", \"tag2\", \"tag3\"],\n  \"category\": \"Edukatif | Tips dan Rekomendasi | Studi Kasus | Perbandingan\",\n  \"image_prompt\": \"deskripsi visual Bahasa Inggris untuk gambar artikel (subjek, suasana, gaya, warna)\"\n}\nPENTING \u2014 VALIDITAS JSON (kegagalan paling sering):\n- JANGAN SEKALI-KALI menggunakan karakter kutip ganda (\") di dalam teks artikel. Gunakan tanda kutip tunggal '...' atau \u00ab...\u00bb untuk semua kutipan/kata yang ditegaskan. Jika tetap terlanjur memakai \", PASTIKAN di-escape sebagai \\\"\n\n- Semua tanda kutip ganda DI DALAM nilai string (terutama content_html) WAJIB di-escape: \\\\\"\n- Untuk atribut HTML gunakan kutip tunggal (' ') atau JANGAN gunakan atribut sama sekali (cukup tag h2/h3/p/ul/li/strong/em tanpa atribut)\n- Jangan gunakan karakter baris baru literal di dalam string JSON \u2014 gunakan \\\\n\n- Untuk kutipan kalimat di dalam teks artikel gunakan tanda kutip '...' atau \"...\" yang di-escape, jangan tanda kutip miring\nKonten harus faktual, tidak melebih-lebihkan, siap dipublikasikan.`;\n\nconst user = `Topik: ${topic}\nTarget keyword: ${keyword}\nKategori yang diminta: ${category}\nJudul dari kalender konten (gunakan jika relevan): ${sheetTitle}\n\nTulis artikel sesuai instruksi sistem. Output JSON only.`;\n\nconst body = {\n  model: 'no-think/kr/claude-haiku-4.5',\n  stream: false,\n  temperature: 0.7,\n  max_tokens: 8000,\n  messages: [\n    { role: 'system', content: system },\n    { role: 'user', content: user }\n  ]\n};\n\nreturn [{ json: { body_json: JSON.stringify(body), slug: slug, topic: topic, keyword: keyword, category: category, sheet_img_prompt: sheetImg } }];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    1344,
-    -112
-   ],
-   "id": "32c7a9bc-de41-4741-aaea-a2b676201dc9",
-   "name": "Prepare AI Prompt"
-  },
-  {
-   "parameters": {
-    "method": "POST",
-    "url": "http://127.0.0.1:20128/v1/chat/completions",
-    "sendBody": true,
-    "specifyBody": "json",
-    "jsonBody": "={{ $('Prepare AI Prompt').first().json.body_json }}",
-    "options": {}
-   },
-   "type": "n8n-nodes-base.httpRequest",
-   "typeVersion": 4.2,
-   "position": [
-    1568,
-    -112
-   ],
-   "id": "be98b46a-467c-4877-b373-796576a11140",
-   "name": "Generate Article",
-   "retryOnFail": true,
-   "maxTries": 2,
-   "waitBetweenTries": 3000
-  },
-  {
-   "parameters": {
-    "jsCode": "const ai = items[0]?.json || {};\nconst raw = String(ai.choices?.[0]?.message?.content || '');\nif (!raw) throw new Error('AI returned empty content');\n\nlet s = raw.replace(/```json\\s*/i, '').replace(/```/g, '')\n  .replace(/[\\u0000-\\u001F]/g, '')\n  .replace(/[\\u201C\\u201D]/g, '\"').replace(/[\\u2018\\u2019]/g, \"'\");\n\nfunction extractBalancedJSON(str) {\n  const first = str.indexOf('{');\n  if (first === -1) return null;\n  let inStr = false, esc = false, depth = 0;\n  for (let i = first; i < str.length; i++) {\n    const ch = str[i];\n    if (esc) { esc = false; continue; }\n    if (ch === '\\\\') { esc = true; continue; }\n    if (ch === '\"') { inStr = !inStr; continue; }\n    if (!inStr) {\n      if (ch === '{') depth++;\n      else if (ch === '}') { depth--; if (depth === 0) return str.substring(first, i + 1); }\n    }\n  }\n  return null;\n}\n\nconst sub = extractBalancedJSON(s);\nif (!sub) throw new Error('Balanced JSON tidak ditemukan. Raw: ' + raw.slice(0, 200));\nlet parsed;\ntry { parsed = JSON.parse(sub); }\ncatch (e) {\n  // Tier 1: trailing comma, koma hilang antar objek/array, kontrol char\n  let fixed = sub.replace(/,\\s*([}\\]])/g, '$1')\n                 .replace(/}\\s*{/g, '},{')\n                 .replace(/\\]\\s*\\[/g, '],[')\n                 .replace(/[\\u0000-\\u001F]/g, '');\n  try { parsed = JSON.parse(fixed); }\n  catch (e2) {\n    // Tier 2: escape kutip ganda tak-ter-escape di dalam nilai string\n    // (heuristik: \" ditutup hanya jika diikuti , } atau ])\n    function escapeInnerQuotes(jt) {\n      let out = '', inStr = false;\n      for (let i = 0; i < jt.length; i++) {\n        const ch = jt[i];\n        if (!inStr) { out += ch; if (ch === '\"') inStr = true; continue; }\n        if (ch === '\\\\') { out += ch + (jt[i + 1] || ''); i++; continue; }\n        if (ch === '\"') {\n          let j = i + 1;\n          while (j < jt.length && jt[j] === ' ') j++;\n          const nxt = jt[j];\n          if (nxt === ',' || nxt === '}' || nxt === ']') { out += ch; inStr = false; }\n          else { out += '\\\\' + ch; }\n        } else { out += ch; }\n      }\n      return out;\n    }\n    try { parsed = JSON.parse(escapeInnerQuotes(fixed)); }\n    catch (e3) {\n      throw new Error('Gagal parse JSON: ' + e3.message +\n        ' | near pos: ' + fixed.slice(Math.max(0, 4600), 5000));\n    }\n  }\n}\n\nconst row = $('Select Topic').first().json;\nconst sheetImg = String(row.IMAGEGENERATOR || '').trim();\nconst fallbackImg = sheetImg || ('Ilustrasi modern tentang ' + String(row.PROMPT || 'teknologi'));\n\nconst title = String(parsed.title || row.TITLE || row.PROMPT || '').trim();\nconst tags = Array.isArray(parsed.tags) ? parsed.tags.filter(Boolean).slice(0, 8) : [];\nconst contentHtml = String(parsed.content_html || parsed.content || '').trim();\nif (!title || !contentHtml) throw new Error('Parsed JSON kurang field title/content_html');\n\nreturn [{\n  json: {\n    title: title,\n    slug: $('Prepare AI Prompt').first().json.slug,\n    excerpt: String(parsed.excerpt || '').trim(),\n    content_html: contentHtml,\n    focuskw: String(parsed.focus_keyword || row['TERGET KEYWORD'] || '').trim(),\n    metadesc: String(parsed.meta_description || '').trim(),\n    meta_title: title,\n    tags: tags,\n    category_name: String(parsed.category || '').trim(),\n    image_prompt: String(parsed.image_prompt || fallbackImg).trim()\n  }\n}];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    1792,
-    -112
-   ],
-   "id": "a9b6c8d2-7551-465e-9184-76a8f25104e7",
-   "name": "Parse & Structure"
-  },
-  {
-   "parameters": {
-    "url": "=https://akar-solution.page.gd/wp-api-proxy.php/posts/{{ $('Parse & Structure').first().json.slug }}?status=any",
-    "authentication": "predefinedCredentialType",
-    "nodeCredentialType": "httpHeaderAuth",
-    "sendHeaders": true,
-    "headerParameters": {
-     "parameters": [
-      {
-       "name": "Cookie",
-       "value": "={{ $('Solve Proxy Challenge').first().json.cookie }}"
-      },
-      {
-       "name": "User-Agent",
-       "value": "={{ $('Solve Proxy Challenge').first().json.ua }}"
-      }
-     ]
-    },
-    "options": {
-     "response": {
-      "response": {
-       "neverError": true
-      }
-     }
-    }
-   },
-   "type": "n8n-nodes-base.httpRequest",
-   "typeVersion": 4.2,
-   "position": [
-    2016,
-    -112
-   ],
-   "id": "0d121238-1f00-4cec-b17b-ea36b438582b",
-   "name": "Idempotency Guard",
-   "retryOnFail": true,
-   "maxTries": 2,
-   "waitBetweenTries": 2000,
-   "credentials": {
-    "httpHeaderAuth": {
-     "id": "fEVtF4JT62fU0nSN",
-     "name": "WP API Proxy Key"
-    }
-   }
-  },
-  {
-   "parameters": {
-    "jsCode": "// Idempotency guard: response proxy (neverError) \u2014 200 punya 'post', 404 punya 'error'\nconst g = items[0]?.json || {};\nconst found = g && g.post !== undefined;\nreturn [{ json: { status: found ? 'exists' : 'new', found: !!found, guard_response: g } }];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    2240,
-    -112
-   ],
-   "id": "04594dac-4c9d-454a-8036-c8d086e0e3b8",
-   "name": "Check Exists"
-  },
-  {
-   "parameters": {
-    "dataType": "string",
-    "value1": "={{ $json.status }}",
-    "rules": {
-     "rules": [
-      {
-       "value2": "exists",
-       "outputKey": "exists"
-      },
-      {
-       "value2": "new",
-       "outputKey": "new"
-      }
-     ]
-    },
-    "fallbackOutput": 1
-   },
-   "type": "n8n-nodes-base.switch",
-   "typeVersion": 2,
-   "position": [
-    2464,
-    -112
-   ],
-   "id": "3cffb9fc-63ee-482d-968a-442d2f99cafe",
-   "name": "Already Published?"
-  },
-  {
-   "parameters": {
-    "jsCode": "const p = $('Parse & Structure').first().json;\nconst cats = ($('Fetch Categories').first().json.results || []);\nconst want = String(p.category_name || '').trim().toLowerCase();\nconst found = cats.find(c =>\n  String(c.name || '').toLowerCase() === want || String(c.slug || '').toLowerCase() === want);\nconst categoryId = found ? found.id : 1;\n\n// seed deterministik dari slug -> gambar sama jika workflow re-run\nlet seed = 0;\nfor (const ch of p.slug) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;\nseed = (seed % 100000) || 1;\n\nconst imgPrompt = encodeURIComponent(p.image_prompt || 'blog article illustration');\nconst imageUrl = 'https://image.pollinations.ai/prompt/' + imgPrompt +\n  '?width=1200&height=630&nologo=true&seed=' + seed + '&model=flux';\nconst imgHtml = '<img src=\"' + imageUrl + '\" alt=\"' +\n  String(p.title || '').replace(/\"/g, '&quot;') + '\" loading=\"lazy\" />';\n\nconst payload = {\n  title: p.title,\n  slug: p.slug,\n  content: imgHtml + '\\n' + p.content_html,\n  status: 'publish',\n  type: 'post',\n  excerpt: p.excerpt,\n  categories: [categoryId],\n  tags: p.tags\n};\n\nreturn [{ json: {\n  publish_json: JSON.stringify(payload),\n  category_id: categoryId,\n  image_url: imageUrl,\n  slug: p.slug,\n  title: p.title\n} }];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    2688,
-    -16
-   ],
-   "id": "b6e04db5-774c-4b7d-8c57-c858ab2b8675",
-   "name": "Assemble Payload"
-  },
-  {
-   "parameters": {
-    "method": "POST",
-    "url": "https://akar-solution.page.gd/wp-api-proxy.php/posts",
-    "authentication": "predefinedCredentialType",
-    "nodeCredentialType": "httpHeaderAuth",
-    "sendHeaders": true,
-    "headerParameters": {
-     "parameters": [
-      {
-       "name": "Cookie",
-       "value": "={{ $('Solve Proxy Challenge').first().json.cookie }}"
-      },
-      {
-       "name": "User-Agent",
-       "value": "={{ $('Solve Proxy Challenge').first().json.ua }}"
-      }
-     ]
-    },
-    "sendBody": true,
-    "specifyBody": "json",
-    "jsonBody": "={{ $('Assemble Payload').first().json.publish_json }}",
-    "options": {}
-   },
-   "type": "n8n-nodes-base.httpRequest",
-   "typeVersion": 4.2,
-   "position": [
-    2912,
-    -16
-   ],
-   "id": "457b0955-cc51-4bfc-88e5-2f0c86ffd9c3",
-   "name": "Publish Post",
-   "retryOnFail": true,
-   "maxTries": 3,
-   "waitBetweenTries": 4000,
-   "credentials": {
-    "httpHeaderAuth": {
-     "id": "fEVtF4JT62fU0nSN",
-     "name": "WP API Proxy Key"
-    }
-   }
-  },
-  {
-   "parameters": {
-    "operation": "update",
-    "documentId": {
-     "__rl": true,
-     "value": "1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4",
-     "mode": "list",
-     "cachedResultName": "Complete Plan Blog post",
-     "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4/edit?usp=drivesdk"
-    },
-    "sheetName": {
-     "__rl": true,
-     "value": "gid=0",
-     "mode": "list",
-     "cachedResultName": "Foglio1"
-    },
-    "columns": {
-     "mappingMode": "defineBelow",
-     "value": {
-      "row_number": "={{ $('Select Topic').item.json.row_number }}",
-      "DATA": "={{ $now.format('dd/LL/yyyy') }}",
-      "TITLE": "={{ $('Publish Post').item.json.post.title }}",
-      "ID POST": "={{ $('Publish Post').item.json.post.id }}",
-      "URL": "={{ $('Publish Post').item.json.post.link }}",
-      "METATITLE": "={{ $('Parse & Structure').first().json.meta_title }}",
-      "FOCUSKEYWORD": "={{ $('Parse & Structure').first().json.focuskw }}",
-      "METADESCRIPTION": "={{ $('Parse & Structure').first().json.metadesc }}",
-      "TAGS": "={{ $('Parse & Structure').first().json.tags ? $('Parse & Structure').first().json.tags.join(', ') : '' }}",
-      "KATEGORI": "={{ $('Parse & Structure').first().json.category_name }}",
-      "IMAGEGENERATOR": "={{ $('Parse & Structure').first().json.image_prompt }}"
-     },
-     "matchingColumns": [
-      "row_number"
-     ],
-     "schema": [
-      {
-       "id": "DATA",
-       "displayName": "DATA",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "PROMPT",
-       "displayName": "PROMPT",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "TITLE",
-       "displayName": "TITLE",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "TERGET KEYWORD",
-       "displayName": "TERGET KEYWORD",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "ID POST",
-       "displayName": "ID POST",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "URL",
-       "displayName": "URL",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "IMAGEGENERATOR",
-       "displayName": "IMAGEGENERATOR",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "METATITLE",
-       "displayName": "METATITLE",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "FOCUSKEYWORD",
-       "displayName": "FOCUSKEYWORD",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "METADESCRIPTION",
-       "displayName": "METADESCRIPTION",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "TAGS",
-       "displayName": "TAGS",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "CROSS_CHECK",
-       "displayName": "CROSS_CHECK",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "KATEGORI",
-       "displayName": "KATEGORI",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "string"
-      },
-      {
-       "id": "row_number",
-       "displayName": "row_number",
-       "required": false,
-       "defaultMatch": false,
-       "display": true,
-       "type": "number",
-       "canBeUsedToMatch": true,
-       "readOnly": true
-      }
-     ],
-     "attemptToConvertTypes": false,
-     "convertFieldsToString": false
-    },
-    "options": {}
-   },
-   "type": "n8n-nodes-base.googleSheets",
-   "typeVersion": 4.6,
-   "position": [
-    3136,
-    -16
-   ],
-   "id": "ff72bfaf-a78d-4654-8cbe-b09d908d2c6e",
-   "name": "Update Tracking",
-   "onError": "continueRegularOutput"
-  },
-  {
-   "parameters": {
-    "jsCode": "// Append JSONL ke /logs/blog-publisher-YYYY-MM.jsonl (fs via NODE_FUNCTION_ALLOW_BUILTIN)\nconst fs = require('fs');\nconst pub = ($('Publish Post').first().json.post) || {};\nconst parsed = $('Parse & Structure').first().json;\nconst row = {\n  ts: $now.toISO(),\n  action: 'published',\n  slug: pub.slug || parsed.slug || '',\n  title: pub.title || parsed.title || '',\n  post_id: pub.id || '',\n  url: pub.link || '',\n  category_id: $('Assemble Payload').first().json.category_id || ''\n};\nconst file = '/logs/blog-publisher-' + $now.toFormat('yyyy-MM') + '.jsonl';\nfs.appendFileSync(file, JSON.stringify(row) + '\\n', 'utf8');\nreturn [{ json: { log_file: file, ...row } }];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    3360,
-    -16
-   ],
-   "id": "dbfcad34-731f-40c5-8a8f-8a8f324af5c2",
-   "name": "Log Published"
-  },
-  {
-   "parameters": {
-    "jsCode": "// Append JSONL ke /logs/blog-publisher-YYYY-MM.jsonl\nconst fs = require('fs');\nconst parsed = $('Parse & Structure').first().json;\nconst row = {\n  ts: $now.toISO(),\n  action: 'skipped_existing',\n  slug: parsed.slug || '',\n  title: parsed.title || '',\n  post_id: '',\n  url: '',\n  note: 'Slug sudah ada di WP \\u2014 idempotency guard (jangan publish duplikat)'\n};\nconst file = '/logs/blog-publisher-' + $now.toFormat('yyyy-MM') + '.jsonl';\nfs.appendFileSync(file, JSON.stringify(row) + '\\n', 'utf8');\nreturn [{ json: { log_file: file, ...row } }];\n"
-   },
-   "type": "n8n-nodes-base.code",
-   "typeVersion": 2,
-   "position": [
-    2688,
-    -208
-   ],
-   "id": "01f934e0-50aa-490f-ac79-3b9830e0c324",
-   "name": "Log Skipped"
-  }
- ],
- "connections": {
-  "When clicking \u2018Test workflow\u2019": {
-   "main": [
-    [
-     {
-      "node": "Get Next Topic",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Schedule (06:00 harian)": {
-   "main": [
-    [
-     {
-      "node": "Get Next Topic",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Get Next Topic": {
-   "main": [
-    [
-     {
-      "node": "Select Topic",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Select Topic": {
-   "main": [
-    [
-     {
-      "node": "Get Proxy Challenge",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Solve Proxy Challenge": {
-   "main": [
-    [
-     {
-      "node": "Fetch Categories",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Fetch Categories": {
-   "main": [
-    [
-     {
-      "node": "Prepare AI Prompt",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Prepare AI Prompt": {
-   "main": [
-    [
-     {
-      "node": "Generate Article",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Generate Article": {
-   "main": [
-    [
-     {
-      "node": "Parse & Structure",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Parse & Structure": {
-   "main": [
-    [
-     {
-      "node": "Idempotency Guard",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Idempotency Guard": {
-   "main": [
-    [
-     {
-      "node": "Check Exists",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Check Exists": {
-   "main": [
-    [
-     {
-      "node": "Already Published?",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Already Published?": {
-   "main": [
-    [
-     {
-      "node": "Log Skipped",
-      "type": "main",
-      "index": 0
-     }
+ "data": {
+  "updatedAt": "2026-08-04T07:03:58.554Z",
+  "createdAt": "2026-08-03T18:49:32.498Z",
+  "id": "HWXv7In3pfrvrfl0",
+  "name": "Daily Blog Publisher",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+   {
+    "parameters": {},
+    "type": "n8n-nodes-base.manualTrigger",
+    "typeVersion": 1,
+    "position": [
+     0,
+     -16
     ],
-    [
-     {
-      "node": "Assemble Payload",
-      "type": "main",
-      "index": 0
+    "id": "a6f73144-22a4-456d-8496-422e6b93988c",
+    "name": "When clicking \u2018Test workflow\u2019"
+   },
+   {
+    "parameters": {
+     "rule": {
+      "interval": [
+       {
+        "field": "cronExpression",
+        "expression": "0 6 * * *"
+       }
+      ]
      }
+    },
+    "type": "n8n-nodes-base.scheduleTrigger",
+    "typeVersion": 1,
+    "position": [
+     0,
+     -208
+    ],
+    "id": "57bcf56a-3ba6-4688-adc4-24fd34149ee6",
+    "name": "Schedule (06:00 harian)"
+   },
+   {
+    "parameters": {
+     "documentId": {
+      "__rl": true,
+      "value": "1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4",
+      "mode": "list",
+      "cachedResultName": "Complete Plan Blog post",
+      "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4/edit?usp=drivesdk"
+     },
+     "sheetName": {
+      "__rl": true,
+      "value": "gid=0",
+      "mode": "list",
+      "cachedResultName": "Foglio1"
+     },
+     "options": {}
+    },
+    "type": "n8n-nodes-base.googleSheets",
+    "typeVersion": 4.5,
+    "position": [
+     224,
+     -112
+    ],
+    "id": "8d692782-fef3-49c6-937f-2ddd923fdc1e",
+    "name": "Get Next Topic"
+   },
+   {
+    "parameters": {
+     "jsCode": "// Ambil baris pertama yang belum dipublikasikan (ID POST kosong)\nconst rows = items.map(i => i.json);\nconst pending = rows.find(r => !r['ID POST'] || String(r['ID POST']).trim() === '');\nif (!pending) return []; // tidak ada topik pending -> flow berhenti diam-diam\nreturn [{ json: pending }];\n"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     448,
+     -112
+    ],
+    "id": "672d2b74-62e1-4f34-9e7c-fa6b81fe0f1b",
+    "name": "Select Topic"
+   },
+   {
+    "parameters": {
+     "url": "https://akar-solution.page.gd/wp-api-proxy.php/",
+     "sendHeaders": true,
+     "headerParameters": {
+      "parameters": [
+       {
+        "name": "User-Agent",
+        "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+       }
+      ]
+     },
+     "options": {
+      "response": {
+       "response": {
+        "neverError": true
+       }
+      },
+      "timeout": 30000
+     }
+    },
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     672,
+     -112
+    ],
+    "id": "get-proxy-challenge-0001",
+    "name": "Get Proxy Challenge"
+   },
+   {
+    "parameters": {
+     "jsCode": "// Ambil HTML challenge dari Get Proxy Challenge, ekstrak ciphertext\n// CURRENT, lalu solve SlowAES (AES-128-CBC, no padding) -> cookie __test.\n// Key & IV stabil; ciphertext ROTASI setiap challenge page.\nconst crypto = require('crypto');\n\nconst html = String($('Get Proxy Challenge').first().json.data || '');\nconst m = html.match(/toNumbers\\(\"([0-9a-f]{32})\"\\)/g) || [];\n// urutan: a=key, b=iv, c=ct\nconst hexes = m.map(x => x.replace(/^.*toNumbers\\(\"/, '').replace(/\"\\)$/, ''));\nif (hexes.length < 3) throw new Error('Challenge pattern tidak ditemukan di HTML');\nconst ct = Buffer.from(hexes[2], 'hex');\nconst key = Buffer.from(hexes[0], 'hex');\nconst iv = Buffer.from(hexes[1], 'hex');\n\nconst d = crypto.createDecipheriv('aes-128-cbc', key, iv);\nd.setAutoPadding(false);\nconst cookieVal = Buffer.concat([d.update(ct), d.final()]).toString('hex');\nconst ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';\nreturn [{ json: { cookie: '__test=' + cookieVal, ua: ua } }];\n"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     896,
+     -112
+    ],
+    "id": "4f1910f0-e55d-4189-b738-ee6b2bd2ffd3",
+    "name": "Solve Proxy Challenge"
+   },
+   {
+    "parameters": {
+     "url": "https://akar-solution.page.gd/wp-api-proxy.php/terms?taxonomy=category",
+     "authentication": "predefinedCredentialType",
+     "nodeCredentialType": "httpHeaderAuth",
+     "sendHeaders": true,
+     "headerParameters": {
+      "parameters": [
+       {
+        "name": "Cookie",
+        "value": "={{ $('Solve Proxy Challenge').first().json.cookie }}"
+       },
+       {
+        "name": "User-Agent",
+        "value": "={{ $('Solve Proxy Challenge').first().json.ua }}"
+       }
+      ]
+     },
+     "options": {}
+    },
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     1120,
+     -112
+    ],
+    "id": "3d220d49-9b4e-4dca-a830-16437e924bd6",
+    "name": "Fetch Categories",
+    "retryOnFail": true,
+    "maxTries": 3,
+    "waitBetweenTries": 3000,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "fEVtF4JT62fU0nSN",
+      "name": "WP API Proxy Key"
+     }
+    }
+   },
+   {
+    "parameters": {
+     "jsCode": "const row = $('Select Topic').first().json;\nconst topic = String(row['PROMPT'] || row.TITLE || '').trim();\nconst keyword = String(row['TERGET KEYWORD'] || '').trim();\nconst category = String(row.KATEGORI || '').trim();\nconst sheetTitle = String(row.TITLE || '').trim();\nconst sheetImg = String(row.IMAGEGENERATOR || '').trim();\n\n// slug deterministik dari topik -> idempotency antar run\nconst slug = (topic.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')\n  .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 180))\n  || ('post-' + Date.now());\n\nconst system = `Kamu adalah content writer SEO profesional berbahasa Indonesia dengan standar E-E-A-T (Experience, Expertise, Authority, Trust) Google. Tugasmu menulis artikel blog 900-1050 kata berdasarkan topik, keyword, dan kategori yang diberikan. Niche situs: jasa pembuatan website, aplikasi custom, mentoring skripsi, jasa joki tugas, konsultasi IT untuk mahasiswa dan UMKM di Jambi, Indonesia.\nGaya: humanis, storytelling, kalimat bervariasi (pendek/sedang/panjang), sertakan data/statistik bila relevan, internal linking wajar. Struktur: hook pembuka kuat berisi keyword utama, overview bullet/numbering, minimal 3-5 section dengan heading <h2> dan sub-heading <h3>, bagian FAQ 3-5 pertanyaan, Call to Action natural di akhir.\nOUTPUT: HANYA satu objek JSON valid, tanpa teks lain, TANPA markdown fences (jangan bungkus JSON dengan code fence), dengan skema:\n{\n  \"title\": \"judul artikel\",\n  \"excerpt\": \"ringkasan 1-2 kalimat\",\n  \"content_html\": \"HTML lengkap artikel (h2/h3/p/ul/strong/em; jangan tambahkan <img>)\",\n  \"focus_keyword\": \"keyword utama\",\n  \"meta_description\": \"meta description 150-160 karakter\",\n  \"tags\": [\"tag1\", \"tag2\", \"tag3\"],\n  \"category\": \"Edukatif | Tips dan Rekomendasi | Studi Kasus | Perbandingan\",\n  \"image_prompt\": \"deskripsi visual Bahasa Inggris untuk gambar artikel (subjek, suasana, gaya, warna)\"\n}\nPENTING \u2014 VALIDITAS JSON (kegagalan paling sering):\n- JANGAN SEKALI-KALI menggunakan karakter kutip ganda (\") di dalam teks artikel. Gunakan tanda kutip tunggal '...' atau \u00ab...\u00bb untuk semua kutipan/kata yang ditegaskan. Jika tetap terlanjur memakai \", PASTIKAN di-escape sebagai \\\"\n\n- Semua tanda kutip ganda DI DALAM nilai string (terutama content_html) WAJIB di-escape: \\\\\"\n- Untuk atribut HTML gunakan kutip tunggal (' ') atau JANGAN gunakan atribut sama sekali (cukup tag h2/h3/p/ul/li/strong/em tanpa atribut)\n- Jangan gunakan karakter baris baru literal di dalam string JSON \u2014 gunakan \\\\n\n- Untuk kutipan kalimat di dalam teks artikel gunakan tanda kutip '...' atau \"...\" yang di-escape, jangan tanda kutip miring\nKonten harus faktual, tidak melebih-lebihkan, siap dipublikasikan.`;\n\nconst user = `Topik: ${topic}\nTarget keyword: ${keyword}\nKategori yang diminta: ${category}\nJudul dari kalender konten (gunakan jika relevan): ${sheetTitle}\n\nTulis artikel sesuai instruksi sistem. Output JSON only.`;\n\nconst body = {\n  model: 'no-think/kr/claude-haiku-4.5',\n  stream: false,\n  temperature: 0.7,\n  max_tokens: 8000,\n  messages: [\n    { role: 'system', content: system },\n    { role: 'user', content: user }\n  ]\n};\n\nreturn [{ json: { body_json: JSON.stringify(body), slug: slug, topic: topic, keyword: keyword, category: category, sheet_img_prompt: sheetImg } }];\n"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1344,
+     -112
+    ],
+    "id": "32c7a9bc-de41-4741-aaea-a2b676201dc9",
+    "name": "Prepare AI Prompt"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "http://127.0.0.1:20128/v1/chat/completions",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ $('Prepare AI Prompt').first().json.body_json }}",
+     "options": {}
+    },
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     1568,
+     -112
+    ],
+    "id": "be98b46a-467c-4877-b373-796576a11140",
+    "name": "Generate Article",
+    "retryOnFail": true,
+    "maxTries": 2,
+    "waitBetweenTries": 3000
+   },
+   {
+    "parameters": {
+     "jsCode": "const ai = items[0]?.json || {};\nconst raw = String(ai.choices?.[0]?.message?.content || '');\nif (!raw) throw new Error('AI returned empty content');\n\nlet s = raw.replace(/```json\\s*/i, '').replace(/```/g, '')\n  .replace(/[\\u0000-\\u001F]/g, '')\n  .replace(/[\\u201C\\u201D]/g, '\"').replace(/[\\u2018\\u2019]/g, \"'\");\n\nfunction extractBalancedJSON(str) {\n  const first = str.indexOf('{');\n  if (first === -1) return null;\n  let inStr = false, esc = false, depth = 0;\n  for (let i = first; i < str.length; i++) {\n    const ch = str[i];\n    if (esc) { esc = false; continue; }\n    if (ch === '\\\\') { esc = true; continue; }\n    if (ch === '\"') { inStr = !inStr; continue; }\n    if (!inStr) {\n      if (ch === '{') depth++;\n      else if (ch === '}') { depth--; if (depth === 0) return str.substring(first, i + 1); }\n    }\n  }\n  return null;\n}\n\nconst sub = extractBalancedJSON(s);\nif (!sub) throw new Error('Balanced JSON tidak ditemukan. Raw: ' + raw.slice(0, 200));\nlet parsed;\ntry { parsed = JSON.parse(sub); }\ncatch (e) {\n  // Tier 1: trailing comma, koma hilang antar objek/array, kontrol char\n  let fixed = sub.replace(/,\\s*([}\\]])/g, '$1')\n                 .replace(/}\\s*{/g, '},{')\n                 .replace(/\\]\\s*\\[/g, '],[')\n                 .replace(/[\\u0000-\\u001F]/g, '');\n  try { parsed = JSON.parse(fixed); }\n  catch (e2) {\n    // Tier 2: escape kutip ganda tak-ter-escape di dalam nilai string\n    // (heuristik: \" ditutup hanya jika diikuti , } atau ])\n    function escapeInnerQuotes(jt) {\n      let out = '', inStr = false;\n      for (let i = 0; i < jt.length; i++) {\n        const ch = jt[i];\n        if (!inStr) { out += ch; if (ch === '\"') inStr = true; continue; }\n        if (ch === '\\\\') { out += ch + (jt[i + 1] || ''); i++; continue; }\n        if (ch === '\"') {\n          let j = i + 1;\n          while (j < jt.length && jt[j] === ' ') j++;\n          const nxt = jt[j];\n          if (nxt === ',' || nxt === '}' || nxt === ']') { out += ch; inStr = false; }\n          else { out += '\\\\' + ch; }\n        } else { out += ch; }\n      }\n      return out;\n    }\n    try { parsed = JSON.parse(escapeInnerQuotes(fixed)); }\n    catch (e3) {\n      throw new Error('Gagal parse JSON: ' + e3.message +\n        ' | near pos: ' + fixed.slice(Math.max(0, 4600), 5000));\n    }\n  }\n}\n\nconst row = $('Select Topic').first().json;\nconst sheetImg = String(row.IMAGEGENERATOR || '').trim();\nconst fallbackImg = sheetImg || ('Ilustrasi modern tentang ' + String(row.PROMPT || 'teknologi'));\n\nconst title = String(parsed.title || row.TITLE || row.PROMPT || '').trim();\nconst tags = Array.isArray(parsed.tags) ? parsed.tags.filter(Boolean).slice(0, 8) : [];\nconst contentHtml = String(parsed.content_html || parsed.content || '').trim();\nif (!title || !contentHtml) throw new Error('Parsed JSON kurang field title/content_html');\n\nreturn [{\n  json: {\n    title: title,\n    slug: $('Prepare AI Prompt').first().json.slug,\n    excerpt: String(parsed.excerpt || '').trim(),\n    content_html: contentHtml,\n    focuskw: String(parsed.focus_keyword || row['TERGET KEYWORD'] || '').trim(),\n    metadesc: String(parsed.meta_description || '').trim(),\n    meta_title: title,\n    tags: tags,\n    category_name: String(parsed.category || '').trim(),\n    image_prompt: String(parsed.image_prompt || fallbackImg).trim()\n  }\n}];\n"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1792,
+     -112
+    ],
+    "id": "a9b6c8d2-7551-465e-9184-76a8f25104e7",
+    "name": "Parse & Structure"
+   },
+   {
+    "parameters": {
+     "jsCode": "// Generate SEO metadata compatible with Yoast SEO / RankMath\nconst parsed = $('Parse & Structure').first().json;\nconst topic   = $('Select Topic').first().json;\n\nconst title       = parsed.title || topic.TITLE || '';\nconst excerpt     = parsed.excerpt || '';\nconst focusKw     = parsed.focus_keyword || topic['TERGET KEYWORD'] || topic.FOCUSKEYWORD || '';\nconst metaDescRaw = parsed.meta_description || excerpt || '';\n\n// Sanitize: max lengths per Yoast recommendations\nconst seoTitle = title.slice(0, 60);              // Yoast recommends <=60 chars\nconst metaDesc = metaDescRaw.replace(/<[^>]*>/g, ' ').slice(0, 155).trim(); // <=155 chars\nconst focusKwClean = focusKw.slice(0, 100);       // reasonable limit\n\n// Output object with field names matching Yoast meta keys\nreturn [{\n  json: {\n    // Fields for WordPress post payload (meta_input will map these)\n    yoast_title: seoTitle,\n    yoast_metadesc: metaDesc,\n    yoast_focuskw: focusKwClean,\n    // Also keep original parsed fields for reference\n    _parsed_title: title,\n    _parsed_excerpt: excerpt,\n    _parsed_focus_keyword: focusKw\n  }\n}];"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1920,
+     320
+    ],
+    "id": "seo-metadata-0001",
+    "name": "Generate SEO Metadata"
+   },
+   {
+    "parameters": {
+     "url": "=https://akar-solution.page.gd/wp-api-proxy.php/posts/{{ $('Parse & Structure').first().json.slug }}?status=any",
+     "authentication": "predefinedCredentialType",
+     "nodeCredentialType": "httpHeaderAuth",
+     "sendHeaders": true,
+     "headerParameters": {
+      "parameters": [
+       {
+        "name": "Cookie",
+        "value": "={{ $('Solve Proxy Challenge').first().json.cookie }}"
+       },
+       {
+        "name": "User-Agent",
+        "value": "={{ $('Solve Proxy Challenge').first().json.ua }}"
+       }
+      ]
+     },
+     "options": {
+      "response": {
+       "response": {
+        "neverError": true
+       }
+      }
+     }
+    },
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     2016,
+     -112
+    ],
+    "id": "0d121238-1f00-4cec-b17b-ea36b438582b",
+    "name": "Idempotency Guard",
+    "retryOnFail": true,
+    "maxTries": 2,
+    "waitBetweenTries": 2000,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "fEVtF4JT62fU0nSN",
+      "name": "WP API Proxy Key"
+     }
+    }
+   },
+   {
+    "parameters": {
+     "jsCode": "// Idempotency guard: response proxy (neverError) \u2014 200 punya 'post', 404 punya 'error'\nconst g = items[0]?.json || {};\nconst found = g && g.post !== undefined;\nreturn [{ json: { status: found ? 'exists' : 'new', found: !!found, guard_response: g } }];\n"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     2240,
+     -112
+    ],
+    "id": "04594dac-4c9d-454a-8036-c8d086e0e3b8",
+    "name": "Check Exists"
+   },
+   {
+    "parameters": {
+     "dataType": "string",
+     "value1": "={{ $json.status }}",
+     "rules": {
+      "rules": [
+       {
+        "value2": "exists",
+        "outputKey": "exists"
+       },
+       {
+        "value2": "new",
+        "outputKey": "new"
+       }
+      ]
+     },
+     "fallbackOutput": 1
+    },
+    "type": "n8n-nodes-base.switch",
+    "typeVersion": 2,
+    "position": [
+     2464,
+     -112
+    ],
+    "id": "3cffb9fc-63ee-482d-968a-442d2f99cafe",
+    "name": "Already Published?"
+   },
+   {
+    "parameters": {
+     "jsCode": "// Assemble final payload for WordPress post\nconst parsed = $('Parse & Structure').first().json;\nconst topic  = $('Select Topic').first().json;\nconst seo    = $('Generate SEO Metadata').first().json || {};\n\nconst slug = (parsed.title || topic.TITLE || 'post')\n  .toLowerCase()\n  .normalize('NFD')\n  .replace(/[\\u0300-\\u036f]/g, '')\n  .replace(/[^a-z0-9]+/g, '-')\n  .replace(/^-+|-+$/g, '')\n  .slice(0, 180);\n\nconst payload = {\n  title: parsed.title || topic.TITLE || 'Untitled',\n  slug: slug,\n  status: 'publish',\n  type: 'post',\n  content: parsed.content_html || '',\n  excerpt: parsed.excerpt || '',\n  categories: [1],  // Uncategorized default\n  tags: (parsed.tags || []).map(t => String(t)),\n  // Yoast SEO meta fields via meta_input\n  meta_input: {\n    _yoast_wpseo_title: seo.yoast_title || '',\n    _yoast_wpseo_metadesc: seo.yoast_metadesc || '',\n    _yoast_wpseo_focuskw: seo.yoast_focuskw || ''\n  }\n};\n\nreturn [{ json: { publish_json: JSON.stringify(payload), slug: slug } }];"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     2688,
+     -16
+    ],
+    "id": "b6e04db5-774c-4b7d-8c57-c858ab2b8675",
+    "name": "Assemble Payload"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://akar-solution.page.gd/wp-api-proxy.php/posts",
+     "authentication": "predefinedCredentialType",
+     "nodeCredentialType": "httpHeaderAuth",
+     "sendHeaders": true,
+     "headerParameters": {
+      "parameters": [
+       {
+        "name": "Cookie",
+        "value": "={{ $('Solve Proxy Challenge').first().json.cookie }}"
+       },
+       {
+        "name": "User-Agent",
+        "value": "={{ $('Solve Proxy Challenge').first().json.ua }}"
+       }
+      ]
+     },
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ $('Assemble Payload').first().json.publish_json }}",
+     "options": {}
+    },
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     2912,
+     -16
+    ],
+    "id": "457b0955-cc51-4bfc-88e5-2f0c86ffd9c3",
+    "name": "Publish Post",
+    "retryOnFail": true,
+    "maxTries": 3,
+    "waitBetweenTries": 4000,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "fEVtF4JT62fU0nSN",
+      "name": "WP API Proxy Key"
+     }
+    }
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://akar-solution.page.gd/wp-api-proxy.php/posts/{{ $('Publish Post').first().json.post.id }}/meta",
+     "sendHeaders": true,
+     "headerParameters": {
+      "parameters": [
+       {
+        "name": "Cookie",
+        "value": "={{ $('Solve Proxy Challenge').first().json.cookie }}"
+       },
+       {
+        "name": "User-Agent",
+        "value": "={{ $('Solve Proxy Challenge').first().json.ua }}"
+       },
+       {
+        "name": "Authorization",
+        "value": "Bearer cap_7333734bbbc300a043dddbaf1362101df2ce3d67d0f64a4b"
+       }
+      ]
+     },
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={\n  \"meta\": [\n    {\"key\": \"_yoast_wpseo_title\", \"value\": \"{{ $('Generate SEO Metadata').first().json.yoast_title }}\"},\n    {\"key\": \"_yoast_wpseo_metadesc\", \"value\": \"{{ $('Generate SEO Metadata').first().json.yoast_metadesc }}\"},\n    {\"key\": \"_yoast_wpseo_focuskw\", \"value\": \"{{ $('Generate SEO Metadata').first().json.yoast_focuskw }}\"}\n  ]\n}",
+     "options": {
+      "timeout": 30000,
+      "response": {
+       "response": {
+        "neverError": true
+       }
+      }
+     }
+    },
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     2640,
+     320
+    ],
+    "id": "update-yoast-meta-0001",
+    "name": "Update Yoast Meta"
+   },
+   {
+    "parameters": {
+     "operation": "update",
+     "documentId": {
+      "__rl": true,
+      "value": "1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4",
+      "mode": "list",
+      "cachedResultName": "Complete Plan Blog post",
+      "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1bVSFXNsKTHLMrKyyTfmWqiI5dO6m1-ek3lgG-6BHRM4/edit?usp=drivesdk"
+     },
+     "sheetName": {
+      "__rl": true,
+      "value": "gid=0",
+      "mode": "list",
+      "cachedResultName": "Foglio1"
+     },
+     "columns": {
+      "mappingMode": "defineBelow",
+      "value": {
+       "row_number": "={{ $('Select Topic').item.json.row_number }}",
+       "DATA": "={{ $now.format('dd/LL/yyyy') }}",
+       "TITLE": "={{ $('Publish Post').item.json.post.title }}",
+       "ID POST": "={{ $('Publish Post').item.json.post.id }}",
+       "URL": "={{ $('Publish Post').item.json.post.link }}",
+       "METATITLE": "={{ $('Parse & Structure').first().json.meta_title }}",
+       "FOCUSKEYWORD": "={{ $('Parse & Structure').first().json.focuskw }}",
+       "METADESCRIPTION": "={{ $('Parse & Structure').first().json.metadesc }}",
+       "TAGS": "={{ $('Parse & Structure').first().json.tags ? $('Parse & Structure').first().json.tags.join(', ') : '' }}",
+       "KATEGORI": "={{ $('Parse & Structure').first().json.category_name }}",
+       "IMAGEGENERATOR": "={{ $('Parse & Structure').first().json.image_prompt }}"
+      },
+      "matchingColumns": [
+       "row_number"
+      ],
+      "schema": [
+       {
+        "id": "DATA",
+        "displayName": "DATA",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "PROMPT",
+        "displayName": "PROMPT",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "TITLE",
+        "displayName": "TITLE",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "TERGET KEYWORD",
+        "displayName": "TERGET KEYWORD",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "ID POST",
+        "displayName": "ID POST",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "URL",
+        "displayName": "URL",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "IMAGEGENERATOR",
+        "displayName": "IMAGEGENERATOR",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "METATITLE",
+        "displayName": "METATITLE",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "FOCUSKEYWORD",
+        "displayName": "FOCUSKEYWORD",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "METADESCRIPTION",
+        "displayName": "METADESCRIPTION",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "TAGS",
+        "displayName": "TAGS",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "CROSS_CHECK",
+        "displayName": "CROSS_CHECK",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "KATEGORI",
+        "displayName": "KATEGORI",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "string"
+       },
+       {
+        "id": "row_number",
+        "displayName": "row_number",
+        "required": false,
+        "defaultMatch": false,
+        "display": true,
+        "type": "number",
+        "canBeUsedToMatch": true,
+        "readOnly": true
+       }
+      ],
+      "attemptToConvertTypes": false,
+      "convertFieldsToString": false
+     },
+     "options": {}
+    },
+    "type": "n8n-nodes-base.googleSheets",
+    "typeVersion": 4.6,
+    "position": [
+     3136,
+     -16
+    ],
+    "id": "ff72bfaf-a78d-4654-8cbe-b09d908d2c6e",
+    "name": "Update Tracking",
+    "onError": "continueRegularOutput"
+   },
+   {
+    "parameters": {
+     "jsCode": "// Append JSONL ke /logs/blog-publisher-YYYY-MM.jsonl (fs via NODE_FUNCTION_ALLOW_BUILTIN)\nconst fs = require('fs');\nconst pub = ($('Publish Post').first().json.post) || {};\nconst parsed = $('Parse & Structure').first().json;\nconst row = {\n  ts: $now.toISO(),\n  action: 'published',\n  slug: pub.slug || parsed.slug || '',\n  title: pub.title || parsed.title || '',\n  post_id: pub.id || '',\n  url: pub.link || '',\n  category_id: $('Assemble Payload').first().json.category_id || ''\n};\nconst file = '/logs/blog-publisher-' + $now.toFormat('yyyy-MM') + '.jsonl';\nfs.appendFileSync(file, JSON.stringify(row) + '\\n', 'utf8');\nreturn [{ json: { log_file: file, ...row } }];\n"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     3360,
+     -16
+    ],
+    "id": "dbfcad34-731f-40c5-8a8f-8a8f324af5c2",
+    "name": "Log Published"
+   },
+   {
+    "parameters": {
+     "jsCode": "// Append JSONL ke /logs/blog-publisher-YYYY-MM.jsonl\nconst fs = require('fs');\nconst parsed = $('Parse & Structure').first().json;\nconst row = {\n  ts: $now.toISO(),\n  action: 'skipped_existing',\n  slug: parsed.slug || '',\n  title: parsed.title || '',\n  post_id: '',\n  url: '',\n  note: 'Slug sudah ada di WP \\u2014 idempotency guard (jangan publish duplikat)'\n};\nconst file = '/logs/blog-publisher-' + $now.toFormat('yyyy-MM') + '.jsonl';\nfs.appendFileSync(file, JSON.stringify(row) + '\\n', 'utf8');\nreturn [{ json: { log_file: file, ...row } }];\n"
+    },
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     2688,
+     -208
+    ],
+    "id": "01f934e0-50aa-490f-ac79-3b9830e0c324",
+    "name": "Log Skipped"
+   }
+  ],
+  "connections": {
+   "When clicking \u2018Test workflow\u2019": {
+    "main": [
+     [
+      {
+       "node": "Get Next Topic",
+       "type": "main",
+       "index": 0
+      }
+     ]
     ]
+   },
+   "Schedule (06:00 harian)": {
+    "main": [
+     [
+      {
+       "node": "Get Next Topic",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Get Next Topic": {
+    "main": [
+     [
+      {
+       "node": "Select Topic",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Select Topic": {
+    "main": [
+     [
+      {
+       "node": "Get Proxy Challenge",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Solve Proxy Challenge": {
+    "main": [
+     [
+      {
+       "node": "Fetch Categories",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Fetch Categories": {
+    "main": [
+     [
+      {
+       "node": "Prepare AI Prompt",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Prepare AI Prompt": {
+    "main": [
+     [
+      {
+       "node": "Generate Article",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Generate Article": {
+    "main": [
+     [
+      {
+       "node": "Parse & Structure",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Parse & Structure": {
+    "main": [
+     [
+      {
+       "node": "Generate SEO Metadata",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Idempotency Guard": {
+    "main": [
+     [
+      {
+       "node": "Check Exists",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Check Exists": {
+    "main": [
+     [
+      {
+       "node": "Already Published?",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Already Published?": {
+    "main": [
+     [
+      {
+       "node": "Log Skipped",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "Assemble Payload",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Assemble Payload": {
+    "main": [
+     [
+      {
+       "node": "Publish Post",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Publish Post": {
+    "main": [
+     [
+      {
+       "node": "Update Yoast Meta",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Update Tracking": {
+    "main": [
+     [
+      {
+       "node": "Log Published",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Log Published": {
+    "main": []
+   },
+   "Log Skipped": {
+    "main": []
+   },
+   "Get Proxy Challenge": {
+    "main": [
+     [
+      {
+       "node": "Solve Proxy Challenge",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Generate SEO Metadata": {
+    "main": [
+     [
+      {
+       "node": "Assemble Payload",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Update Yoast Meta": {
+    "main": [
+     [
+      {
+       "node": "Update Tracking",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "settings": {
+   "executionOrder": "v1",
+   "timeout": 600000,
+   "saveManualExecutions": true,
+   "saveExecutionProgress": false,
+   "binaryMode": "separate"
+  },
+  "staticData": null,
+  "meta": {
+   "templateCredsSetupCompleted": false
+  },
+  "nodeGroups": [],
+  "pinData": {
+   "Get Next Topic": [
+    {
+     "json": {
+      "DATA": "04/08/2026",
+      "PROMPT": "tips memilih jasa pembuatan website di Jambi",
+      "TITLE": "Tips Memilih Jasa Pembuatan Website di Jambi yang Terpercaya",
+      "TERGET KEYWORD": "jasa pembuatan website Jambi",
+      "ID POST": "",
+      "URL": "",
+      "IMAGEGENERATOR": "flat illustration comparing website service providers with checkmarks, blue and orange, minimal",
+      "METATITLE": "",
+      "FOCUSKEYWORD": "jasa pembuatan website Jambi",
+      "METADESCRIPTION": "",
+      "TAGS": "jasa website, tips memilih",
+      "CROSS_CHECK": "FALSE",
+      "KATEGORI": "Tips dan Rekomendasi",
+      "row_number": 99998
+     }
+    }
    ]
   },
-  "Assemble Payload": {
-   "main": [
-    [
-     {
-      "node": "Publish Post",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Publish Post": {
-   "main": [
-    [
-     {
-      "node": "Update Tracking",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Update Tracking": {
-   "main": [
-    [
-     {
-      "node": "Log Published",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  },
-  "Log Published": {
-   "main": []
-  },
-  "Log Skipped": {
-   "main": []
-  },
-  "Get Proxy Challenge": {
-   "main": [
-    [
-     {
-      "node": "Solve Proxy Challenge",
-      "type": "main",
-      "index": 0
-     }
-    ]
-   ]
-  }
- },
- "name": "Daily Blog Publisher",
- "updatedAt": "2026-08-04T06:20:04.173Z"
+  "versionId": "a42de86b-7d1f-4fdf-9fbf-cabb172e7067",
+  "activeVersionId": null,
+  "versionCounter": 36,
+  "triggerCount": 0,
+  "sourceWorkflowId": null,
+  "tags": [],
+  "activeVersion": null,
+  "scopes": [
+   "execution:reveal",
+   "workflow:create",
+   "workflow:delete",
+   "workflow:disableRedaction",
+   "workflow:enableRedaction",
+   "workflow:execute",
+   "workflow:execute-chat",
+   "workflow:export",
+   "workflow:import",
+   "workflow:list",
+   "workflow:move",
+   "workflow:publish",
+   "workflow:read",
+   "workflow:share",
+   "workflow:unpublish",
+   "workflow:unshare",
+   "workflow:update"
+  ],
+  "checksum": "134b4a42d52acf6c81f377232cc07038e2dab6a0f59e2fff1c14b22e9576a6a0"
+ }
 }
